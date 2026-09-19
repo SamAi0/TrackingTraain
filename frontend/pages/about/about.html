@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Data | TrackEase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="../../css/premium.css" rel="stylesheet">
+    <style>
+        body { background-color: #fcfcfc; }
+        .about-card { border: none; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 2rem; background: #fff; padding: 2rem; }
+        code { color: #d63384; background: #f8f9fa; padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.875em; }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <div id="navbar-container"></div>
+
+    <main class="container py-5 flex-grow-1" style="max-width: 900px;">
+        
+        <div class="text-center mb-5">
+            <h1 class="fw-bold text-railway mb-3"><i class="bi bi-info-circle-fill me-2 text-warning"></i>About The Dataset</h1>
+            <p class="lead text-muted">A comprehensive, open-source dataset of the Indian Railways network.</p>
+        </div>
+
+        <div class="alert alert-warning border-warning shadow-sm d-flex align-items-center mb-5 p-4 rounded-3" role="alert">
+            <i class="bi bi-exclamation-triangle-fill fs-1 text-warning-dark me-4"></i>
+            <div>
+                <h5 class="fw-bold mb-1 text-dark">Disclaimer: Static Data Demonstration</h5>
+                <p class="mb-0 text-dark opacity-75">The tracking, booking, PNR, and station data shown on this website is completely static and based on an open-source JSON dataset. <strong>There are no live status updates, and no real tickets are booked.</strong> This is purely a UI/UX demonstration of a modern railway application.</p>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <h4 class="fw-bold mb-4 border-bottom pb-2">Dataset Overview</h4>
+            <p>TrackEase is powered by a high-quality open dataset containing two primary entities: <strong>Stations</strong> and <strong>Trains</strong>. The data has been parsed, indexed, and ingested into a local SQLite database for blazing-fast search and API performance, preventing the need to download 96MB of raw JSON in the browser.</p>
+            
+            <div class="row g-4 mt-2">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-light p-3 rounded text-center me-3">
+                            <i class="bi bi-geo-alt fs-2 text-primary"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-0">8,990+ Stations</h5>
+                            <span class="text-muted small">Complete with geolocation & zones</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-light p-3 rounded text-center me-3">
+                            <i class="bi bi-train-lightrail fs-2 text-danger"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-0">5,208+ Trains</h5>
+                            <span class="text-muted small">Complete routes and running schedules</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <h4 class="fw-bold mb-4 border-bottom pb-2">Schema Glossary</h4>
+            
+            <h5 class="fw-bold text-primary mt-4 mb-3"><i class="bi bi-database me-2"></i>Station Model</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-sm align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th style="width: 20%">Field</th>
+                            <th style="width: 20%">Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>code</code></td><td>String (PK)</td><td>Unique 3-4 letter alphanumeric station code (e.g., CSTM)</td></tr>
+                        <tr><td><code>name</code></td><td>String</td><td>Full name of the railway station</td></tr>
+                        <tr><td><code>city</code> / <code>state</code></td><td>String</td><td>Geographical location details</td></tr>
+                        <tr><td><code>zone</code></td><td>String</td><td>Indian Railways Zone abbreviation (e.g., CR, WR)</td></tr>
+                        <tr><td><code>address</code></td><td>Text</td><td>Full physical address of the station</td></tr>
+                        <tr><td><code>latitude</code> / <code>longitude</code></td><td>Float</td><td>GPS coordinates used for the interactive Station Explorer map</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5 class="fw-bold text-danger mt-5 mb-3"><i class="bi bi-database me-2"></i>Train & Route Model</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-sm align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th style="width: 20%">Field</th>
+                            <th style="width: 20%">Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>number</code></td><td>String (PK)</td><td>Unique 5-digit train number (e.g., 12951)</td></tr>
+                        <tr><td><code>name</code></td><td>String</td><td>Official name of the train (e.g., Mumbai Rajdhani)</td></tr>
+                        <tr><td><code>train_type</code></td><td>String</td><td>Classification (EXPRESS, LOCAL, SUPERFAST, PASSENGER)</td></tr>
+                        <tr><td><code>running_days</code></td><td>JSON</td><td>Boolean mapping for weekly schedule (e.g., <code>{"MON": true, "TUE": false}</code>)</td></tr>
+                        <tr><td><code>source</code> / <code>destination</code></td><td>FK (Station)</td><td>The origin and terminus stations of the train</td></tr>
+                        <tr><td><code>route_stations</code></td><td>Array</td><td>Ordered list of all halts including <code>arrival_time</code>, <code>departure_time</code>, and <code>distance</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/components.js"></script>
+</body>
+</html>

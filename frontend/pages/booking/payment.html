@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackEase - Payment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        body { background-color: #f8f9fa; }
+        .payment-card { border: none; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .nav-pills .nav-link { color: #495057; border-radius: 8px; padding: 12px 20px; font-weight: 500; text-align: left; margin-bottom: 8px; }
+        .nav-pills .nav-link.active, .nav-pills .show>.nav-link { background-color: var(--primary-color); color: white; }
+        .nav-pills .nav-link i { width: 24px; text-align: center; }
+        .order-summary { position: sticky; top: 20px; }
+        .timer-badge { font-family: monospace; font-size: 1.1rem; letter-spacing: 1px; }
+        .payment-logo { height: 24px; object-fit: contain; }
+        .clean-input { border-radius: 8px; padding: 12px 15px; border: 1px solid #dee2e6; }
+        .clean-input:focus { border-color: var(--primary-color); box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1); }
+        .btn-pay { border-radius: 8px; padding: 14px; font-weight: bold; font-size: 1.1rem; }
+        
+        .bank-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .bank-box { border: 1px solid #dee2e6; border-radius: 8px; padding: 15px 10px; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .bank-box:hover { border-color: var(--primary-color); background-color: #f8f9fa; }
+        .bank-box.selected { border-color: var(--primary-color); background-color: rgba(13, 110, 253, 0.05); box-shadow: inset 0 0 0 1px var(--primary-color); }
+        .bank-box img { height: 24px; margin-bottom: 8px; }
+        
+        #overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.9); z-index: 1050; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        
+        @media (max-width: 768px) {
+            .nav-pills { display: flex; flex-direction: row; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 10px; }
+            .nav-pills .nav-link { white-space: nowrap; margin-bottom: 0; margin-right: 8px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="container py-5">
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <h3 class="fw-bold"><i class="bi bi-shield-lock-fill text-success me-2"></i>Secure Checkout</h3>
+                <div class="alert alert-warning d-inline-block mt-2 mb-0 py-2">
+                    <i class="bi bi-info-circle-fill me-1"></i> Demo payment — no real money is charged.
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4 position-relative">
+            
+            <!-- OVERLAY (Loading / Expired / Success / Failed) -->
+            <div id="overlay" class="d-none">
+                <div class="text-center" id="overlayContent">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+            
+            <!-- Payment Methods Column -->
+            <div class="col-lg-8">
+                <div class="card payment-card h-100">
+                    <div class="card-body p-0">
+                        <div class="row g-0 h-100">
+                            <!-- Sidebar Tabs -->
+                            <div class="col-md-4 border-end p-3 bg-light" style="border-radius: 12px 0 0 12px;">
+                                <h6 class="text-muted fw-bold mb-3 ms-2">PAYMENT OPTIONS</h6>
+                                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                    <button class="nav-link active" id="v-pills-upi-tab" data-bs-toggle="pill" data-bs-target="#v-pills-upi" type="button" role="tab" aria-selected="true">
+                                        <i class="bi bi-phone"></i> UPI
+                                    </button>
+                                    <button class="nav-link" id="v-pills-card-tab" data-bs-toggle="pill" data-bs-target="#v-pills-card" type="button" role="tab" aria-selected="false">
+                                        <i class="bi bi-credit-card"></i> Credit/Debit Card
+                                    </button>
+                                    <button class="nav-link" id="v-pills-netbanking-tab" data-bs-toggle="pill" data-bs-target="#v-pills-netbanking" type="button" role="tab" aria-selected="false">
+                                        <i class="bi bi-bank"></i> Net Banking
+                                    </button>
+                                    <button class="nav-link" id="v-pills-wallet-tab" data-bs-toggle="pill" data-bs-target="#v-pills-wallet" type="button" role="tab" aria-selected="false">
+                                        <i class="bi bi-wallet2"></i> Wallets
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Tab Content -->
+                            <div class="col-md-8 p-4">
+                                <div class="tab-content" id="v-pills-tabContent">
+                                    
+                                    <!-- UPI -->
+                                    <div class="tab-pane fade show active" id="v-pills-upi" role="tabpanel">
+                                        <h5 class="fw-bold mb-4">Pay via UPI</h5>
+                                        
+                                        <ul class="nav nav-tabs mb-4" id="upiTab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link active" id="upi-vpa-tab" data-bs-toggle="tab" data-bs-target="#upi-vpa" type="button" role="tab">VPA / UPI ID</button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="upi-qr-tab" data-bs-toggle="tab" data-bs-target="#upi-qr" type="button" role="tab">Scan QR</button>
+                                            </li>
+                                        </ul>
+                                        
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade show active" id="upi-vpa" role="tabpanel">
+                                                <div class="mb-4">
+                                                    <label class="form-label text-muted small">Enter your UPI ID (VPA)</label>
+                                                    <input type="text" id="upiId" class="form-control clean-input" placeholder="e.g. name@bank or fail@test">
+                                                    <div class="text-danger small mt-1 d-none" id="upiError">Invalid UPI ID format.</div>
+                                                    <div class="form-text">Try <b>fail@test</b> to simulate a failure.</div>
+                                                </div>
+                                                <button class="btn btn-primary w-100 btn-pay" id="payUpiBtn">Verify & Pay <span class="pay-amount"></span></button>
+                                            </div>
+                                            <div class="tab-pane fade text-center" id="upi-qr" role="tabpanel">
+                                                <p class="text-muted mb-3">Scan with any UPI app</p>
+                                                <div class="border rounded p-3 d-inline-block bg-white mb-3 shadow-sm">
+                                                    <!-- Fake QR SVG -->
+                                                    <svg width="150" height="150" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M0,0 h30 v30 h-30 z M10,10 h10 v10 h-10 z" />
+                                                        <path d="M70,0 h30 v30 h-30 z M80,10 h10 v10 h-10 z" />
+                                                        <path d="M0,70 h30 v30 h-30 z M10,80 h10 v10 h-10 z" />
+                                                        <path d="M40,10 h20 v10 h-20 z M40,80 h20 v10 h-20 z M80,40 h10 v20 h-10 z M10,40 h10 v20 h-10 z M40,40 h20 v20 h-20 z M70,70 h10 v10 h-10 z M90,90 h10 v10 h-10 z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="d-flex justify-content-center gap-3">
+                                                    <button class="btn btn-outline-success btn-sm" onclick="simulateQR('SUCCESS')">Simulate Scan (Success)</button>
+                                                    <button class="btn btn-outline-danger btn-sm" onclick="simulateQR('FAILED')">Simulate Scan (Fail)</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- CARD -->
+                                    <div class="tab-pane fade" id="v-pills-card" role="tabpanel">
+                                        <h5 class="fw-bold mb-4">Credit / Debit Card</h5>
+                                        <div class="mb-3">
+                                            <label class="form-label text-muted small">Card Number</label>
+                                            <div class="input-group">
+                                                <input type="text" id="cardNumber" class="form-control clean-input" placeholder="0000 0000 0000 0000" maxlength="19">
+                                                <span class="input-group-text bg-white border-start-0 text-primary fw-bold" id="cardBrand"></span>
+                                            </div>
+                                            <div class="text-danger small mt-1 d-none" id="cardError">Invalid card number.</div>
+                                            <div class="form-text">Try <b>4000 0000 0000 0002</b> to simulate decline.</div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-6">
+                                                <label class="form-label text-muted small">Expiry Date</label>
+                                                <input type="text" id="cardExpiry" class="form-control clean-input" placeholder="MM/YY" maxlength="5">
+                                                <div class="text-danger small mt-1 d-none" id="expiryError">Invalid expiry.</div>
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="form-label text-muted small">CVV</label>
+                                                <input type="password" id="cardCvv" class="form-control clean-input" placeholder="•••" maxlength="4">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <label class="form-label text-muted small">Name on Card</label>
+                                            <input type="text" id="cardName" class="form-control clean-input" placeholder="John Doe">
+                                        </div>
+                                        <button class="btn btn-primary w-100 btn-pay" id="payCardBtn" disabled>Pay <span class="pay-amount"></span></button>
+                                    </div>
+                                    
+                                    <!-- NET BANKING -->
+                                    <div class="tab-pane fade" id="v-pills-netbanking" role="tabpanel">
+                                        <h5 class="fw-bold mb-4">Net Banking</h5>
+                                        <label class="form-label text-muted small mb-2">Popular Banks</label>
+                                        <div class="bank-grid mb-4">
+                                            <div class="bank-box" data-bank="SBI">SBI</div>
+                                            <div class="bank-box" data-bank="HDFC">HDFC</div>
+                                            <div class="bank-box" data-bank="ICICI">ICICI</div>
+                                            <div class="bank-box" data-bank="Axis">Axis</div>
+                                            <div class="bank-box" data-bank="Kotak">Kotak</div>
+                                            <div class="bank-box" data-bank="Bank_Fail">Fail Bank</div>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label class="form-label text-muted small">Other Banks</label>
+                                            <select class="form-select clean-input" id="nbSelect">
+                                                <option value="">Select your bank</option>
+                                                <option value="PNB">Punjab National Bank</option>
+                                                <option value="BOB">Bank of Baroda</option>
+                                                <option value="BOI">Bank of India</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn btn-primary w-100 btn-pay" id="payNbBtn" disabled>Pay <span class="pay-amount"></span></button>
+                                    </div>
+
+                                    <!-- WALLETS -->
+                                    <div class="tab-pane fade" id="v-pills-wallet" role="tabpanel">
+                                        <h5 class="fw-bold mb-4">Wallets</h5>
+                                        <div class="list-group mb-4">
+                                            <label class="list-group-item d-flex gap-2 align-items-center p-3">
+                                                <input class="form-check-input flex-shrink-0" type="radio" name="walletRadio" value="Paytm">
+                                                <span>Paytm Wallet</span>
+                                            </label>
+                                            <label class="list-group-item d-flex gap-2 align-items-center p-3">
+                                                <input class="form-check-input flex-shrink-0" type="radio" name="walletRadio" value="AmazonPay">
+                                                <span>Amazon Pay</span>
+                                            </label>
+                                            <label class="list-group-item d-flex gap-2 align-items-center p-3">
+                                                <input class="form-check-input flex-shrink-0" type="radio" name="walletRadio" value="Mobikwik_Fail">
+                                                <span>Mobikwik (Simulate Fail)</span>
+                                            </label>
+                                        </div>
+                                        <button class="btn btn-primary w-100 btn-pay" id="payWalletBtn" disabled>Pay <span class="pay-amount"></span></button>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Order Summary Column -->
+            <div class="col-lg-4">
+                <div class="card payment-card order-summary">
+                    <div class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
+                        <h5 class="fw-bold mb-0">Order Summary</h5>
+                        <span class="badge bg-danger timer-badge" id="timerBadge">10:00</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="text-muted small">Train Details</div>
+                            <div class="fw-bold" id="osTrainName">-</div>
+                            <div class="small" id="osRoute">- to -</div>
+                            <div class="small text-muted" id="osDate">-</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="text-muted small">Passengers</div>
+                            <div class="fw-bold" id="osPassengers">-</div>
+                            <div class="small text-muted" id="osClass">- Class</div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Base Fare</span>
+                            <span id="osBase">₹0.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">GST (5%)</span>
+                            <span id="osGst">₹0.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="text-muted">Convenience Fee</span>
+                            <span id="osFee">₹0.00</span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between pt-3 border-top">
+                            <span class="fw-bold fs-5">Total Amount</span>
+                            <span class="fw-bold fs-5 text-primary" id="osTotal">₹0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/components.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const bookingId = urlParams.get('id');
+        let totalAmount = '0.00';
+        let expiryDate = null;
+        let idempotencyKey = 'idk_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
+        
+        if (!bookingId) {
+            window.location.href = '../user/dashboard.html';
+        }
+
+        // Generate idempotency key for this page load
+        
+        async function fetchBookingDetails() {
+            try {
+                const res = await fetch(`http://127.0.0.1:8000/api/bookings/${bookingId}/`, {
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('access_token')}` }
+                });
+                
+                if (res.status === 404 || res.status === 401) {
+                    window.location.href = '../user/dashboard.html';
+                    return;
+                }
+                
+                const data = await res.json();
+                
+                if (data.status !== 'PENDING') {
+                    showOverlay('Error', `Booking is ${data.status}. Cannot proceed with payment.`, false);
+                    return;
+                }
+                
+                // Populate Summary
+                document.getElementById('osTrainName').innerText = `${data.train_number} - ${data.train_details.name}`;
+                document.getElementById('osRoute').innerText = `${data.source_station.name} to ${data.destination_station.name}`;
+                document.getElementById('osDate').innerText = new Date(data.date_of_journey).toLocaleDateString('en-IN', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+                document.getElementById('osPassengers').innerText = `${data.passengers.length} Passenger(s)`;
+                document.getElementById('osClass').innerText = data.ticket_class;
+                
+                document.getElementById('osBase').innerText = `₹${data.base_fare}`;
+                document.getElementById('osGst').innerText = `₹${data.gst_amount}`;
+                document.getElementById('osFee').innerText = `₹${data.fee_amount}`;
+                document.getElementById('osTotal').innerText = `₹${data.total_fare}`;
+                
+                totalAmount = data.total_fare;
+                document.querySelectorAll('.pay-amount').forEach(el => el.innerText = `₹${totalAmount}`);
+                
+                // Expiry setup
+                expiryDate = new Date(data.expires_at);
+                startTimer();
+                
+            } catch (err) {
+                console.error("Failed to load booking", err);
+            }
+        }
+        
+        function startTimer() {
+            const timerEl = document.getElementById('timerBadge');
+            
+            const interval = setInterval(() => {
+                const now = new Date();
+                const diff = expiryDate - now;
+                
+                if (diff <= 0) {
+                    clearInterval(interval);
+                    timerEl.innerText = "00:00";
+                    expireBooking();
+                } else {
+                    const m = Math.floor(diff / 60000);
+                    const s = Math.floor((diff % 60000) / 1000);
+                    timerEl.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+                    if (diff < 60000) timerEl.classList.add('bg-danger');
+                    else timerEl.classList.replace('bg-danger', 'bg-warning');
+                }
+            }, 1000);
+        }
+        
+        async function expireBooking() {
+            showOverlay('Processing...', '', true);
+            try {
+                await fetch(`http://127.0.0.1:8000/api/bookings/${bookingId}/expire/`, {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('access_token')}` }
+                });
+                showOverlay('Session Expired', 'Your booking session timed out.', false, 'dashboard');
+            } catch (err) {
+                showOverlay('Session Expired', 'Your session timed out.', false, 'dashboard');
+            }
+        }
+        
+        function showOverlay(title, msg, isLoading, action = null) {
+            const overlay = document.getElementById('overlay');
+            const content = document.getElementById('overlayContent');
+            overlay.classList.remove('d-none');
+            
+            let html = ``;
+            if (isLoading) {
+                html = `<div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"></div>
+                        <h4 class="mt-3 fw-bold">${title}</h4>
+                        <p class="text-muted">${msg}</p>`;
+            } else {
+                html = `<h3 class="fw-bold mb-3">${title}</h3><p class="mb-4">${msg}</p>`;
+                if (action === 'dashboard') {
+                    html += `<a href="../user/dashboard.html" class="btn btn-primary">Go to Dashboard</a>`;
+                } else if (action === 'retry') {
+                    html += `<button class="btn btn-outline-primary me-2" onclick="document.getElementById('overlay').classList.add('d-none')">Retry Payment</button>
+                             <a href="../user/dashboard.html" class="btn btn-secondary">Cancel</a>`;
+                }
+            }
+            content.innerHTML = html;
+        }
+
+        // === PAYMENT LOGIC ===
+        
+        async function processPayment(method, details) {
+            showOverlay('Processing Payment...', 'Please do not refresh the page.', true);
+            
+            try {
+                const res = await fetch(`http://127.0.0.1:8000/api/bookings/process-payment/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                    },
+                    body: JSON.stringify({
+                        booking_id: bookingId,
+                        method: method,
+                        payment_details: details,
+                        idempotency_key: idempotencyKey
+                    })
+                });
+                
+                const data = await res.json();
+                
+                if (data.success) {
+                    // Force a delay for realistic mock UI
+                    setTimeout(() => {
+                        window.location.href = `confirmation.html?booking_id=${bookingId}&pnr=${data.pnr_number}`;
+                    }, 1000);
+                } else {
+                    setTimeout(() => {
+                        // Generate a new idempotency key for the retry
+                        idempotencyKey = 'idk_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
+                        showOverlay('Payment Failed', data.error || 'Transaction declined by bank.', false, 'retry');
+                    }, 1000);
+                }
+            } catch (err) {
+                showOverlay('Error', 'Network error occurred.', false, 'retry');
+            }
+        }
+        
+        // 1. UPI
+        document.getElementById('payUpiBtn').addEventListener('click', () => {
+            const upiId = document.getElementById('upiId').value;
+            const err = document.getElementById('upiError');
+            if (!/^[\\w.-]+@[\\w.-]+$/.test(upiId)) {
+                err.classList.remove('d-none');
+                return;
+            }
+            err.classList.add('d-none');
+            processPayment('upi', { upi_id: upiId });
+        });
+        
+        function simulateQR(status) {
+            processPayment('upi', { upi_id: status === 'SUCCESS' ? 'qr@ok' : 'fail@test' });
+        }
+        
+        // 2. Card Validation
+        const cardInp = document.getElementById('cardNumber');
+        const expInp = document.getElementById('cardExpiry');
+        const cvvInp = document.getElementById('cardCvv');
+        const payCardBtn = document.getElementById('payCardBtn');
+        const cardBrand = document.getElementById('cardBrand');
+        
+        cardInp.addEventListener('input', (e) => {
+            let v = e.target.value.replace(/\\D/g, '');
+            let formatted = v.match(/.{1,4}/g)?.join(' ') || '';
+            e.target.value = formatted;
+            
+            // Brand detect
+            if(v.startsWith('4')) cardBrand.innerText = 'VISA';
+            else if(v.startsWith('5')) cardBrand.innerText = 'MC';
+            else if(v.startsWith('6')) cardBrand.innerText = 'RuPay';
+            else if(v.startsWith('3')) cardBrand.innerText = 'AMEX';
+            else cardBrand.innerText = '';
+            
+            checkCardValid();
+        });
+        
+        expInp.addEventListener('input', (e) => {
+            let v = e.target.value.replace(/\\D/g, '');
+            if(v.length > 2) v = v.substring(0,2) + '/' + v.substring(2);
+            e.target.value = v;
+            checkCardValid();
+        });
+        cvvInp.addEventListener('input', checkCardValid);
+        
+        function luhnCheck(num) {
+            let arr = (num + '')
+                .split('')
+                .reverse()
+                .map(x => parseInt(x));
+            let lastDigit = arr.splice(0, 1)[0];
+            let sum = arr.reduce((acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9), 0);
+            sum += lastDigit;
+            return sum % 10 === 0;
+        }
+        
+        function checkCardValid() {
+            const c = cardInp.value.replace(/\\D/g, '');
+            const e = expInp.value;
+            const cvv = cvvInp.value;
+            
+            let isValid = true;
+            if(c.length < 15 || !luhnCheck(c)) isValid = false;
+            if(e.length !== 5) isValid = false;
+            else {
+                const parts = e.split('/');
+                const mm = parseInt(parts[0]);
+                const yy = parseInt(parts[1]);
+                if(mm < 1 || mm > 12) isValid = false;
+                
+                const now = new Date();
+                const cur_yy = parseInt(now.getFullYear().toString().substr(-2));
+                const cur_mm = now.getMonth() + 1;
+                
+                if (yy < cur_yy || (yy === cur_yy && mm < cur_mm)) isValid = false;
+            }
+            if(cvv.length < 3) isValid = false;
+            
+            payCardBtn.disabled = !isValid;
+        }
+        
+        payCardBtn.addEventListener('click', () => {
+            const parts = expInp.value.split('/');
+            processPayment('card', {
+                card_number: cardInp.value.replace(/\\D/g, ''),
+                exp_month: parts[0],
+                exp_year: parts[1],
+                cvv: cvvInp.value,
+                name: document.getElementById('cardName').value
+            });
+        });
+        
+        // 3. Net Banking
+        let selectedBank = null;
+        document.querySelectorAll('.bank-box').forEach(b => {
+            b.addEventListener('click', () => {
+                document.querySelectorAll('.bank-box').forEach(x => x.classList.remove('selected'));
+                b.classList.add('selected');
+                selectedBank = b.getAttribute('data-bank');
+                document.getElementById('nbSelect').value = '';
+                document.getElementById('payNbBtn').disabled = false;
+            });
+        });
+        document.getElementById('nbSelect').addEventListener('change', function() {
+            if(this.value) {
+                document.querySelectorAll('.bank-box').forEach(x => x.classList.remove('selected'));
+                selectedBank = this.value;
+                document.getElementById('payNbBtn').disabled = false;
+            }
+        });
+        document.getElementById('payNbBtn').addEventListener('click', () => {
+            if(selectedBank) processPayment('netbanking', { provider: selectedBank });
+        });
+        
+        // 4. Wallets
+        document.querySelectorAll('input[name="walletRadio"]').forEach(r => {
+            r.addEventListener('change', () => {
+                document.getElementById('payWalletBtn').disabled = false;
+            });
+        });
+        document.getElementById('payWalletBtn').addEventListener('click', () => {
+            const w = document.querySelector('input[name="walletRadio"]:checked');
+            if(w) processPayment('wallet', { provider: w.value });
+        });
+        
+        fetchBookingDetails();
+    </script>
+</body>
+</html>

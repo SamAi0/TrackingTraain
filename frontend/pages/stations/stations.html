@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station Explorer | TrackEase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+    <link href="../../css/premium.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        #map { height: 60vh; min-height: 400px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        @media (min-width: 992px) {
+            #map { height: 100%; min-height: 600px; }
+        }
+        .station-list-container { max-height: 600px; overflow-y: auto; }
+        .station-item { cursor: pointer; transition: all 0.2s; border-left: 4px solid transparent; }
+        .station-item:hover { background-color: #f1f3f5; border-left: 4px solid #0d6efd; }
+        .station-item.active { background-color: #e9ecef; border-left: 4px solid #0d6efd; }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <div id="navbar-container"></div>
+
+    <main class="container-fluid py-4 flex-grow-1">
+        <div class="row g-4 px-lg-4">
+            <!-- Sidebar: Search & List -->
+            <div class="col-lg-4 d-flex flex-column">
+                <div class="bg-white p-4 rounded shadow-sm mb-3">
+                    <h4 class="fw-bold mb-3"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Station Explorer</h4>
+                    <form id="stationSearchForm" class="mb-3">
+                        <div class="input-group">
+                                <input type="text" class="form-control" id="searchInput" placeholder="Search by name, code, or city..." required>
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
+                        </div>
+                    </form>
+                    <div class="d-flex gap-2">
+                        <select id="zoneFilter" class="form-select form-select-sm">
+                            <option value="">All Zones</option>
+                            <option value="CR">Central Railway</option>
+                            <option value="ER">Eastern Railway</option>
+                            <option value="NR">Northern Railway</option>
+                            <option value="WR">Western Railway</option>
+                            <option value="SR">Southern Railway</option>
+                        </select>
+                        <select id="stateFilter" class="form-select form-select-sm">
+                            <option value="">All States</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded shadow-sm flex-grow-1 d-flex flex-column">
+                    <div class="p-3 border-bottom bg-light">
+                        <div class="fw-bold" id="resultsCount">Loading stations...</div>
+                    </div>
+                    <div class="list-group list-group-flush station-list-container flex-grow-1" id="stationList">
+                        <!-- Stations injected here via JS -->
+                        <div class="text-center py-5 text-muted">
+                            <div class="spinner-border text-primary" role="status"></div>
+                            <div class="mt-2">Fetching stations...</div>
+                        </div>
+                    </div>
+                    <div class="p-2 border-top d-flex justify-content-between align-items-center" id="paginationControls">
+                        <button class="btn btn-sm btn-outline-secondary" id="prevPage" disabled>Previous</button>
+                        <span class="small fw-bold" id="pageInfo">Page 1</span>
+                        <button class="btn btn-sm btn-outline-secondary" id="nextPage" disabled>Next</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map & Details Panel -->
+            <div class="col-lg-8 d-flex flex-column">
+                <div class="position-relative flex-grow-1">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Station Details Offcanvas -->
+    <div class="offcanvas offcanvas-end shadow" tabindex="-1" id="stationDetailsPanel" style="width: 450px;">
+        <div class="offcanvas-header border-bottom bg-light">
+            <h5 class="offcanvas-title fw-bold" id="sdTitle">Station Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="text-center mb-4">
+                <div class="d-inline-block bg-primary text-white rounded p-3 mb-2 shadow-sm">
+                    <h2 class="fw-bold mb-0" id="sdCode">CODE</h2>
+                </div>
+                <h4 class="fw-bold" id="sdName">Station Name</h4>
+                <p class="text-muted mb-0"><i class="bi bi-geo-alt me-1"></i> <span id="sdState">State</span></p>
+                <span class="badge bg-secondary mt-2" id="sdZone">Zone</span>
+            </div>
+            
+            <div class="mb-4">
+                <h6 class="fw-bold text-uppercase letter-spacing-1 text-muted border-bottom pb-2">Address</h6>
+                <p id="sdAddress" class="small">Loading address...</p>
+            </div>
+
+            <div>
+                <h6 class="fw-bold text-uppercase letter-spacing-1 text-muted border-bottom pb-2 d-flex justify-content-between align-items-center">
+                    Trains that stop here
+                    <span class="badge bg-primary rounded-pill" id="sdTrainsCount">...</span>
+                </h6>
+                <div id="sdTrainsList" class="mt-3">
+                    <div class="text-center py-4"><div class="spinner-border spinner-border-sm"></div></div>
+                </div>
+                <div class="d-flex justify-content-between mt-2 d-none" id="sdTrainsPagination">
+                    <button class="btn btn-sm btn-light" id="sdPrevTrain"><i class="bi bi-chevron-left"></i></button>
+                    <button class="btn btn-sm btn-light" id="sdNextTrain"><i class="bi bi-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="../../js/components.js"></script>
+    <script>
+        let map;
+        let markersCluster;
+        let allStationsGeo = [];
+        let currentPage = 1;
+        
+        let currentSdCode = null;
+        let sdTrainsPage = 1;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initMap();
+            fetchGeoData();
+            fetchStationList();
+
+            document.getElementById('stationSearchForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                currentPage = 1;
+                fetchStationList();
+            });
+            document.getElementById('zoneFilter').addEventListener('change', () => { currentPage=1; fetchStationList(); });
+            document.getElementById('stateFilter').addEventListener('change', () => { currentPage=1; fetchStationList(); });
+
+            document.getElementById('prevPage').addEventListener('click', () => {
+                if(currentPage > 1) { currentPage--; fetchStationList(); }
+            });
+            document.getElementById('nextPage').addEventListener('click', () => {
+                currentPage++; fetchStationList();
+            });
+            
+            document.getElementById('sdPrevTrain').addEventListener('click', () => {
+                if(sdTrainsPage > 1 && currentSdCode) { sdTrainsPage--; fetchStationTrains(currentSdCode, sdTrainsPage); }
+            });
+            document.getElementById('sdNextTrain').addEventListener('click', () => {
+                if(currentSdCode) { sdTrainsPage++; fetchStationTrains(currentSdCode, sdTrainsPage); }
+            });
+            
+            // Fix map sizing when layout changes
+            const offcanvasElement = document.getElementById('stationDetailsPanel');
+            offcanvasElement.addEventListener('hidden.bs.offcanvas', function () {
+                if(map) map.invalidateSize();
+            });
+            window.addEventListener('resize', () => {
+                if(map) map.invalidateSize();
+            });
+        });
+
+        function initMap() {
+            map = L.map('map').setView([20.5937, 78.9629], 5);
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+            markersCluster = L.markerClusterGroup({
+                chunkedLoading: true,
+                maxClusterRadius: 50
+            });
+            map.addLayer(markersCluster);
+        }
+
+        async function fetchGeoData() {
+            try {
+                const res = await fetch('http://127.0.0.1:8000/api/stations/geo/');
+                allStationsGeo = await res.json();
+                
+                const markers = [];
+                allStationsGeo.forEach(s => {
+                    const m = L.marker([s.latitude, s.longitude], { title: s.name })
+                        .bindPopup(`<b>${s.name}</b> (${s.code})<br><button class="btn btn-sm btn-primary mt-2" onclick="openDetails('${s.code}', '${s.name}', null, null, null)">View Details</button>`);
+                    markers.push(m);
+                });
+                markersCluster.addLayers(markers);
+            } catch (e) {
+                console.error("Failed to load map data");
+            }
+        }
+
+        async function fetchStationList() {
+            const list = document.getElementById('stationList');
+            const q = document.getElementById('searchInput').value;
+            const zone = document.getElementById('zoneFilter').value;
+            const state = document.getElementById('stateFilter').value;
+            
+            list.innerHTML = `<div class="text-center py-5 text-muted"><div class="spinner-border text-primary"></div></div>`;
+            
+            let url = `http://127.0.0.1:8000/api/stations/list/?page=${currentPage}&q=${encodeURIComponent(q)}&zone=${encodeURIComponent(zone)}&state=${encodeURIComponent(state)}`;
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                
+                document.getElementById('resultsCount').innerText = `Found ${data.count} stations`;
+                list.innerHTML = '';
+                
+                data.results.forEach(s => {
+                    const item = document.createElement('div');
+                    item.className = 'list-group-item station-item p-3';
+                    item.innerHTML = `
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="fw-bold mb-1">${s.name}</h6>
+                                <div class="small text-muted">${s.state} | Zone: ${s.zone || '—'}</div>
+                            </div>
+                            <span class="badge bg-light text-dark border">${s.code}</span>
+                        </div>
+                    `;
+                    item.addEventListener('click', () => {
+                        document.querySelectorAll('.station-item').forEach(el => el.classList.remove('active'));
+                        item.classList.add('active');
+                        openDetails(s.code, s.name, s.state, s.zone, s.address);
+                        
+                        // Focus on map
+                        const geo = allStationsGeo.find(g => g.code === s.code);
+                        if(geo) {
+                            map.setView([geo.latitude, geo.longitude], 12);
+                        }
+                    });
+                    list.appendChild(item);
+                });
+
+                document.getElementById('prevPage').disabled = !data.previous;
+                document.getElementById('nextPage').disabled = !data.next;
+                document.getElementById('pageInfo').innerText = `Page ${currentPage}`;
+                
+                if(data.results.length === 0) {
+                    list.innerHTML = `<div class="text-center py-5 text-muted">No stations found.</div>`;
+                }
+            } catch (e) {
+                list.innerHTML = `<div class="text-danger p-3 text-center">Error loading stations.</div>`;
+            }
+        }
+        
+        window.openDetails = function(code, name, state, zone, address) {
+            currentSdCode = code;
+            sdTrainsPage = 1;
+            
+            document.getElementById('sdCode').innerText = code;
+            document.getElementById('sdName').innerText = name;
+            document.getElementById('sdState').innerText = state || 'State Info';
+            document.getElementById('sdZone').innerText = zone || 'Zone Info';
+            document.getElementById('sdAddress').innerText = address || 'Address not available in dataset.';
+            
+            const panel = new bootstrap.Offcanvas(document.getElementById('stationDetailsPanel'));
+            panel.show();
+            
+            fetchStationTrains(code, 1);
+        }
+        
+        async function fetchStationTrains(code, page) {
+            const container = document.getElementById('sdTrainsList');
+            const paginator = document.getElementById('sdTrainsPagination');
+            container.innerHTML = `<div class="text-center py-4"><div class="spinner-border spinner-border-sm text-primary"></div></div>`;
+            paginator.classList.add('d-none');
+            
+            try {
+                const res = await fetch(`http://127.0.0.1:8000/api/stations/${code}/trains/?page=${page}`);
+                const data = await res.json();
+                
+                document.getElementById('sdTrainsCount').innerText = data.count;
+                container.innerHTML = '';
+                
+                if(data.results.length === 0) {
+                    container.innerHTML = `<div class="text-muted small text-center">No trains stop here.</div>`;
+                    return;
+                }
+                
+                data.results.forEach(t => {
+                    container.innerHTML += `
+                        <div class="border rounded p-2 mb-2 bg-white">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-bold small text-dark">${t.train_number} - ${t.train_name}</span>
+                                <span class="badge ${t.train_type === 'LOCAL' ? 'bg-primary' : 'bg-danger'}" style="font-size:0.6rem;">${t.train_type}</span>
+                            </div>
+                            <div class="d-flex justify-content-between text-muted" style="font-size:0.75rem;">
+                                <div><i class="bi bi-box-arrow-in-right text-success"></i> ${t.arrival_time ? t.arrival_time.substring(0,5) : 'Start'}</div>
+                                <div><i class="bi bi-box-arrow-right text-danger"></i> ${t.departure_time ? t.departure_time.substring(0,5) : 'End'}</div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                if(data.next || data.previous) {
+                    paginator.classList.remove('d-none');
+                    document.getElementById('sdPrevTrain').disabled = !data.previous;
+                    document.getElementById('sdNextTrain').disabled = !data.next;
+                }
+            } catch(e) {
+                container.innerHTML = `<div class="text-danger small">Failed to load trains.</div>`;
+            }
+        }
+    </script>
+</body>
+</html>

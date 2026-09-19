@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Train Tracking | TrackEase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="../../css/premium.css" rel="stylesheet">
+    <style>
+        .map-container {
+            height: 500px;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <div class="container mt-5 mb-5">
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <h2 class="fw-bold text-railway mb-2">Live Train Tracking</h2>
+                <p class="text-muted">Enter a train number to view its real-time location.</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-6">
+                <div class="clean-card p-4">
+                    <form id="trackForm">
+                        <label class="form-label text-muted small fw-bold">Train Number</label>
+                        <div class="input-group position-relative">
+                            <span class="input-group-text bg-light"><i class="bi bi-search text-railway"></i></span>
+                            <input type="text" class="form-control clean-input border-start-0 ps-0 autocomplete-input" id="trainNumber" data-target="trainList" placeholder="Enter 5-digit train number (e.g. 12951)" required autocomplete="off">
+                            <button class="btn btn-railway px-4" type="submit" id="trackBtn">Track Train</button>
+                            <ul class="dropdown-menu w-100 shadow-sm mt-5" id="trainList" style="max-height: 250px; overflow-y: auto;"></ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="row d-none" id="trackResult">
+            <div class="col-12">
+                <!-- Error Alert -->
+                <div id="apiError" class="alert alert-danger clean-card fw-bold text-center d-none"></div>
+                
+                <div id="successData">
+                    <!-- Top Status Card -->
+                    <div class="clean-card mb-4 p-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <h4 class="fw-bold text-railway mb-1" id="resTrainName">-</h4>
+                                <p class="text-muted small mb-0"><i class="bi bi-clock-history"></i> Last Updated: <span id="resUpdate">-</span></p>
+                            </div>
+                            <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                                <span class="badge bg-warning text-dark me-2 fw-bold fs-6 px-3 py-2 border border-dark" id="demoBadge">🟠 DEMO • SIMULATED LIVE DATA</span>
+                                <span class="badge badge-running fs-6 px-3 py-2" id="resStatusBadge">Status</span>
+                            </div>
+                        </div>
+                        
+                        <hr class="my-4 text-muted">
+                        
+                        <div class="row text-center g-3">
+                            <div class="col-sm-4 border-end">
+                                <span class="text-muted small text-uppercase fw-bold">Current Station</span>
+                                <h5 class="fw-bold mt-1 text-truncate" id="resCurrentStation">-</h5>
+                            </div>
+                            <div class="col-sm-4 border-end">
+                                <span class="text-muted small text-uppercase fw-bold">Next Station</span>
+                                <h5 class="fw-bold mt-1 text-truncate" id="resNextStation">-</h5>
+                            </div>
+                            <div class="col-sm-4">
+                                <span class="text-muted small text-uppercase fw-bold">Expected Arrival</span>
+                                <h5 class="fw-bold mt-1 text-orange" id="resETA">-</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Split View: Timeline & Map -->
+                    <div class="row">
+                        <!-- Timeline -->
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            <div class="clean-card p-4 h-100">
+                                <h5 class="fw-bold text-railway border-bottom pb-3 mb-4"><i class="bi bi-list-ul me-2"></i>Route Progress</h5>
+                                
+                                <div class="railway-timeline" id="dynamicTimeline">
+                                    <!-- Populated via JS -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Map -->
+                        <div class="col-lg-8">
+                            <div class="clean-card p-2">
+                                <div id="map" class="map-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        let map;
+        let trainMarker;
+        let routeLayer;
+        let stationMarkers = [];
+
+        // Autocomplete Logic
+        let debounceTimer;
+        document.querySelectorAll('.autocomplete-input').forEach(input => {
+            const fetchAutocomplete = function() {
+                const targetId = this.getAttribute('data-target');
+                const list = document.getElementById(targetId);
+                const q = this.value.trim();
+                
+                clearTimeout(debounceTimer);
+                
+                debounceTimer = setTimeout(() => {
+                    fetch(`http://127.0.0.1:8000/api/trains/autocomplete/?q=${q}`)
+                        .then(async res => {
+                            const data = await res.json();
+                            if (!res.ok) {
+                                // specifically handle rate limit
+                                if (res.status === 429) {
+                                    throw new Error("External railway service is temporarily rate-limited. Please try again later.");
+                                }
+                                throw new Error(data.error || "Autocomplete failed");
+                            }
+                            return data;
+                        })
+                        .then(data => {
+                            list.innerHTML = '';
+                            if(data.length === 0) {
+                                list.classList.remove('show');
+                                return;
+                            }
+                            
+                            if(q === '') {
+                                list.innerHTML = '<li class="dropdown-header text-railway fw-bold"><i class="bi bi-star-fill text-warning me-1"></i> Popular Trains</li>';
+                            }
+                            
+                            data.forEach(t => {
+                                const li = document.createElement('li');
+                                let externalBadge = t.is_external ? ' <span class="badge bg-secondary" style="font-size:0.65rem">EXTERNAL</span>' : '';
+                                li.innerHTML = `<a class="dropdown-item py-2" href="#"><span class="fw-bold">${t.number}</span> - <span class="text-muted small">${t.name}</span>${externalBadge}</a>`;
+                                li.addEventListener('click', (e) => {
+                                    e.preventDefault();
+                                    input.value = t.number;
+                                    list.classList.remove('show');
+                                });
+                                list.appendChild(li);
+                            });
+                            list.classList.add('show');
+                        })
+                        .catch(err => {
+                            console.error(err);
+                            list.innerHTML = `<li class="dropdown-item text-danger py-2" style="font-size:0.85rem;"><i class="bi bi-exclamation-triangle me-1"></i> ${err.message}</li>`;
+                            list.classList.add('show');
+                        });
+                }, 200);
+            };
+
+            input.addEventListener('input', fetchAutocomplete);
+            input.addEventListener('focus', fetchAutocomplete);
+            
+            // Hide dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if(!input.contains(e.target)) {
+                    document.getElementById(input.getAttribute('data-target')).classList.remove('show');
+                }
+            });
+        });
+
+        document.getElementById('trackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const train = document.getElementById('trainNumber').value;
+            const resultDiv = document.getElementById('trackResult');
+            const errorAlert = document.getElementById('apiError');
+            const successData = document.getElementById('successData');
+            const btn = document.getElementById('trackBtn');
+
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Tracking...';
+            btn.disabled = true;
+
+            // Fetch from real, verified API backend
+            fetch(`http://127.0.0.1:8000/api/tracking/${train}/`)
+                .then(async response => {
+                    const data = await response.json();
+                    if(!response.ok) throw new Error(data.error || "Tracking data not found for this train.");
+                    return data;
+                })
+                .then(data => {
+                    btn.innerText = "Track Train";
+                    btn.disabled = false;
+                    
+                    resultDiv.classList.remove('d-none');
+                    errorAlert.classList.add('d-none');
+                    successData.classList.remove('d-none');
+
+                    // Header Info
+                    document.getElementById('resTrainName').innerText = `${data.train_number} - ${data.train_name}`;
+                    document.getElementById('resUpdate').innerText = data.last_updated || new Date().toLocaleTimeString();
+                    
+                    // Status Badge
+                    const badge = document.getElementById('resStatusBadge');
+                    badge.innerText = `${data.running_status} (Delay: ${data.delay_minutes}m)`;
+                    if(data.running_status === 'ON_TIME') {
+                        badge.className = 'badge badge-on-time fs-6 px-3 py-2';
+                    } else if (data.delay_minutes > 0) {
+                        badge.className = 'badge badge-delayed fs-6 px-3 py-2';
+                    } else {
+                        badge.className = 'badge badge-running fs-6 px-3 py-2';
+                    }
+                    
+                    // Stats
+                    const currStation = data.current_station || 'N/A';
+                    const nxtStation = data.next_station || 'N/A';
+                    const expArrival = data.expected_arrival || 'N/A';
+                    
+                    document.getElementById('resCurrentStation').innerText = currStation;
+                    document.getElementById('resNextStation').innerText = nxtStation;
+                    document.getElementById('resETA').innerText = expArrival;
+
+                    // Timeline updates
+                    const tl = document.getElementById('dynamicTimeline');
+                    tl.innerHTML = '';
+                    
+                    let routePoints = [];
+
+                    if(data.route_timeline && data.route_timeline.length > 0) {
+                        data.route_timeline.forEach(st => {
+                            let stateClass = '';
+                            let icon = '';
+                            let subtitle = '';
+                            
+                            if(st.status === 'COMPLETED') {
+                                stateClass = 'passed';
+                                icon = '✓';
+                                subtitle = 'Completed';
+                            } else if (st.status === 'CURRENT') {
+                                stateClass = 'active';
+                                icon = '●';
+                                subtitle = 'Current Location';
+                            } else {
+                                stateClass = '';
+                                icon = '○';
+                                subtitle = 'Upcoming';
+                            }
+                            
+                            tl.innerHTML += `
+                                <div class="timeline-item ${stateClass}">
+                                    <h6 class="fw-bold mb-0 ${st.status === 'CURRENT' ? 'text-orange' : ''}">${icon} ${st.station_name} (${st.station_code})</h6>
+                                    <p class="text-muted small mb-0">${subtitle} • ${st.distance} km</p>
+                                </div>
+                            `;
+
+                            if(st.lat && st.lng) {
+                                routePoints.push([st.lat, st.lng]);
+                            }
+                        });
+                    }
+
+                    // Update Map (Light Theme)
+                    if(data.coordinates && data.coordinates.lat !== 0) {
+                        const lat = data.coordinates.lat;
+                        const lng = data.coordinates.lng;
+
+                        if(!map) {
+                            map = L.map('map').setView([lat, lng], 7);
+                            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                                attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+                                subdomains: 'abcd',
+                                maxZoom: 20
+                            }).addTo(map);
+                        }
+                        
+                        // Clear old layers
+                        if(routeLayer) map.removeLayer(routeLayer);
+                        if(trainMarker) map.removeLayer(trainMarker);
+                        stationMarkers.forEach(m => map.removeLayer(m));
+                        stationMarkers = [];
+
+                        // Draw Route Line
+                        if(routePoints.length > 0) {
+                            routeLayer = L.polyline(routePoints, {color: '#0d6efd', weight: 4, opacity: 0.7}).addTo(map);
+                            map.fitBounds(routeLayer.getBounds());
+                            
+                            // Draw Station Dots
+                            routePoints.forEach(pt => {
+                                const stMarker = L.circleMarker(pt, {radius: 4, color: '#0d6efd', fillColor: '#fff', fillOpacity: 1}).addTo(map);
+                                stationMarkers.push(stMarker);
+                            });
+                        }
+
+                        // Professional Train Marker
+                        const trainIcon = L.divIcon({
+                            className: 'custom-div-icon',
+                            html: "<div style='background-color:#dc3545; height:18px; width:18px; border-radius:50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);'></div>",
+                            iconSize: [18, 18],
+                            iconAnchor: [9, 9]
+                        });
+                        
+                        trainMarker = L.marker([lat, lng], {icon: trainIcon, zIndexOffset: 1000}).addTo(map);
+                    }
+                })
+                .catch(error => {
+                    btn.innerText = "Track Train";
+                    btn.disabled = false;
+                    resultDiv.classList.remove('d-none');
+                    successData.classList.add('d-none');
+                    errorAlert.innerText = error.message;
+                    errorAlert.classList.remove('d-none');
+                });
+        });
+
+        // Check for auto-track on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tParam = urlParams.get('train');
+            if(tParam && tParam !== 'undefined') {
+                document.getElementById('trainNumber').value = tParam;
+                document.getElementById('trackBtn').click();
+            }
+        });
+    </script>
+<div id="footer-container"></div>
+<script src="../../js/components.js"></script>
+</body>
+</html>

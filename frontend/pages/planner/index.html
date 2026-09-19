@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackEase - Maharashtra Railway Route Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar or Header here if needed, for now a clean premium header -->
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-icon">🚆</span>
+                <h1>TrackEase</h1>
+            </div>
+            <div id="navbar-container"></div>
+        </header>
+
+        <main class="main-content">
+            <section class="planner-hero">
+                <div class="hero-text">
+                    <h2>Maharashtra Railway Route Planner</h2>
+                    <p>Discover direct train routes across Maharashtra with real-time station data.</p>
+                </div>
+                
+                <div class="search-card glass-panel">
+                    <div class="input-group">
+                        <label for="from-station">From</label>
+                        <select id="from-station" class="select-input">
+                            <option value="">Select Origin Station</option>
+                        </select>
+                    </div>
+                    
+                    <button id="swap-btn" class="icon-btn" aria-label="Swap stations">⇄</button>
+                    
+                    <div class="input-group">
+                        <label for="to-station">To</label>
+                        <select id="to-station" class="select-input">
+                            <option value="">Select Destination Station</option>
+                        </select>
+                    </div>
+                    
+                    <button id="find-route-btn" class="primary-btn">FIND ROUTE</button>
+                </div>
+            </section>
+
+            <section id="results-section" class="results-section hidden">
+                <!-- Loader -->
+                <div id="loader" class="loader hidden">
+                    <div class="spinner"></div>
+                    <p>Searching for the best route...</p>
+                </div>
+
+                <!-- Error Message -->
+                <div id="error-message" class="error-card hidden">
+                    <p>No direct route found between these stations.</p>
+                </div>
+
+                <!-- Train List -->
+                <div id="trains-container" class="trains-container hidden">
+                    <h3>Available Trains</h3>
+                    <div id="trains-list" class="trains-list"></div>
+                </div>
+
+                <!-- Route Timeline -->
+                <div id="timeline-container" class="timeline-container hidden">
+                    <div class="timeline-header">
+                        <h3 id="timeline-title">THANE → CSTM</h3>
+                        <div class="timeline-stats">
+                            <span class="stat-badge" id="stat-dist">0 KM</span>
+                            <span class="stat-badge" id="stat-stops">0 STATIONS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline" id="timeline">
+                        <!-- Dynamic timeline items go here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+<div id="footer-container"></div>
+<script src="../../js/components.js"></script>
+</body>
+</html>

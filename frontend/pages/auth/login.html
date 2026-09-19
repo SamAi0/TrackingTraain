@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger Login | TrackEase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="../../css/premium.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex align-items-center min-vh-100">
+    
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="text-center mb-4">
+                    <a href="../../index.html" class="text-decoration-none text-railway fs-2 fw-bold">
+                        <i class="bi bi-train-front"></i> TrackEase
+                    </a>
+                </div>
+                
+                <div class="clean-card p-5">
+                    <h3 class="fw-bold text-dark text-center mb-1">Passenger Login</h3>
+                    <p class="text-muted text-center small fw-bold mb-4">Secure Authentication</p>
+                    
+                    <div id="loginError" class="alert alert-danger d-none rounded-2 text-center fw-bold small"></div>
+                    
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label class="form-label text-dark fw-bold small">Email Address</label>
+                            <input type="email" class="form-control clean-input" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label text-dark fw-bold small">Password</label>
+                            <input type="password" class="form-control clean-input" id="password" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-railway w-100 py-2 fs-6" id="loginBtn">Log In</button>
+                    </form>
+                    
+                    <div class="text-center mt-4 border-top pt-4">
+                        <p class="text-muted small mb-0">Don't have an account?</p>
+                        <a href="register.html" class="btn btn-outline-primary btn-sm mt-2 fw-bold w-100">Register as New Passenger</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('loginError');
+            const btn = document.getElementById('loginBtn');
+            
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Authenticating...';
+            btn.disabled = true;
+
+            fetch('http://127.0.0.1:8000/api/auth/login/', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ username: email, password: password })
+            })
+            .then(async res => {
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.detail || "Invalid email or password.");
+                return data;
+            })
+            .then(data => {
+                localStorage.setItem('access_token', data.access);
+                localStorage.setItem('refresh_token', data.refresh);
+                window.location.href = '../../index.html';
+            })
+            .catch(err => {
+                errorDiv.innerText = err.message;
+                errorDiv.classList.remove('d-none');
+                btn.innerText = "Log In";
+                btn.disabled = false;
+            });
+        });
+    </script>
+
+
+</body>
+</html>

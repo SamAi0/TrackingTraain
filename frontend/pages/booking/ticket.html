@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Ticket | TrackEase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="../../css/premium.css" rel="stylesheet">
+    <script src="../../js/auth.js"></script>
+    <style>
+        body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .ticket-container { max-width: 800px; margin: 40px auto; background: #fff; border: 2px solid #333; padding: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .ticket-header { background: #fff; padding: 20px; border-bottom: 2px solid #333; text-align: center; }
+        .ticket-body { padding: 30px; }
+        .tkt-title { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; }
+        .info-box { border: 1px solid #ddd; padding: 10px; border-radius: 4px; background: #fdfdfd; }
+        .pass-table th { background: #eee !important; color: #333; border: 1px solid #333; }
+        .pass-table td { border: 1px solid #333; }
+        
+        @media print {
+            body { background: #fff; margin: 0; padding: 0; }
+            .ticket-container { box-shadow: none; margin: 0; width: 100%; max-width: 100%; border: none; }
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="container d-flex justify-content-end mt-4 no-print" style="max-width: 800px;">
+        <button class="btn btn-outline-dark fw-bold me-2" onclick="window.history.back()"><i class="bi bi-arrow-left me-1"></i> Back</button>
+        <button class="btn btn-dark fw-bold" onclick="window.print()"><i class="bi bi-printer me-1"></i> Print Ticket</button>
+    </div>
+
+    <div class="ticket-container" id="ticketArea">
+        <div class="text-center py-5 d-none" id="loading">
+            <div class="spinner-border text-dark" role="status"></div>
+            <p class="mt-2 text-muted fw-bold">Loading Ticket...</p>
+        </div>
+
+        <div id="ticketContent" class="d-none">
+            <div class="ticket-header">
+                <div class="tkt-title">TRACKEASE ELECTRONIC RESERVATION SLIP (ERS)</div>
+            </div>
+
+            <div class="ticket-body">
+                <div class="row mb-4">
+                    <div class="col-6">
+                        <div class="info-box">
+                            <div class="small text-muted fw-bold">PNR Number</div>
+                            <div class="fs-4 fw-bold" id="tktPnr">-</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="info-box">
+                            <div class="small text-muted fw-bold">Transaction ID / Booking ID</div>
+                            <div class="fs-5 fw-bold" id="tktBookingId">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="fw-bold border-bottom border-dark pb-2 mb-3">Journey Details</h5>
+                <div class="row mb-4">
+                    <div class="col-md-3 col-6 mb-3">
+                        <span class="small text-muted fw-bold">Train Number</span>
+                        <div class="fw-bold fs-5" id="tktTrainNo">-</div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <span class="small text-muted fw-bold">Date of Journey</span>
+                        <div class="fw-bold fs-5" id="tktDate">-</div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <span class="small text-muted fw-bold">From</span>
+                        <div class="fw-bold fs-5" id="tktSrc">-</div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <span class="small text-muted fw-bold">To</span>
+                        <div class="fw-bold fs-5" id="tktDst">-</div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3" id="tktClassContainer">
+                        <span class="small text-muted fw-bold">Class</span>
+                        <div class="fw-bold fs-5" id="tktClass">SL</div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <span class="small text-muted fw-bold">Status</span>
+                        <div class="fw-bold fs-5 text-success">CONFIRMED</div>
+                    </div>
+                </div>
+
+                <h5 class="fw-bold border-bottom border-dark pb-2 mb-3">Passenger Details</h5>
+                <div class="table-responsive mb-4">
+                    <table class="table pass-table table-sm text-center align-middle">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Booking Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="passengersTbody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-6">
+                        <h6 class="fw-bold">Payment Details</h6>
+                        <table class="table table-sm table-borderless">
+                            <tr><td>Total Fare</td><td class="fw-bold text-end" id="tktFare">-</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning small border-dark rounded-0 mb-0">
+                    <ul class="mb-0 ps-3">
+                        <li><strong>Note:</strong> This is a computer generated ticket.</li>
+                        <li>Please carry original ID proof during the journey.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div id="errorBox" class="alert alert-danger m-4 d-none text-center fw-bold"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const bookingId = params.get('booking_id');
+            const token = localStorage.getItem('access_token');
+            
+            if(!bookingId || !token) {
+                document.getElementById('errorBox').innerText = "Invalid request or unauthorized.";
+                document.getElementById('errorBox').classList.remove('d-none');
+                return;
+            }
+
+            document.getElementById('loading').classList.remove('d-none');
+            
+            fetch(`http://127.0.0.1:8000/api/bookings/${bookingId}/`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            .then(async res => {
+                const data = await res.json();
+                if(!res.ok) throw new Error("Could not load ticket");
+                return data;
+            })
+            .then(data => {
+                document.getElementById('loading').classList.add('d-none');
+                document.getElementById('ticketContent').classList.remove('d-none');
+                
+                document.getElementById('tktPnr').innerText = data.pnr_record?.pnr_number || 'N/A';
+                document.getElementById('tktBookingId').innerText = data.invoice?.transaction_id || `BKG-${data.id}`;
+                
+                document.getElementById('tktTrainNo').innerText = `${data.train_number} [${data.train_type}]`;
+                document.getElementById('tktDate').innerText = data.date_of_journey;
+                document.getElementById('tktSrc').innerText = data.source_code;
+                document.getElementById('tktDst').innerText = data.destination_code;
+                document.getElementById('tktClass').innerText = data.ticket_class || 'GN';
+                
+                document.getElementById('tktFare').innerText = `₹${data.total_fare}`;
+                
+                const isLocal = data.train_type === 'LOCAL';
+                const thead = document.querySelector('.pass-table thead tr');
+                if(isLocal) {
+                    thead.innerHTML = `<th>#</th><th>Name</th><th>Age</th><th>Gender</th><th>Status</th>`;
+                    document.getElementById('tktClassContainer').classList.add('d-none');
+                } else {
+                    thead.innerHTML = `<th>#</th><th>Name</th><th>Age</th><th>Gender</th><th>Berth</th><th>Status</th>`;
+                    document.getElementById('tktClassContainer').classList.remove('d-none');
+                }
+                
+                const tbody = document.getElementById('passengersTbody');
+                if(data.passengers && data.passengers.length > 0) {
+                    data.passengers.forEach((p, idx) => {
+                        const tr = document.createElement('tr');
+                        if(isLocal) {
+                            tr.innerHTML = `
+                                <td>${idx + 1}</td>
+                                <td class="fw-bold">${p.name}</td>
+                                <td>${p.age}</td>
+                                <td>${p.gender || '-'}</td>
+                                <td class="fw-bold text-success">CNF</td>
+                            `;
+                        } else {
+                            tr.innerHTML = `
+                                <td>${idx + 1}</td>
+                                <td class="fw-bold">${p.name}</td>
+                                <td>${p.age}</td>
+                                <td>${p.gender || '-'}</td>
+                                <td>${p.berth_preference || '-'}</td>
+                                <td class="fw-bold text-success">CNF</td>
+                            `;
+                        }
+                        tbody.appendChild(tr);
+                    });
+                } else {
+                    tbody.innerHTML = `<tr><td colspan="${isLocal ? 5 : 6}">No passengers found</td></tr>`;
+                }
+            })
+            .catch(err => {
+                document.getElementById('loading').classList.add('d-none');
+                document.getElementById('errorBox').innerText = err.message;
+                document.getElementById('errorBox').classList.remove('d-none');
+            });
+        });
+    </script>
+
+
+</body>
+</html>

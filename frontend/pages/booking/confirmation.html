@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed | TrackEase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="../../css/premium.css" rel="stylesheet">
+    <script src="../../js/auth.js"></script>
+    <style>
+        .conf-check { font-size: 5rem; color: #198754; }
+    </style>
+</head>
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="clean-card p-5 text-center shadow">
+                    <i class="bi bi-check-circle-fill conf-check"></i>
+                    <h2 class="fw-bold mt-3 text-dark">Booking Confirmed!</h2>
+                    <p class="text-muted fs-5">Your tickets have been successfully booked.</p>
+                    
+                    <div class="alert alert-success mt-4 fs-4 fw-bold">
+                        PNR Number: <span id="confPnr" class="text-dark">Loading...</span>
+                    </div>
+                    
+                    <div class="row text-start mt-4 bg-white border p-4 rounded mx-1">
+                        <div class="col-md-6 mb-3">
+                            <span class="text-muted small fw-bold">Booking ID</span>
+                            <div class="fs-5 fw-bold" id="confBookingId">-</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <span class="text-muted small fw-bold">Train</span>
+                            <div class="fs-5 fw-bold" id="confTrain">-</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <span class="text-muted small fw-bold">Journey Route</span>
+                            <div class="fs-5 fw-bold" id="confRoute">-</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <span class="text-muted small fw-bold">Total Amount Paid</span>
+                            <div class="fs-5 fw-bold text-success" id="confAmount">-</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5 d-flex flex-wrap justify-content-center gap-3">
+                        <a href="#" id="viewTicketBtn" class="btn btn-primary px-4 fw-bold"><i class="bi bi-ticket-detailed me-2"></i>View Ticket</a>
+                        <a href="#" id="viewInvoiceBtn" class="btn btn-outline-dark px-4 fw-bold"><i class="bi bi-receipt me-2"></i>View Invoice</a>
+                        <a href="#" id="trackBtn" class="btn btn-outline-success px-4 fw-bold"><i class="bi bi-geo-alt-fill me-2"></i>Track Train</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const bookingId = params.get('booking_id');
+            const pnr = params.get('pnr');
+            
+            if(!bookingId) {
+                window.location.href = "book.html";
+                return;
+            }
+            
+            document.getElementById('confPnr').innerText = pnr || 'Generating...';
+            document.getElementById('confBookingId').innerText = bookingId;
+            
+            // Set hrefs
+            document.getElementById('viewTicketBtn').href = `ticket.html?booking_id=${bookingId}`;
+            document.getElementById('viewInvoiceBtn').href = `invoice.html?booking_id=${bookingId}`;
+            
+            fetch(`http://127.0.0.1:8000/api/bookings/${bookingId}/`, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('confPnr').innerText = data.pnr_record?.pnr_number || pnr;
+                document.getElementById('confTrain').innerText = data.train_number;
+                document.getElementById('confRoute').innerText = `${data.source_code} ➔ ${data.destination_code}`;
+                document.getElementById('confAmount').innerText = `₹${data.total_fare}`;
+                
+                document.getElementById('trackBtn').href = `../tracking/track.html?train=${data.train_number}`;
+            })
+            .catch(err => console.error(err));
+        });
+    </script>
+<div id="footer-container"></div>
+<script src="../../js/components.js"></script>
+</body>
+</html>

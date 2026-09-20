@@ -22,9 +22,6 @@ def calculate_total_fare(train, source, destination, num_passengers, ticket_clas
             if distance < 0:
                 # Reversing for safety in circular/return routes, though typically src < dst
                 distance = abs(distance)
-                
-            if distance == 0:
-                distance = 10 # minimum 10 km
     except RouteStation.DoesNotExist:
         pass
 

@@ -87,9 +87,11 @@ class StationGeoAPIView(APIView):
 
 class StationTrainsAPIView(APIView):
     def get(self, request, code):
+        to_code = request.query_params.get('to')
+        hours = request.query_params.get('hours', '1')
         from trains.services.rapidapi_service import RapidAPIService
         rapid_service = RapidAPIService()
-        result = rapid_service.get_live_station(code)
+        result = rapid_service.get_live_station(code, to_stn_code=to_code, hours=hours)
         
         if result.get('status_code') == 200:
             data = []

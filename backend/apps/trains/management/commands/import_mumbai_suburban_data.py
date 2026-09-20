@@ -83,7 +83,16 @@ class Command(BaseCommand):
                 
                 # Check for completeness
                 stops = s.get('stops') or s.get('route') or []
-                is_complete = len(stops) > 2
+                
+                # A timetable is complete ONLY if there are intermediate stops AND
+                # every stop has at least a departure_time or arrival_time.
+                is_complete = False
+                if len(stops) > 2:
+                    is_complete = True
+                    for stop in stops:
+                        if not stop.get('arrival_time') and not stop.get('departure_time'):
+                            is_complete = False
+                            break
                 
                 # Train
                 train, t_created = Train.objects.update_or_create(

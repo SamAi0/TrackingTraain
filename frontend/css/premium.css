@@ -233,3 +233,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 .table-clean td {
     vertical-align: middle;
 }
+
+.bg-railway { background-color: var(--railway-blue) !important; }
+.bg-railway-dark { background-color: var(--railway-blue-dark) !important; }
+

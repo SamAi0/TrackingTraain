@@ -99,7 +99,7 @@ class RapidAPIServiceTests(unittest.TestCase):
         mock_response.raise_for_status.side_effect = HTTPError()
         mock_get.return_value = mock_response
         result = self.service.search_train('190')
-        self.assertEqual(result['status_code'], 502)
+        self.assertEqual(result['status_code'], 401)
 
 if __name__ == '__main__':
     unittest.main()

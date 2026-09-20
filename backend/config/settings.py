@@ -176,3 +176,6 @@ AUTH_USER_MODEL = 'accounts.User'
 
 # 10 minutes expiry for pending bookings
 BOOKING_EXPIRY_SECONDS = 600
+
+BOOKING_EXPIRY_SECONDS = 7
+

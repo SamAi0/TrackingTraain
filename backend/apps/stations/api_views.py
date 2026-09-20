@@ -87,28 +87,26 @@ class StationGeoAPIView(APIView):
 
 class StationTrainsAPIView(APIView):
     def get(self, request, code):
-        from django.db.models.functions import Coalesce
-        # Sort by time of day. Coalesce ensures origin stations (null arrival) sort by departure
-        qs = RouteStation.objects.filter(station__code=code).select_related('route__train').order_by(
-            Coalesce('arrival_time', 'departure_time')
-        )
+        from trains.services.rapidapi_service import RapidAPIService
+        rapid_service = RapidAPIService()
+        result = rapid_service.get_live_station(code)
         
-        paginator = StandardResultsSetPagination()
-        page = paginator.paginate_queryset(qs, request)
-        
-        data = []
-        for rs in page:
-            train = rs.route.train
-            data.append({
-                'train_number': train.number,
-                'train_name': train.name,
-                'train_type': train.normalized_type,
-                'arrival_time': rs.arrival_time,
-                'departure_time': rs.departure_time,
-                'distance': rs.distance_from_source,
-                'journey_day': rs.journey_day,
-                'source': train.source.code,
-                'destination': train.destination.code
-            })
-            
-        return paginator.get_paginated_response(data)
+        if result.get('status_code') == 200:
+            data = []
+            for item in result.get('data', []):
+                # RapidAPI provides schedule.arrival_time and schedule.departure_time
+                # Map these to arrival_time and departure_time directly for the frontend
+                data.append({
+                    'train_number': item.get('number'),
+                    'train_name': item.get('name'),
+                    'train_type': item.get('train_type', 'UNKNOWN'),
+                    'arrival_time': item.get('schedule', {}).get('arrival_time'),
+                    'departure_time': item.get('schedule', {}).get('departure_time'),
+                    'distance': 0,
+                    'journey_day': 1,
+                    'source': 'N/A',
+                    'destination': 'N/A'
+                })
+            return Response({'results': data, 'count': len(data), 'next': None, 'previous': None}, status=status.HTTP_200_OK)
+        else:
+            return Response({'error': result.get('error', 'External service failed')}, status=result.get('status_code', 500))

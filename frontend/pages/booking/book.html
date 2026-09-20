@@ -184,12 +184,6 @@
             } else {
                 document.getElementById('bookingContent').classList.remove('d-none');
             }
-
-            document.getElementById('logoutBtn').addEventListener('click', () => {
-                localStorage.removeItem('access_token');
-                localStorage.removeItem('refresh_token');
-                window.location.href = '../auth/login.html';
-            });
         });
 
         // Add Passenger

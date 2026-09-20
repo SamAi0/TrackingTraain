@@ -30,6 +30,14 @@ class RapidAPIService:
                 logger.warning(f"RapidAPI Rate Limit Exceeded: {endpoint}")
                 return {'error': 'Too many requests to external service. Please try again later.', 'status_code': 429}
                 
+            if response.status_code in [401, 403]:
+                logger.error(f"RapidAPI Authentication Failed: {endpoint}")
+                return {'error': 'Authentication failed with external service. Invalid or missing API key.', 'status_code': response.status_code}
+                
+            if response.status_code in [502, 504]:
+                logger.error(f"RapidAPI Upstream Error {response.status_code}: {endpoint}")
+                return {'error': 'External service is currently unavailable.', 'status_code': response.status_code}
+                
             response.raise_for_status()
             
             data = response.json()

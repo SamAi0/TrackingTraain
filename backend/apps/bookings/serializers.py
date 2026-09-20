@@ -40,8 +40,8 @@ class BookingSerializer(serializers.ModelSerializer):
         model = Booking
         fields = ['id', 'user', 'pnr_record', 'invoice', 'booking_date', 'total_fare', 
                   'status', 'train_number', 'train_type', 'source_code', 'destination_code', 
-                  'date_of_journey', 'ticket_class', 'passengers', 'train_details', 'source_station', 'destination_station']
-        read_only_fields = ['user', 'booking_date', 'total_fare', 'status', 'pnr_record', 'invoice', 'train_type', 'train_details', 'source_station', 'destination_station']
+                  'date_of_journey', 'ticket_class', 'passengers', 'train_details', 'source_station', 'destination_station', 'expires_at']
+        read_only_fields = ['user', 'booking_date', 'total_fare', 'status', 'pnr_record', 'invoice', 'train_type', 'train_details', 'source_station', 'destination_station', 'expires_at']
 
     def get_train_type(self, obj):
         return obj.train.normalized_type if obj.train else 'UNKNOWN'

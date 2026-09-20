@@ -60,43 +60,21 @@ class TrainAutocompleteAPIView(APIView):
     def get(self, request):
         q = request.GET.get('q', '').strip()
         
+        data = []
         if not q:
-            trains = Train.objects.filter(number__in=MUMBAI_TRAIN_NUMBERS)
-            train_list = list(trains)
-            train_list.sort(key=lambda t: 0 if t.number in MUMBAI_TRAIN_NUMBERS else 1)
-            
-            data = []
-            for t in train_list[:10]:
-                data.append({
-                    'number': t.number,
-                    'name': t.name
-                })
             return Response(data, status=status.HTTP_200_OK)
             
-        trains = Train.objects.filter(
-            Q(name__icontains=q) | Q(number__icontains=q)
-        )[:20]
+        from trains.services.rapidapi_service import RapidAPIService
+        rapid_service = RapidAPIService()
+        result = rapid_service.search_train(q)
         
-        data = []
-        for t in trains:
-            data.append({
-                'number': t.number,
-                'name': t.name
-            })
-            
-        # Fallback to RapidAPI if no local results are found and query looks like a train number
-        if not data and q.isdigit():
-            from trains.services.rapidapi_service import RapidAPIService
-            rapid_service = RapidAPIService()
-            result = rapid_service.search_train(q)
-            if result.get('status_code') == 200:
-                for item in result.get('data', [])[:10]:
-                    data.append({
-                        'number': item.get('number'),
-                        'name': item.get('name'),
-                        'is_external': True
-                    })
-            else:
-                return Response({'error': result.get('error', 'External service failed')}, status=result.get('status_code', 500))
-                    
-        return Response(data, status=status.HTTP_200_OK)
+        if result.get('status_code') == 200:
+            for item in result.get('data', [])[:10]:
+                data.append({
+                    'number': item.get('number'),
+                    'name': item.get('name'),
+                    'is_external': True
+                })
+            return Response(data, status=status.HTTP_200_OK)
+        else:
+            return Response({'error': result.get('error', 'External service failed')}, status=result.get('status_code', 500))

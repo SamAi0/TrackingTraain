@@ -13,20 +13,24 @@ def calculate_total_fare(train, source, destination, num_passengers, ticket_clas
     """
     
     # 1. Determine distance
+    distance = None
     try:
         src_rs = RouteStation.objects.get(route__train=train, station=source)
         dst_rs = RouteStation.objects.get(route__train=train, station=destination)
-        distance = dst_rs.distance_from_source - src_rs.distance_from_source
-        if distance < 0:
-            # Reversing for safety in circular/return routes, though typically src < dst
-            distance = abs(distance)
-            
-        if distance == 0:
-            distance = 10 # minimum 10 km
+        if src_rs.distance_from_source is not None and dst_rs.distance_from_source is not None:
+            distance = dst_rs.distance_from_source - src_rs.distance_from_source
+            if distance < 0:
+                # Reversing for safety in circular/return routes, though typically src < dst
+                distance = abs(distance)
+                
+            if distance == 0:
+                distance = 10 # minimum 10 km
     except RouteStation.DoesNotExist:
-        # Fallback DEMO distance if graph routing/route stations are imperfect
-        distance = 100
+        pass
 
+    if distance is None:
+        raise FareCalculationError("Distance data is unavailable for this segment.")
+        
     distance = Decimal(str(distance))
 
     # 2. Get applicable FareRule

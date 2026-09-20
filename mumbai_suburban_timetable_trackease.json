@@ -1,0 +1,682 @@
+{
+  "dataset_name": "TrackEase Mumbai Suburban Timetable Dataset",
+  "version": "1.0",
+  "generated_on": "2026-09-20",
+  "timezone": "Asia/Kolkata",
+  "purpose": "Booking/search seed data. A user may board at any station served by a selected service and alight at any later station.",
+  "timing_policy": {
+    "exact_times_only": true,
+    "no_generated_or_interpolated_times": true,
+    "source_note": "Only timetable values found in the referenced material are included. Missing intermediate timings are intentionally not fabricated.",
+    "sunday_holiday_rule": "Services marked X in the source are not operated on Sundays/holidays."
+  },
+  "sources": [
+    {
+      "name": "TrainHelp Mumbai Local Train Time Table",
+      "updated": "2026-08-20",
+      "url": "https://www.trainhelp.in/mumbai-local-train-time-table/"
+    },
+    {
+      "name": "Central Railway Operating Manual",
+      "url": "https://cr.indianrailways.gov.in/uploads/files/1619158130680-OPTG%20MANUAL.pdf"
+    },
+    {
+      "name": "Central Railway Trans-Harbour timetable",
+      "url": "https://cr.indianrailways.gov.in/cris/uploads/files/1640069704271-5.%20Trans-Harbour.pdf"
+    },
+    {
+      "name": "Western Railway Mumbai Suburban portal",
+      "url": "https://wr.indianrailways.gov.in/view_section.jsp?id=0%2C1%2C263%2C296%2C307&lang=0"
+    }
+  ],
+  "station_master": {
+    "western_line": [
+      [
+        "CCG",
+        "Churchgate"
+      ],
+      [
+        "MEL",
+        "Marine Lines"
+      ],
+      [
+        "CYR",
+        "Charni Road"
+      ],
+      [
+        "GTR",
+        "Grant Road"
+      ],
+      [
+        "MMCT",
+        "Mumbai Central"
+      ],
+      [
+        "MX",
+        "Mahalaxmi"
+      ],
+      [
+        "PL",
+        "Lower Parel"
+      ],
+      [
+        "PBHD",
+        "Prabhadevi"
+      ],
+      [
+        "DDR",
+        "Dadar"
+      ],
+      [
+        "MRU",
+        "Matunga Road"
+      ],
+      [
+        "MM",
+        "Mahim Junction"
+      ],
+      [
+        "BA",
+        "Bandra"
+      ],
+      [
+        "KHAR",
+        "Khar Road"
+      ],
+      [
+        "STC",
+        "Santacruz"
+      ],
+      [
+        "VLP",
+        "Vile Parle"
+      ],
+      [
+        "AD",
+        "Andheri"
+      ],
+      [
+        "JOS",
+        "Jogeshwari"
+      ],
+      [
+        "RMAR",
+        "Ram Mandir"
+      ],
+      [
+        "GMN",
+        "Goregaon"
+      ],
+      [
+        "MDD",
+        "Malad"
+      ],
+      [
+        "KILE",
+        "Kandivali"
+      ],
+      [
+        "BVI",
+        "Borivali"
+      ],
+      [
+        "DIC",
+        "Dahisar"
+      ],
+      [
+        "MIRA",
+        "Mira Road"
+      ],
+      [
+        "BYR",
+        "Bhayandar"
+      ],
+      [
+        "NIG",
+        "Naigaon"
+      ],
+      [
+        "BSR",
+        "Vasai Road"
+      ],
+      [
+        "NSP",
+        "Nalasopara"
+      ],
+      [
+        "VR",
+        "Virar"
+      ],
+      [
+        "VTN",
+        "Vaitarna"
+      ],
+      [
+        "SAH",
+        "Saphale"
+      ],
+      [
+        "KLV",
+        "Kelve Road"
+      ],
+      [
+        "PLG",
+        "Palghar"
+      ],
+      [
+        "UOI",
+        "Umroli"
+      ],
+      [
+        "BOR",
+        "Boisar"
+      ],
+      [
+        "VGN",
+        "Vangaon"
+      ],
+      [
+        "DRD",
+        "Dahanu Road"
+      ]
+    ],
+    "central_main": [
+      [
+        "CSMT",
+        "Chhatrapati Shivaji Maharaj Terminus"
+      ],
+      [
+        "MSD",
+        "Masjid"
+      ],
+      [
+        "SNRD",
+        "Sandhurst Road"
+      ],
+      [
+        "BY",
+        "Byculla"
+      ],
+      [
+        "CHP",
+        "Chinchpokli"
+      ],
+      [
+        "CRD",
+        "Currey Road"
+      ],
+      [
+        "PR",
+        "Parel"
+      ],
+      [
+        "DR",
+        "Dadar"
+      ],
+      [
+        "MTN",
+        "Matunga"
+      ],
+      [
+        "SIN",
+        "Sion"
+      ],
+      [
+        "CLA",
+        "Kurla"
+      ],
+      [
+        "VVH",
+        "Vidyavihar"
+      ],
+      [
+        "GC",
+        "Ghatkopar"
+      ],
+      [
+        "VK",
+        "Vikhroli"
+      ],
+      [
+        "KJMG",
+        "Kanjurmarg"
+      ],
+      [
+        "BND",
+        "Bhandup"
+      ],
+      [
+        "NHU",
+        "Nahur"
+      ],
+      [
+        "MLND",
+        "Mulund"
+      ],
+      [
+        "TNA",
+        "Thane"
+      ],
+      [
+        "KLVA",
+        "Kalva"
+      ],
+      [
+        "MBQ",
+        "Mumbra"
+      ],
+      [
+        "DIVA",
+        "Diva"
+      ],
+      [
+        "KOPR",
+        "Kopar"
+      ],
+      [
+        "DI",
+        "Dombivli"
+      ],
+      [
+        "TKRD",
+        "Thakurli"
+      ],
+      [
+        "KYN",
+        "Kalyan"
+      ]
+    ],
+    "central_karjat_branch": [
+      [
+        "VLDI",
+        "Vithalwadi"
+      ],
+      [
+        "ULNR",
+        "Ulhasnagar"
+      ],
+      [
+        "ABH",
+        "Ambernath"
+      ],
+      [
+        "CHLI",
+        "Badlapur"
+      ],
+      [
+        "BUD",
+        "Vangani"
+      ],
+      [
+        "VGI",
+        "Shelu"
+      ],
+      [
+        "SHLU",
+        "Neral"
+      ],
+      [
+        "NRL",
+        "Bhivpuri Road"
+      ],
+      [
+        "BVS",
+        "Karjat"
+      ],
+      [
+        "KJT",
+        "Palasdhari"
+      ],
+      [
+        "PDI",
+        "Kelavli"
+      ],
+      [
+        "KLY",
+        "Dolavli"
+      ],
+      [
+        "DLV",
+        "Lowjee"
+      ],
+      [
+        "LWJ",
+        "Khopoli"
+      ]
+    ],
+    "central_kasara_branch": [
+      [
+        "SHAD",
+        "Shahad"
+      ],
+      [
+        "ABY",
+        "Ambivli"
+      ],
+      [
+        "TLA",
+        "Titwala"
+      ],
+      [
+        "KDV",
+        "Khadavli"
+      ],
+      [
+        "VSD",
+        "Vasind"
+      ],
+      [
+        "ASO",
+        "Asangaon"
+      ],
+      [
+        "ATG",
+        "Atgaon"
+      ],
+      [
+        "THS",
+        "Thansit"
+      ],
+      [
+        "KE",
+        "Khardi"
+      ],
+      [
+        "OMB",
+        "Kasara"
+      ]
+    ],
+    "harbour_panvel": [
+      [
+        "CSMT",
+        "Chhatrapati Shivaji Maharaj Terminus"
+      ],
+      [
+        "MSD",
+        "Masjid"
+      ],
+      [
+        "SNRD",
+        "Sandhurst Road"
+      ],
+      [
+        "DRD",
+        "Dockyard Road"
+      ],
+      [
+        "RR",
+        "Reay Road"
+      ],
+      [
+        "CTGN",
+        "Cotton Green"
+      ],
+      [
+        "SV",
+        "Sewri"
+      ],
+      [
+        "VAD",
+        "Wadala Road"
+      ],
+      [
+        "GTBN",
+        "Guru Tegh Bahadur Nagar"
+      ],
+      [
+        "CHN",
+        "Chunabhatti"
+      ],
+      [
+        "CLA",
+        "Kurla"
+      ],
+      [
+        "TLGN",
+        "Tilak Nagar"
+      ],
+      [
+        "C",
+        "Chembur"
+      ],
+      [
+        "GV",
+        "Govandi"
+      ],
+      [
+        "MKD",
+        "Mankhurd"
+      ],
+      [
+        "VSH",
+        "Vashi"
+      ],
+      [
+        "SNCR",
+        "Sanpada"
+      ],
+      [
+        "JN",
+        "Juinagar"
+      ],
+      [
+        "NEU",
+        "Nerul"
+      ],
+      [
+        "SWD",
+        "Seawoods-Darave"
+      ],
+      [
+        "BEPR",
+        "CBD Belapur"
+      ],
+      [
+        "KHAR",
+        "Kharghar"
+      ],
+      [
+        "MANR",
+        "Mansarovar"
+      ],
+      [
+        "KPHN",
+        "Khandeshwar"
+      ],
+      [
+        "PNVL",
+        "Panvel"
+      ]
+    ],
+    "trans_harbour": [
+      [
+        "TNA",
+        "Thane"
+      ],
+      [
+        "DIGH",
+        "Digha Gaon"
+      ],
+      [
+        "AIRL",
+        "Airoli"
+      ],
+      [
+        "RABE",
+        "Rabale"
+      ],
+      [
+        "GNSL",
+        "Ghansoli"
+      ],
+      [
+        "KPHN",
+        "Koparkhairane"
+      ],
+      [
+        "TUH",
+        "Turbhe"
+      ],
+      [
+        "SNCR",
+        "Sanpada"
+      ],
+      [
+        "VSH",
+        "Vashi"
+      ],
+      [
+        "JN",
+        "Juinagar"
+      ],
+      [
+        "NEU",
+        "Nerul"
+      ],
+      [
+        "SWD",
+        "Seawoods-Darave"
+      ],
+      [
+        "BEPR",
+        "CBD Belapur"
+      ],
+      [
+        "KHAR",
+        "Kharghar"
+      ],
+      [
+        "MANR",
+        "Mansarovar"
+      ],
+      [
+        "PNVL",
+        "Panvel"
+      ]
+    ],
+    "nerul_uran_port": [
+      [
+        "NEU",
+        "Nerul"
+      ],
+      [
+        "SWD",
+        "Seawoods-Darave"
+      ],
+      [
+        "BAM",
+        "Bamandongri"
+      ],
+      [
+        "KARP",
+        "Kharkopar"
+      ],
+      [
+        "SHEMATIKHAR",
+        "Shematikhar"
+      ],
+      [
+        "NHSE",
+        "Nhava Sheva"
+      ],
+      [
+        "DRON",
+        "Dronagiri"
+      ],
+      [
+        "URAN",
+        "Uran"
+      ]
+    ]
+  },
+  "service_samples": [
+    {
+      "line": "western_line",
+      "service_number": "90011",
+      "service_name": "Churchgate - Virar Local",
+      "service_type": "SLOW",
+      "origin": "CCG",
+      "destination": "VR",
+      "origin_departure": "04:15",
+      "destination_arrival": "05:58",
+      "running_days": "NOT_SPECIFIED_IN_SOURCE"
+    },
+    {
+      "line": "central_karjat_branch",
+      "service_number": "S17",
+      "service_name": "CSMT - Karjat Local",
+      "service_type": "SUBURBAN",
+      "origin": "CSMT",
+      "destination": "BVS",
+      "origin_departure": "09:57",
+      "destination_arrival": "11:55",
+      "running_days": "NOT_SPECIFIED_IN_SOURCE"
+    },
+    {
+      "line": "harbour_panvel",
+      "service_number": "98011",
+      "service_name": "PL 9",
+      "service_type": "SLOW",
+      "origin": "CSMT",
+      "destination": "PNVL",
+      "origin_departure": "04:52",
+      "destination_arrival": "06:12",
+      "running_days": "NOT_SPECIFIED_IN_SOURCE"
+    },
+    {
+      "line": "harbour_panvel",
+      "service_number": "98045",
+      "service_name": "PL 39",
+      "service_type": "AC",
+      "origin": "CSMT",
+      "destination": "PNVL",
+      "origin_departure": "07:17",
+      "destination_arrival": "08:37",
+      "running_days": "MON-SAT_AC_SUN-HOLIDAY_NON_AC"
+    },
+    {
+      "line": "trans_harbour",
+      "service_number": "99026",
+      "service_name": "Panvel - Thane",
+      "service_type": "SUBURBAN",
+      "origin": "PNVL",
+      "destination": "TNA",
+      "origin_departure": "09:48",
+      "destination_arrival": "10:40",
+      "running_days": "NOT_SPECIFIED_IN_SOURCE"
+    },
+    {
+      "line": "nerul_uran_port",
+      "service_number": "99602",
+      "service_name": "Uran - Nerul Local",
+      "service_type": "SUBURBAN",
+      "origin": "URAN",
+      "destination": "NEU",
+      "origin_departure": "06:05",
+      "destination_arrival": "06:48",
+      "running_days": "S M T W T F S"
+    }
+  ],
+  "booking_rules": {
+    "allow_intermediate_origin": true,
+    "allow_intermediate_destination": true,
+    "same_service_required": true,
+    "from_sequence_must_be_less_than_to_sequence": true,
+    "selected_segment_only": true,
+    "fare_basis": "selected_segment_distance",
+    "ticket_fields": [
+      "service_number",
+      "from_station",
+      "to_station",
+      "journey_date",
+      "departure_time",
+      "arrival_time",
+      "running_day_rule"
+    ]
+  },
+  "data_quality": {
+    "status": "verified_seed_dataset_not_full_operational_timetable",
+    "reason": "A complete booking dataset needs station-by-station timings for every service in both directions and explicit day/holiday rules. Sources expose different levels of detail, so missing values are not invented.",
+    "next_step": "Extract the complete station tables service-by-service before enabling every service for segment-level booking."
+  }
+}

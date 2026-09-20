@@ -16,7 +16,7 @@ class RouteStation(models.Model):
     route = models.ForeignKey(Route, on_delete=models.CASCADE, related_name='stations')
     station = models.ForeignKey('stations.Station', on_delete=models.CASCADE)
     sequence_number = models.PositiveIntegerField()
-    distance_from_source = models.PositiveIntegerField(help_text="Distance in km")
+    distance_from_source = models.PositiveIntegerField(help_text="Distance in km", null=True, blank=True)
     arrival_time = models.TimeField(null=True, blank=True)
     departure_time = models.TimeField(null=True, blank=True)
     journey_day = models.PositiveIntegerField(default=1)

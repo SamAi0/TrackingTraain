@@ -316,8 +316,12 @@
                                 <span class="fw-bold text-railway">${train.name}</span> <span class="badge ${badgeType} ms-1">${train.normalized_type}</span><br>
                                 <span class="text-muted small fw-bold">#${train.number}</span>
                             </td>
-                            <td class="fw-bold">10:00 AM</td>
-                            <td class="fw-bold">08:00 PM</td>
+                            <td class="fw-bold">${train.departure_time || 'N/A'}</td>
+                            <td class="fw-bold text-success">
+                                <i class="bi bi-arrow-down d-block text-center small text-muted"></i>
+                                ${train.timetable_complete ? '' : '<span class="badge bg-warning text-dark d-block">Incomplete Data</span>'}
+                            </td>
+                            <td class="fw-bold">${train.arrival_time || 'N/A'}</td>
                             <td class="text-center">
                                 <button class="btn btn-sm btn-primary fw-bold select-train-btn px-2 me-1" data-id="${train.number}" data-name="${train.name}" data-type="${train.normalized_type}">Book</button>
                                 <button class="btn btn-sm btn-outline-info fw-bold view-route-btn px-2 me-1" data-id="${train.number}" data-name="${train.name}">Route</button>
@@ -369,7 +373,7 @@
                             rList.innerHTML = '';
                             rLoading.classList.remove('d-none');
 
-                            fetch(`http://127.0.0.1:8000/api/trains/${tNo}/route/`)
+                            fetch(`http://127.0.0.1:8000/api/trains/${tNo}/route/?source=${src}&destination=${dst}`)
                                 .then(res => res.json())
                                 .then(data => {
                                     rLoading.classList.add('d-none');

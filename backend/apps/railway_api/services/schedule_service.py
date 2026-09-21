@@ -12,7 +12,7 @@ class ScheduleService(BaseRailwayService):
         if not train_number:
             return ResponseNormalizer.error("train_number is required", error_code="INVALID_REQUEST")
             
-        endpoint = "getTrainScheduleV2" if is_v2 else "getTrainSchedule"
+        endpoint = "/api/v1/getTrainSchedule"
         
         try:
             raw_data = cls.request(endpoint, params={"trainNo": train_number})
@@ -31,7 +31,7 @@ class ScheduleService(BaseRailwayService):
             if "trainName" in data_dict:
                 schedule_data["train_name"] = data_dict["trainName"]
                 
-            stations_list = data_dict.get("stationList", []) if is_v2 else data_dict.get("route", [])
+            stations_list = data_dict.get("route", [])
             
             for st in stations_list:
                 schedule_data["stations"].append({

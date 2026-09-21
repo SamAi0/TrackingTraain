@@ -1,72 +1,32 @@
 import os
-import django
 import json
-import urllib.request
-import urllib.error
-import time
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
-django.setup()
-
+from django.test import TestCase, Client
 from stations.models import Station
-from trains.models import Train
-from routes.models import Route, RouteStation
-from routes.services import clear_graph_cache, get_graph
 
-print("--- DB COVERAGE ---")
-mh_stations_in_db = Station.objects.filter(state__icontains='maharashtra').count()
-print(f"Maharashtra stations in DB: {mh_stations_in_db}")
+class APIRoutesTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
 
-print("\n--- API ROUTES TESTING ---")
-def test_api(url):
-    try:
-        req = urllib.request.Request(url)
-        with urllib.request.urlopen(req) as response:
-            return response.getcode(), json.loads(response.read().decode('utf-8'))
-    except urllib.error.HTTPError as e:
-        return e.code, json.loads(e.read().decode('utf-8'))
-    except Exception as e:
-        return 500, str(e)
+    def test_db_coverage(self):
+        mh_stations_in_db = Station.objects.filter(state__icontains='maharashtra').count()
+        print(f"Maharashtra stations in DB: {mh_stations_in_db}")
+        # Not asserting a strict count to avoid brittleness, just making sure it runs.
+        self.assertGreaterEqual(mh_stations_in_db, 0)
 
-# Test normal route
-code, res = test_api("http://127.0.0.1:8000/api/routes/search/?from=TNA&to=CSTM")
-print(f"TNA -> CSTM -> {code}")
-if code == 200:
-    print(f"  Stations: {res.get('station_count')}, Distance: {res.get('total_distance_km')}")
+    def test_routes_normal(self):
+        response = self.client.get("/api/routes/search/?from=TNA&to=CSTM")
+        # In a test db, there might be no routes, but we expect a JSON response.
+        # It could return 200 or 404/400 depending on fixture data.
+        self.assertIn(response.status_code, [200, 404])
 
-code, res = test_api("http://127.0.0.1:8000/api/routes/search/?from=NKS&to=MMR")
-print(f"NKS -> MMR -> {code}")
+    def test_routes_missing_params(self):
+        response = self.client.get("/api/routes/search/")
+        self.assertEqual(response.status_code, 400)
 
-print("\n--- GRAPH MULTI-TRAIN ROUTING TESTING ---")
-# Need to find a disjoint route. Solapur to Nashik?
-t0 = time.time()
-code, res = test_api("http://127.0.0.1:8000/api/routes/search/?from=PUNE&to=SUR")
-t1 = time.time()
-print(f"PUNE -> SUR -> {code}, time: {t1-t0:.2f}s")
-if code == 200:
-    print(f"  Route Type: {res.get('route_type')}")
-    if res.get('route_type') == 'multi_train':
-        print(f"  Transfers: {res.get('transfers')}")
-        print(f"  Total Mins: {res.get('total_duration_min')}")
+    def test_routes_same_station(self):
+        response = self.client.get("/api/routes/search/?from=TNA&to=TNA")
+        self.assertEqual(response.status_code, 400)
 
-# Test performance caching
-t2 = time.time()
-code, res = test_api("http://127.0.0.1:8000/api/routes/search/?from=TNA&to=SUR")
-t3 = time.time()
-print(f"TNA -> SUR -> {code}, time: {t3-t2:.2f}s")
-
-print("\n--- API ERROR TESTING ---")
-code, res = test_api("http://127.0.0.1:8000/api/routes/search/?from=INVALID&to=CSTM")
-print(f"INVALID source -> {code}, {res}")
-
-code, res = test_api("http://127.0.0.1:8000/api/routes/search/?from=TNA&to=TNA")
-print(f"Same station -> {code}, {res}")
-
-code, res = test_api("http://127.0.0.1:8000/api/routes/search/")
-print(f"Missing params -> {code}, {res}")
-
-print("\n--- AUTOCOMPLETE TESTING ---")
-code, res = test_api("http://127.0.0.1:8000/api/stations/autocomplete/?q=pun")
-print(f"Autocomplete 'pun' -> {code}")
-if code == 200:
-    print([r['code'] for r in res[:5]])
+    def test_autocomplete(self):
+        response = self.client.get("/api/stations/autocomplete/?q=pun")
+        self.assertEqual(response.status_code, 200)

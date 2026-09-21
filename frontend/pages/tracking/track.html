@@ -62,8 +62,10 @@
                                 <p class="text-muted small mb-0"><i class="bi bi-clock-history"></i> Last Updated: <span id="resUpdate">-</span></p>
                             </div>
                             <div class="col-md-6 text-md-end mt-3 mt-md-0" id="badgeContainer">
-                                <span class="badge bg-secondary text-white me-2 fw-bold fs-6 px-3 py-2" id="sourceBadge">LIVE DATA</span>
-                                <span class="badge badge-running fs-6 px-3 py-2" id="resStatusBadge">Status</span>
+                                <span id="sourceBadgeContainer">
+                                    <span class="data-badge data-badge-live ms-2 fs-7" id="sourceBadge"><div class="data-indicator"></div> LIVE DATA</span>
+                                </span>
+                                <span class="badge badge-running fs-6 px-3 py-2 ms-2" id="resStatusBadge">Status</span>
                             </div>
                         </div>
                         
@@ -214,13 +216,11 @@
                     document.getElementById('resTrainName').innerText = `${data.train_number} - ${data.train_name}`;
                     document.getElementById('resUpdate').innerText = data.last_updated || new Date().toLocaleTimeString();
                     
-                    const sourceBadge = document.getElementById('sourceBadge');
+                    const sourceBadgeContainer = document.getElementById('sourceBadgeContainer');
                     if (data.simulated || !data.is_live) {
-                        sourceBadge.className = 'badge bg-warning text-dark me-2 fw-bold fs-6 px-3 py-2 border border-dark';
-                        sourceBadge.innerText = '🟠 SIMULATED DATA';
+                        sourceBadgeContainer.innerHTML = `<span class="data-badge data-badge-simulated ms-2 fs-7" id="sourceBadge"><div class="data-indicator"></div> SIMULATED DATA</span>`;
                     } else {
-                        sourceBadge.className = 'badge bg-secondary text-white me-2 fw-bold fs-6 px-3 py-2';
-                        sourceBadge.innerText = '🟢 LIVE DATA';
+                        sourceBadgeContainer.innerHTML = `<span class="data-badge data-badge-live ms-2 fs-7" id="sourceBadge"><div class="data-indicator"></div> LIVE DATA</span>`;
                     }
                     
                     // Status Badge

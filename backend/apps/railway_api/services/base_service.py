@@ -10,17 +10,22 @@ class BaseRailwayService:
     @classmethod
     def get_headers(cls):
         return {
-            "x-rapidapi-key": os.getenv("RAILWAY_API_KEY", ""),
-            "x-rapidapi-host": os.getenv("RAILWAY_API_HOST", "irctc1.p.rapidapi.com")
+            "x-rapidapi-key": settings.RAPIDAPI_KEY,
+            "x-rapidapi-host": settings.RAPIDAPI_HOST
         }
     
     @classmethod
     def get_base_url(cls):
-        return os.getenv("RAILWAY_API_BASE_URL", f"https://{os.getenv('RAILWAY_API_HOST', 'irctc1.p.rapidapi.com')}/api/v3")
+        return f"https://{settings.RAPIDAPI_HOST}"
     
     @classmethod
     def request(cls, endpoint, params=None):
-        url = f"{cls.get_base_url()}/{endpoint}"
+        # Allow passing full path (e.g. /api/v1/searchStation) or just the endpoint
+        if endpoint.startswith('/'):
+            url = f"{cls.get_base_url()}{endpoint}"
+        else:
+            url = f"{cls.get_base_url()}/api/v3/{endpoint}"
+            
         try:
             response = requests.get(
                 url, 

@@ -11,7 +11,7 @@ class AvailabilityService(BaseRailwayService):
         if not all([train_number, from_stn, to_stn, date, class_code]):
             return ResponseNormalizer.error("Missing required parameters", error_code="INVALID_REQUEST")
             
-        endpoint = "checkSeatAvailabilityV2" if is_v2 else "checkSeatAvailability"
+        endpoint = "/api/v1/checkSeatAvailability"
         params = {
             "trainNo": train_number,
             "fromStationCode": from_stn,

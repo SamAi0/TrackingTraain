@@ -29,29 +29,40 @@
                         <h4 class="fw-bold text-railway mb-0"><i class="bi bi-search me-2"></i> Plan My Journey</h4>
                     </div>
                     <div class="card-body p-4">
-                        <form id="searchForm" class="row g-3">
-                            <div class="col-md-5">
-                                <label class="form-label text-muted small fw-bold">From Station</label>
-                                <div class="input-group position-relative">
-                                    <span class="input-group-text bg-light"><i class="bi bi-geo-alt"></i></span>
-                                    <input type="text" class="form-control clean-input border-start-0 ps-0 autocomplete-input" id="source" data-target="sourceList" placeholder="Source Code (e.g. NDLS)" required autocomplete="off">
-                                    <ul class="dropdown-menu w-100 shadow-sm" id="sourceList" style="max-height: 250px; overflow-y: auto;"></ul>
+                            <div class="row align-items-end">
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label text-muted small fw-bold">From Station</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0"><i class="bi bi-geo-alt text-railway"></i></span>
+                                        <input type="text" class="form-control clean-input border-start-0 ps-0 autocomplete-input" id="source" data-target="sourceList" placeholder="Source (e.g. NDLS)" required autocomplete="off">
+                                    </div>
+                                    <ul class="dropdown-menu shadow-sm w-100" id="sourceList" style="max-height: 250px; overflow-y: auto;"></ul>
                                 </div>
-                            </div>
-                            <div class="col-md-2 d-flex align-items-center justify-content-center pt-4">
-                                <button type="button" class="btn btn-light border rounded-circle"><i class="bi bi-arrow-left-right text-muted"></i></button>
-                            </div>
-                            <div class="col-md-5">
-                                <label class="form-label text-muted small fw-bold">To Station</label>
-                                <div class="input-group position-relative">
-                                    <span class="input-group-text bg-light"><i class="bi bi-geo"></i></span>
-                                    <input type="text" class="form-control clean-input border-start-0 ps-0 autocomplete-input" id="destination" data-target="destinationList" placeholder="Destination (e.g. BCT)" required autocomplete="off">
-                                    <ul class="dropdown-menu w-100 shadow-sm" id="destinationList" style="max-height: 250px; overflow-y: auto;"></ul>
+                                
+                                <div class="col-md-1 mb-3 d-flex justify-content-center align-items-center pb-2">
+                                    <button type="button" class="btn btn-light rounded-circle shadow-sm border"><i class="bi bi-arrow-left-right text-muted"></i></button>
                                 </div>
-                            </div>
-                            
-                            <div class="col-12 mt-4 text-center">
-                                <button type="submit" class="btn btn-railway px-5 py-2 fs-5" id="searchBtn">Search Trains</button>
+                                
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label text-muted small fw-bold">To Station</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0"><i class="bi bi-geo text-railway"></i></span>
+                                        <input type="text" class="form-control clean-input border-start-0 ps-0 autocomplete-input" id="destination" data-target="destinationList" placeholder="Destination (e.g. BCT)" required autocomplete="off">
+                                    </div>
+                                    <ul class="dropdown-menu shadow-sm w-100" id="destinationList" style="max-height: 250px; overflow-y: auto;"></ul>
+                                </div>
+                                
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label text-muted small fw-bold">Journey Date</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0"><i class="bi bi-calendar3 text-railway"></i></span>
+                                        <input type="date" class="form-control clean-input border-start-0 ps-0" id="journeyDate" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-2 mb-3">
+                                    <button type="submit" class="btn btn-railway w-100 py-2 fs-6" id="searchBtn">Search</button>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -178,6 +189,11 @@
         let selectedDst = null;
 
         document.addEventListener('DOMContentLoaded', function() {
+            // Set default date to today
+            const today = new Date().toISOString().split('T')[0];
+            const dateInput = document.getElementById('journeyDate');
+            if (dateInput) dateInput.value = today;
+            
             const token = localStorage.getItem('access_token');
             if(!token) {
                 document.getElementById('authAlert').classList.remove('d-none');
@@ -307,7 +323,9 @@
                     tableContainer.classList.remove('d-none');
                     tbody.innerHTML = '';
                     
-                    let sourceBadge = `<span class="badge bg-secondary ms-2">${data.meta.source === 'external_api' ? 'LIVE DATA' : 'LOCAL DATABASE'}</span>`;
+                    let badgeClass = data.meta.source === 'external_api' ? 'data-badge-live' : 'data-badge-local';
+                    let badgeText = data.meta.source === 'external_api' ? 'LIVE DATA' : 'LOCAL DATABASE';
+                    let sourceBadge = `<span class="data-badge ${badgeClass} ms-2"><div class="data-indicator"></div> ${badgeText}</span>`;
                     document.querySelector('#trainsList .card-header h5').innerHTML = `<i class="bi bi-list-ul me-2 text-railway"></i> Available Trains ${sourceBadge}`;
                     
                     data.data.forEach(train => {
@@ -403,7 +421,9 @@
                                         return;
                                     }
                                     
-                                    const sourceBadge = `<span class="badge bg-secondary ms-2">${data.meta.source === 'external_api' ? 'LIVE DATA' : 'LOCAL DATABASE'}</span>`;
+                                    let routeBadgeClass = data.meta.source === 'external_api' ? 'data-badge-live' : 'data-badge-local';
+                                    let routeBadgeText = data.meta.source === 'external_api' ? 'LIVE DATA' : 'LOCAL DATABASE';
+                                    const sourceBadge = `<span class="data-badge ${routeBadgeClass} ms-2 fs-7"><div class="data-indicator"></div> ${routeBadgeText}</span>`;
                                     document.getElementById('routeModalTitle').innerHTML = `Route: ${tName} (${tNo}) ${sourceBadge}`;
                                     
                                     data.data.stations.forEach((st, idx) => {
@@ -478,7 +498,7 @@
                 train_number: selectedTrainId,
                 source_code: selectedSrc, 
                 destination_code: selectedDst,
-                date_of_journey: new Date().toISOString().split('T')[0],
+                date_of_journey: document.getElementById('journeyDate') ? document.getElementById('journeyDate').value : new Date().toISOString().split('T')[0],
                 ticket_class: selectedTrainType !== 'LOCAL' ? document.getElementById('ticketClass').value : '',
                 passengers: passengers
             };

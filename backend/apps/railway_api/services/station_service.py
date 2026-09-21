@@ -15,7 +15,7 @@ class StationService(BaseRailwayService):
             
         try:
             # Try External API First
-            raw_data = cls.request("searchStation", params={"searchRules": query})
+            raw_data = cls.request("/api/v1/searchStation", params={"searchRules": query})
             
             # Normalize RapidAPI response
             stations = []
@@ -78,7 +78,7 @@ class StationService(BaseRailwayService):
             return ResponseNormalizer.error("station_code is required", error_code="INVALID_REQUEST")
             
         try:
-            raw_data = cls.request("getTrainsByStation", params={"stationCode": station_code})
+            raw_data = cls.request("/api/v3/getTrainsByStation", params={"stationCode": station_code})
             
             data_dict = raw_data.get("data", {}) if isinstance(raw_data, dict) else {}
             trains_list = data_dict.get("trains", []) if isinstance(data_dict, dict) else []
@@ -134,7 +134,7 @@ class StationService(BaseRailwayService):
             return ResponseNormalizer.error("station_code is required", error_code="INVALID_REQUEST")
             
         try:
-            raw_data = cls.request("getLiveStation", params={"stationCode": station_code, "hours": 2})
+            raw_data = cls.request("/api/v3/getLiveStation", params={"stationCode": station_code, "hours": 2})
             
             data_dict = raw_data.get("data", {}) if isinstance(raw_data, dict) else {}
             trains_list = data_dict.get("trains", []) if isinstance(data_dict, dict) else []

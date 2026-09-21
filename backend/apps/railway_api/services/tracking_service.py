@@ -18,7 +18,7 @@ class TrackingService(BaseRailwayService):
             params["startDay"] = date
             
         try:
-            raw_data = cls.request("getTrainLiveStatus", params=params)
+            raw_data = cls.request("/api/v1/liveTrainStatus", params=params)
             
             data_dict = raw_data.get("data", {}) if isinstance(raw_data, dict) else {}
             

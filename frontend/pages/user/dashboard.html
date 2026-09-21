@@ -143,8 +143,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3 text-center border-start">
-                                    <a href="../pnr/status.html?pnr=${booking.pnr_record ? booking.pnr_record.pnr_number : ''}" class="btn btn-outline-primary btn-sm fw-bold mb-2 w-100 ${booking.pnr_record ? '' : 'disabled'}">View Ticket</a>
-
+                                    <a href="../booking/ticket.html?booking_id=${booking.id}" class="btn btn-outline-primary btn-sm fw-bold mb-2 w-100 ${booking.pnr_record ? '' : 'disabled'}"><i class="bi bi-ticket-perforated me-1"></i> E-Ticket</a>
+                                    <a href="../booking/invoice.html?booking_id=${booking.id}" class="btn btn-outline-secondary btn-sm fw-bold w-100"><i class="bi bi-receipt me-1"></i> Invoice</a>
                                 </div>
                             </div>
                         </div>

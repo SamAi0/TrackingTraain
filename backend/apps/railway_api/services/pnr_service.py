@@ -12,7 +12,7 @@ class PNRService(BaseRailwayService):
             return ResponseNormalizer.error("Valid 10-digit PNR is required", error_code="INVALID_REQUEST")
             
         try:
-            raw_data = cls.request("getPNRStatusV3", params={"pnr": pnr_number})
+            raw_data = cls.request("/api/v3/getPNRStatus", params={"pnrNumber": pnr_number})
             data_dict = raw_data.get("data", {}) if isinstance(raw_data, dict) else {}
             
             if not data_dict:

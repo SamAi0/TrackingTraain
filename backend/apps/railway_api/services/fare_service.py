@@ -19,7 +19,7 @@ class FareService(BaseRailwayService):
         }
         
         try:
-            raw_data = cls.request("getFare", params=params)
+            raw_data = cls.request("/api/v1/getFare", params=params)
             
             # Note: User mentioned 'GetFare' is deprecated, but maybe 'getFare' v3 is used?
             # Let's normalize assuming a common format or just fallback if it fails.

@@ -15,7 +15,7 @@ class TrainService(BaseRailwayService):
             
         try:
             # Try External API First
-            raw_data = cls.request("searchTrain", params={"search": query})
+            raw_data = cls.request("/api/v1/searchTrain", params={"search": query})
             
             # Normalize RapidAPI response
             trains = []
@@ -80,7 +80,7 @@ class TrainService(BaseRailwayService):
             
         try:
             # External API
-            raw_data = cls.request("trainBetweenStations", params=params)
+            raw_data = cls.request("/api/v3/trainBetweenStations", params=params)
             
             trains = []
             results = raw_data.get("data", []) if isinstance(raw_data, dict) else raw_data
@@ -167,7 +167,7 @@ class TrainService(BaseRailwayService):
             return ResponseNormalizer.error("train_number is required", error_code="INVALID_REQUEST")
             
         try:
-            raw_data = cls.request("getTrainClasses", params={"trainNo": train_number})
+            raw_data = cls.request("/api/v1/getTrainClasses", params={"trainNo": train_number})
             
             data_dict = raw_data.get("data", {}) if isinstance(raw_data, dict) else {}
             classes = data_dict.get("classList", [])

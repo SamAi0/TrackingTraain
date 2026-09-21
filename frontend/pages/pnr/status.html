@@ -43,7 +43,9 @@
                                 <h4 class="mb-0 fw-bold" id="resPnr">-</h4>
                             </div>
                             <div class="text-end">
-                                <span class="badge bg-secondary text-white mb-2 fw-bold" id="sourceBadge">LIVE DATA</span><br>
+                                <span id="sourceBadgeContainer">
+                                    <span class="data-badge data-badge-live mb-2 fs-7" id="sourceBadge"><div class="data-indicator"></div> LIVE DATA</span>
+                                </span><br>
                                 <span class="small text-white-50 text-uppercase letter-spacing-1">Booking Date</span>
                                 <h6 class="mb-0 fw-bold" id="resDate">-</h6>
                             </div>
@@ -148,13 +150,11 @@
                     document.getElementById('resPnr').innerText = payload.pnr;
                     document.getElementById('resDate').innerText = payload.journey_date || '-';
                     
-                    const sourceBadge = document.getElementById('sourceBadge');
+                    const sourceBadgeContainer = document.getElementById('sourceBadgeContainer');
                     if(data.meta.source === 'external_api') {
-                        sourceBadge.innerText = '🟢 LIVE DATA';
-                        sourceBadge.className = 'badge bg-secondary text-white mb-2 fw-bold';
+                        sourceBadgeContainer.innerHTML = `<span class="data-badge data-badge-live mb-2 fs-7" id="sourceBadge"><div class="data-indicator"></div> LIVE DATA</span>`;
                     } else {
-                        sourceBadge.innerText = '🟠 LOCAL DATABASE';
-                        sourceBadge.className = 'badge bg-warning text-dark border border-dark mb-2 fw-bold';
+                        sourceBadgeContainer.innerHTML = `<span class="data-badge data-badge-local mb-2 fs-7" id="sourceBadge"><div class="data-indicator"></div> LOCAL DATABASE</span>`;
                     }
                     
                     document.getElementById('resTrain').innerText = `${payload.train_number} - ${payload.train_name}`;

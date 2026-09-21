@@ -10,10 +10,11 @@
     <script src="../../js/auth.js"></script>
     <style>
         body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .ticket-container { max-width: 800px; margin: 40px auto; background: #fff; border: 2px solid #333; padding: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .ticket-header { background: #fff; padding: 20px; border-bottom: 2px solid #333; text-align: center; }
+        .ticket-container { max-width: 800px; margin: 40px auto; background: #fff; border: 2px solid var(--text-dark); padding: 0; box-shadow: var(--shadow); }
+        .ticket-header { background: #fff; padding: 20px; border-bottom: 2px solid var(--text-dark); text-align: center; position: relative; }
         .ticket-body { padding: 30px; }
         .tkt-title { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; }
+        .qr-placeholder { position: absolute; right: 20px; top: 15px; width: 60px; height: 60px; }
         .info-box { border: 1px solid #ddd; padding: 10px; border-radius: 4px; background: #fdfdfd; }
         .pass-table th { background: #eee !important; color: #333; border: 1px solid #333; }
         .pass-table td { border: 1px solid #333; }
@@ -41,7 +42,15 @@
 
         <div id="ticketContent" class="d-none">
             <div class="ticket-header">
-                <div class="tkt-title">TRACKEASE ELECTRONIC RESERVATION SLIP (ERS)</div>
+                <div class="tkt-title">TRACKEASE ELECTRONIC RESERVATION SLIP</div>
+                <div class="text-muted small fw-bold mt-1">Authorized E-Ticketing Partner</div>
+                <!-- Fake QR Code SVG -->
+                <svg class="qr-placeholder" viewBox="0 0 100 100" fill="#333">
+                    <path d="M0,0 h30 v30 h-30 z M10,10 h10 v10 h-10 z" />
+                    <path d="M70,0 h30 v30 h-30 z M80,10 h10 v10 h-10 z" />
+                    <path d="M0,70 h30 v30 h-30 z M10,80 h10 v10 h-10 z" />
+                    <path d="M40,10 h20 v10 h-20 z M40,80 h20 v10 h-20 z M80,40 h10 v20 h-10 z M10,40 h10 v20 h-10 z M40,40 h20 v20 h-20 z M70,70 h10 v10 h-10 z M90,90 h10 v10 h-10 z M50,50 h10 v10 h-10 z" />
+                </svg>
             </div>
 
             <div class="ticket-body">

@@ -43,6 +43,7 @@
                                 <h4 class="mb-0 fw-bold" id="resPnr">-</h4>
                             </div>
                             <div class="text-end">
+                                <span class="badge bg-secondary text-white mb-2 fw-bold" id="sourceBadge">LIVE DATA</span><br>
                                 <span class="small text-white-50 text-uppercase letter-spacing-1">Booking Date</span>
                                 <h6 class="mb-0 fw-bold" id="resDate">-</h6>
                             </div>
@@ -79,9 +80,9 @@
                                     <h5 class="fw-bold mt-1 text-dark" id="resClass">SL</h5>
                                 </div>
                                 <div class="col-6">
-                                    <span class="text-muted small text-uppercase fw-bold">Current Status</span>
+                                    <span class="text-muted small text-uppercase fw-bold">Chart Status</span>
                                     <div class="mt-1">
-                                        <span class="badge badge-cnf fs-6 px-3 py-2" id="resStatus">CNF</span>
+                                        <span class="badge badge-cnf fs-6 px-3 py-2" id="resStatus">CHART NOT PREPARED</span>
                                     </div>
                                 </div>
                             </div>
@@ -129,10 +130,10 @@
             btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
             btn.disabled = true;
 
-            fetch(`http://127.0.0.1:8000/api/pnr/${pnr}/`)
+            fetch(`http://127.0.0.1:8000/api/railway/pnr/${pnr}/`)
                 .then(async response => {
                     const data = await response.json();
-                    if(!response.ok) throw new Error(data.error || "PNR details not found. Please verify the number.");
+                    if(!data.success) throw new Error(data.error || "PNR details not found. Please verify the number.");
                     return data;
                 })
                 .then(data => {
@@ -142,33 +143,46 @@
                     resultDiv.classList.remove('d-none');
                     errorAlert.classList.add('d-none');
 
-                    document.getElementById('resPnr').innerText = data.pnr_number;
-                    document.getElementById('resDate').innerText = data.date_of_journey || '-';
-                    
-                    document.getElementById('resTrain').innerText = `${data.train.number} - ${data.train.name}`;
-                    document.getElementById('resSrc').innerText = data.source.code;
-                    document.getElementById('resDest').innerText = data.destination.code;
-                    
-                    const statusElem = document.getElementById('resStatus');
-                    statusElem.innerText = data.status;
+                    const payload = data.data;
 
-                    if(data.status === 'CONFIRMED') {
-                        statusElem.className = "badge badge-cnf fs-6 px-3 py-2";
-                    } else if (data.status === 'RAC') {
-                        statusElem.className = "badge badge-rac fs-6 px-3 py-2";
+                    document.getElementById('resPnr').innerText = payload.pnr;
+                    document.getElementById('resDate').innerText = payload.journey_date || '-';
+                    
+                    const sourceBadge = document.getElementById('sourceBadge');
+                    if(data.meta.source === 'external_api') {
+                        sourceBadge.innerText = '🟢 LIVE DATA';
+                        sourceBadge.className = 'badge bg-secondary text-white mb-2 fw-bold';
                     } else {
-                        statusElem.className = "badge badge-wl fs-6 px-3 py-2";
+                        sourceBadge.innerText = '🟠 LOCAL DATABASE';
+                        sourceBadge.className = 'badge bg-warning text-dark border border-dark mb-2 fw-bold';
+                    }
+                    
+                    document.getElementById('resTrain').innerText = `${payload.train_number} - ${payload.train_name}`;
+                    document.getElementById('resSrc').innerText = payload.source;
+                    document.getElementById('resDest').innerText = payload.destination;
+                    
+                    document.getElementById('resClass').innerText = payload.class_code;
+                    const statusElem = document.getElementById('resStatus');
+                    statusElem.innerText = payload.chart_status;
+
+                    if(payload.chart_status.includes('PREPARED')) {
+                        statusElem.className = "badge badge-cnf fs-6 px-3 py-2";
+                    } else {
+                        statusElem.className = "badge bg-secondary text-white fs-6 px-3 py-2";
                     }
 
                     const tbody = document.getElementById('resPassengers');
-                    tbody.innerHTML = `
-                        <tr>
-                            <td class="text-center fw-bold">1</td>
-                            <td>${data.passenger_name}</td>
-                            <td class="text-center">${data.passenger_age}</td>
-                            <td class="text-center fw-bold text-success">${data.status} / ${data.seat_number}</td>
-                        </tr>
-                    `;
+                    tbody.innerHTML = '';
+                    payload.passengers.forEach((pax, idx) => {
+                        tbody.innerHTML += `
+                            <tr>
+                                <td class="text-center fw-bold">${pax.passenger_number || idx + 1}</td>
+                                <td>Passenger ${idx + 1}</td>
+                                <td class="text-center">-</td>
+                                <td class="text-center fw-bold text-success">${pax.booking_status} / ${pax.booking_coach}-${pax.booking_berth} ➔ ${pax.current_status} / ${pax.current_coach}-${pax.current_berth}</td>
+                            </tr>
+                        `;
+                    });
                 })
                 .catch(error => {
                     btn.innerText = "Submit";

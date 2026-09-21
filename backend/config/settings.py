@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'bookings',
     'pnr',
     'notifications',
+    'railway_api',
 ]
 
 REST_FRAMEWORK = {

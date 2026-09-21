@@ -30,6 +30,7 @@ urlpatterns = [
     path('api/tracking/', include('tracking.api_urls')),
     path('api/bookings/', include('bookings.api_urls')),
     path('api/routes/', include('routes.api_urls')),
+    path('api/railway/', include('railway_api.urls')),
     # Catch-all route to serve the decoupled frontend files
     re_path(r'^(?P<path>.*)$', frontend_serve),
 ]

@@ -61,8 +61,8 @@
                                 <h4 class="fw-bold text-railway mb-1" id="resTrainName">-</h4>
                                 <p class="text-muted small mb-0"><i class="bi bi-clock-history"></i> Last Updated: <span id="resUpdate">-</span></p>
                             </div>
-                            <div class="col-md-6 text-md-end mt-3 mt-md-0">
-                                <span class="badge bg-warning text-dark me-2 fw-bold fs-6 px-3 py-2 border border-dark" id="demoBadge">🟠 DEMO • SIMULATED LIVE DATA</span>
+                            <div class="col-md-6 text-md-end mt-3 mt-md-0" id="badgeContainer">
+                                <span class="badge bg-secondary text-white me-2 fw-bold fs-6 px-3 py-2" id="sourceBadge">LIVE DATA</span>
                                 <span class="badge badge-running fs-6 px-3 py-2" id="resStatusBadge">Status</span>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                 clearTimeout(debounceTimer);
                 
                 debounceTimer = setTimeout(() => {
-                    fetch(`http://127.0.0.1:8000/api/trains/autocomplete/?q=${q}`)
+                    fetch(`http://127.0.0.1:8000/api/railway/trains/search/?q=${q}`)
                         .then(async res => {
                             const data = await res.json();
                             if (!res.ok) {
@@ -152,9 +152,9 @@
                                 list.innerHTML = '<li class="dropdown-header text-railway fw-bold"><i class="bi bi-star-fill text-warning me-1"></i> Popular Trains</li>';
                             }
                             
-                            data.forEach(t => {
+                            data.data.forEach(t => {
                                 const li = document.createElement('li');
-                                let externalBadge = t.is_external ? ' <span class="badge bg-secondary" style="font-size:0.65rem">EXTERNAL</span>' : '';
+                                let externalBadge = '';
                                 li.innerHTML = `<a class="dropdown-item py-2" href="#"><span class="fw-bold">${t.number}</span> - <span class="text-muted small">${t.name}</span>${externalBadge}</a>`;
                                 li.addEventListener('click', (e) => {
                                     e.preventDefault();
@@ -196,11 +196,11 @@
             btn.disabled = true;
 
             // Fetch from real, verified API backend
-            fetch(`http://127.0.0.1:8000/api/tracking/${train}/`)
+            fetch(`http://127.0.0.1:8000/api/railway/trains/${train}/live/`)
                 .then(async response => {
                     const data = await response.json();
-                    if(!response.ok) throw new Error(data.error || "Tracking data not found for this train.");
-                    return data;
+                    if(!data.success) throw new Error(data.error || "Tracking data not found for this train.");
+                    return data.data;
                 })
                 .then(data => {
                     btn.innerText = "Track Train";
@@ -213,6 +213,15 @@
                     // Header Info
                     document.getElementById('resTrainName').innerText = `${data.train_number} - ${data.train_name}`;
                     document.getElementById('resUpdate').innerText = data.last_updated || new Date().toLocaleTimeString();
+                    
+                    const sourceBadge = document.getElementById('sourceBadge');
+                    if (data.simulated || !data.is_live) {
+                        sourceBadge.className = 'badge bg-warning text-dark me-2 fw-bold fs-6 px-3 py-2 border border-dark';
+                        sourceBadge.innerText = '🟠 SIMULATED DATA';
+                    } else {
+                        sourceBadge.className = 'badge bg-secondary text-white me-2 fw-bold fs-6 px-3 py-2';
+                        sourceBadge.innerText = '🟢 LIVE DATA';
+                    }
                     
                     // Status Badge
                     const badge = document.getElementById('resStatusBadge');

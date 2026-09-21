@@ -71,7 +71,7 @@
                         actionButtons = `
                             <a href="ticket.html?booking_id=${booking.id}" class="btn btn-sm btn-outline-primary fw-bold me-1"><i class="bi bi-ticket me-1"></i>Ticket</a>
                             <a href="invoice.html?booking_id=${booking.id}" class="btn btn-sm btn-outline-dark fw-bold me-1"><i class="bi bi-receipt me-1"></i>Invoice</a>
-                            <a href="../tracking/track.html?train=${booking.train_details.number}" class="btn btn-sm btn-outline-success fw-bold"><i class="bi bi-geo-alt me-1"></i>Track</a>
+
                         `;
                     } else if(booking.status === 'PENDING') {
                         actionButtons = `

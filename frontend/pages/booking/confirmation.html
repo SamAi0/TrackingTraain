@@ -51,7 +51,7 @@
                     <div class="mt-5 d-flex flex-wrap justify-content-center gap-3">
                         <a href="#" id="viewTicketBtn" class="btn btn-primary px-4 fw-bold"><i class="bi bi-ticket-detailed me-2"></i>View Ticket</a>
                         <a href="#" id="viewInvoiceBtn" class="btn btn-outline-dark px-4 fw-bold"><i class="bi bi-receipt me-2"></i>View Invoice</a>
-                        <a href="#" id="trackBtn" class="btn btn-outline-success px-4 fw-bold"><i class="bi bi-geo-alt-fill me-2"></i>Track Train</a>
+
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                 document.getElementById('confRoute').innerText = `${data.source_code} ➔ ${data.destination_code}`;
                 document.getElementById('confAmount').innerText = `₹${data.total_fare}`;
                 
-                document.getElementById('trackBtn').href = `../tracking/track.html?train=${data.train_number}`;
+
             })
             .catch(err => console.error(err));
         });

@@ -40,9 +40,7 @@ function loadNavbar() {
                     <li class="nav-item">
                         <a class="nav-link text-white-50 hover-white px-3" href="${basePath}pages/pnr/status.html">PNR Status</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white-50 hover-white px-3" href="${basePath}pages/tracking/track.html">Live Status</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link text-white-50 hover-white px-3 fw-bold text-white" href="${basePath}pages/stations/stations.html">Station Explorer <span class="badge bg-warning text-dark ms-1">New</span></a>
                     </li>
@@ -100,7 +98,7 @@ function loadFooter() {
                     <ul class="list-unstyled small">
                         <li class="mb-2"><a href="${basePath}pages/booking/book.html" class="text-white-50 text-decoration-none hover-white">Book Ticket</a></li>
                         <li class="mb-2"><a href="${basePath}pages/pnr/status.html" class="text-white-50 text-decoration-none hover-white">PNR Status</a></li>
-                        <li class="mb-2"><a href="${basePath}pages/tracking/track.html" class="text-white-50 text-decoration-none hover-white">Live Tracking</a></li>
+
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-3 col-6">

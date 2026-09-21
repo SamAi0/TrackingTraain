@@ -23,6 +23,13 @@ class TrainSearchAPIView(APIView):
     def get(self, request):
         query = request.query_params.get('q', '')
         result = TrainService.search_train(query)
+        if result.get('success'):
+            from utils.supabase_logger import SupabaseLogger
+            SupabaseLogger.log_activity(
+                user_id=request.user.id if request.user.is_authenticated else None,
+                activity_type='Train Search Autocomplete',
+                metadata={'query': query}
+            )
         return Response(result, status=status.HTTP_200_OK if result.get('success') else status.HTTP_400_BAD_REQUEST)
 
 class TrainsBetweenAPIView(APIView):
@@ -32,11 +39,29 @@ class TrainsBetweenAPIView(APIView):
         date = request.query_params.get('date', None)
         
         result = TrainService.trains_between(from_stn, to_stn, date)
+        if result.get('success'):
+            from utils.supabase_logger import SupabaseLogger
+            SupabaseLogger.log_activity(
+                user_id=request.user.id if request.user.is_authenticated else None,
+                activity_type='Train Search',
+                from_station=from_stn,
+                to_station=to_stn,
+                journey_date=date,
+                data_source=result.get('source')
+            )
         return Response(result, status=status.HTTP_200_OK if result.get('success') else status.HTTP_400_BAD_REQUEST)
 
 class TrainScheduleV2APIView(APIView):
     def get(self, request, train_no):
         result = ScheduleService.get_schedule(train_no, is_v2=True)
+        if result.get('success'):
+            from utils.supabase_logger import SupabaseLogger
+            SupabaseLogger.log_activity(
+                user_id=request.user.id if request.user.is_authenticated else None,
+                activity_type='Train Details Viewed',
+                train_number=train_no,
+                data_source=result.get('source')
+            )
         return Response(result, status=status.HTTP_200_OK if result.get('success') else status.HTTP_404_NOT_FOUND)
 
 class TrainScheduleAPIView(APIView):
@@ -53,11 +78,28 @@ class LiveTrackingAPIView(APIView):
     def get(self, request, train_no):
         date = request.query_params.get('date', None)
         result = TrackingService.get_live_status(train_no, date)
+        if result.get('success'):
+            from utils.supabase_logger import SupabaseLogger
+            SupabaseLogger.log_activity(
+                user_id=request.user.id if request.user.is_authenticated else None,
+                activity_type='Train Tracking',
+                train_number=train_no,
+                journey_date=date,
+                data_source=result.get('source')
+            )
         return Response(result, status=status.HTTP_200_OK if result.get('success') else status.HTTP_404_NOT_FOUND)
 
 class PNRStatusAPIView(APIView):
     def get(self, request, pnr):
         result = PNRService.get_pnr(pnr)
+        if result.get('success'):
+            from utils.supabase_logger import SupabaseLogger
+            SupabaseLogger.log_activity(
+                user_id=request.user.id if request.user.is_authenticated else None,
+                activity_type='PNR Status Check',
+                pnr=pnr,
+                data_source=result.get('source')
+            )
         return Response(result, status=status.HTTP_200_OK if result.get('success') else status.HTTP_404_NOT_FOUND)
 
 class TrainClassesAPIView(APIView):
@@ -95,6 +137,17 @@ class FareAPIView(APIView):
         quota = request.query_params.get('quota', 'GN')
         
         result = FareService.get_fare(train_no, from_stn, to_stn, quota)
+        if result.get('success'):
+            from utils.supabase_logger import SupabaseLogger
+            SupabaseLogger.log_activity(
+                user_id=request.user.id if request.user.is_authenticated else None,
+                activity_type='Fare Checked',
+                train_number=train_no,
+                from_station=from_stn,
+                to_station=to_stn,
+                metadata={'quota': quota},
+                data_source=result.get('source')
+            )
         return Response(result, status=status.HTTP_200_OK if result.get('success') else status.HTTP_400_BAD_REQUEST)
 
 class StationTrainsAPIView(APIView):

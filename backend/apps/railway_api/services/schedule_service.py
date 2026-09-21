@@ -71,8 +71,8 @@ class ScheduleService(BaseRailwayService):
                 schedule_data["stations"].append({
                     "station_code": rs.station.code,
                     "station_name": rs.station.name,
-                    "arrival_time": rs.arrival_time.strftime("%H:%M") if rs.arrival_time else "00:00",
-                    "departure_time": rs.departure_time.strftime("%H:%M") if rs.departure_time else "00:00",
+                    "arrival_time": rs.arrival_time.strftime("%H:%M") if rs.arrival_time else "",
+                    "departure_time": rs.departure_time.strftime("%H:%M") if rs.departure_time else "",
                     "halt_time": "-",
                     "distance": rs.distance_from_source or 0,
                     "day_count": rs.journey_day,

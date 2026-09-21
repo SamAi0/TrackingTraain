@@ -56,6 +56,9 @@ function loadNavbar() {
                 <div class="d-flex auth-buttons" id="navAuthSection">
                     <!-- Auth injected by JS -->
                 </div>
+                <div class="d-flex align-items-center">
+                    <span id="api-status-dot" class="api-status-dot dot-yellow" title="Checking API status..."></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -149,12 +152,89 @@ function setupAuthNav(basePath) {
 }
 
 function logoutUser(basePath) {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('refresh_token');
-    window.location.href = basePath + 'index.html';
+    logFrontendActivity('User Logout');
+    setTimeout(() => {
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+        window.location.href = basePath + 'index.html';
+    }, 200); // Small delay to let the request send
+}
+
+function logFrontendActivity(activityType, metadata = {}) {
+    const token = localStorage.getItem('access_token');
+    
+    fetch('http://127.0.0.1:8000/api/tracking/activity/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            ...(token ? {'Authorization': 'Bearer ' + token} : {})
+        },
+        body: JSON.stringify({
+            activity_type: activityType,
+            ...metadata
+        })
+    }).catch(e => { /* Ignore errors silently */ });
+}
+
+function checkApiStatus() {
+    const dot = document.getElementById('api-status-dot');
+    if(!dot) return;
+    
+    const cached = localStorage.getItem('te_api_health');
+    const cachedTime = localStorage.getItem('te_api_health_time');
+    
+    // Use cache if less than 5 minutes old
+    if (cached && cachedTime && (Date.now() - parseInt(cachedTime)) < 5 * 60 * 1000) {
+        updateApiDot(dot, JSON.parse(cached));
+        return;
+    }
+    
+    // Set checking state
+    dot.className = 'api-status-dot dot-yellow';
+    dot.title = 'API Status: Checking...';
+    
+    fetch('http://127.0.0.1:8000/api/railway/stations/search/?q=CSMT')
+        .then(res => res.json().then(data => ({ status: res.status, ok: res.ok, data })))
+        .then(({ status, ok, data }) => {
+            let statusObj = {
+                source: data.source || 'unknown',
+                is_live: data.is_live || (data.source === 'external_api'),
+                time: new Date().toLocaleTimeString(),
+                fallback: (data.source === 'local_database' || data.source === 'local_mock'),
+                error: !ok
+            };
+            
+            localStorage.setItem('te_api_health', JSON.stringify(statusObj));
+            localStorage.setItem('te_api_health_time', Date.now().toString());
+            updateApiDot(dot, statusObj);
+        })
+        .catch(err => {
+            let statusObj = { source: 'error', is_live: false, fallback: true, error: true, time: new Date().toLocaleTimeString() };
+            updateApiDot(dot, statusObj);
+        });
+}
+
+function updateApiDot(dot, statusObj) {
+    let colorClass = 'dot-red';
+    let statusText = 'Unavailable / Using Fallback';
+    
+    if(!statusObj.error && statusObj.is_live && statusObj.source === 'external_api') {
+        colorClass = 'dot-green';
+        statusText = 'Operational';
+    }
+    
+    dot.className = \`api-status-dot \${colorClass}\`;
+    
+    const tooltipText = \`API Status: \${statusText}
+Data Source: \${statusObj.source.replace('_', ' ')}
+Fallback Active: \${statusObj.fallback ? 'Yes' : 'No'}
+Last Checked: \${statusObj.time}\`;
+
+    dot.title = tooltipText;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     loadNavbar();
     loadFooter();
+    checkApiStatus();
 });

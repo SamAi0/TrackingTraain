@@ -65,7 +65,7 @@ class FareService(BaseRailwayService):
             
             distance = abs((r2.distance_from_source or 0) - (r1.distance_from_source or 0))
             if distance == 0:
-                distance = 100 # Fallback estimate if distance is 0
+                return ResponseNormalizer.error("Distance data unavailable for segment", source="local_database", error_code="DATA_UNAVAILABLE")
                 
             # Get all active fare rules
             rules = FareRule.objects.all()

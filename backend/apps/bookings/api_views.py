@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
+from django.db import transaction
 from .models import Booking, Invoice
 from .serializers import BookingSerializer
 from pnr.models import PNR, Ticket
@@ -13,6 +14,19 @@ class BookingListCreateAPIView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         return Booking.objects.filter(user=self.request.user).order_by('-booking_date')
+
+    def perform_create(self, serializer):
+        booking = serializer.save(user=self.request.user)
+        from utils.supabase_logger import SupabaseLogger
+        SupabaseLogger.log_activity(
+            user_id=self.request.user.id,
+            activity_type='Booking Started',
+            train_number=booking.train.number,
+            from_station=booking.source.code,
+            to_station=booking.destination.code,
+            booking_id=booking.id,
+            journey_date=str(booking.date_of_journey)
+        )
 
 class BookingDetailAPIView(generics.RetrieveAPIView):
     serializer_class = BookingSerializer
@@ -34,19 +48,20 @@ class VerifyPaymentAPIView(APIView):
     permission_classes = [IsAuthenticated]
     
     def post(self, request, pk):
-        booking = get_object_or_404(Booking, id=pk, user=request.user)
-        
-        if booking.status != 'PENDING':
-            return Response({'error': 'Booking is not pending payment.'}, status=status.HTTP_400_BAD_REQUEST)
+        with transaction.atomic():
+            booking = get_object_or_404(Booking.objects.select_for_update(), id=pk, user=request.user)
             
-        payment_id = request.data.get('payment_id')
-        if not payment_id:
-            return Response({'error': 'Payment ID is required.'}, status=status.HTTP_400_BAD_REQUEST)
-            
-        # Simulate payment verification
-        booking.status = 'CONFIRMED'
-        booking.payment_id = payment_id
-        booking.save()
+            if booking.status != 'PENDING':
+                return Response({'error': 'Booking is not pending payment.'}, status=status.HTTP_400_BAD_REQUEST)
+                
+            payment_id = request.data.get('payment_id')
+            if not payment_id:
+                return Response({'error': 'Payment ID is required.'}, status=status.HTTP_400_BAD_REQUEST)
+                
+            # Simulate payment verification
+            booking.status = 'CONFIRMED'
+            booking.payment_id = payment_id
+            booking.save()
         
         # Generate PNR
         pnr = PNR.objects.create(booking=booking, status='CONFIRMED')
@@ -72,17 +87,45 @@ class VerifyPaymentAPIView(APIView):
             message=f"Your booking for train {booking.train.number} from {booking.source.code} to {booking.destination.code} is confirmed. PNR: {pnr.pnr_number}."
         )
         
+        from utils.supabase_logger import SupabaseLogger
+        SupabaseLogger.log_activity(
+            user_id=request.user.id,
+            activity_type='Payment Success',
+            booking_id=booking.id,
+            pnr=pnr.pnr_number
+        )
+        SupabaseLogger.log_activity(
+            user_id=request.user.id,
+            activity_type='Booking Confirmed',
+            booking_id=booking.id,
+            pnr=pnr.pnr_number,
+            train_number=booking.train.number,
+            from_station=booking.source.code,
+            to_station=booking.destination.code,
+            journey_date=str(booking.date_of_journey)
+        )
+        
         return Response({'success': True, 'pnr_number': pnr.pnr_number})
 
 class ExpireBookingAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request, pk):
-        booking = get_object_or_404(Booking, id=pk, user=request.user)
-        
-        if booking.status != 'PENDING':
-            return Response({'error': 'Only pending bookings can be expired.'}, status=status.HTTP_400_BAD_REQUEST)
+        with transaction.atomic():
+            booking = get_object_or_404(Booking.objects.select_for_update(), id=pk, user=request.user)
             
-        booking.status = 'EXPIRED'
-        booking.save(update_fields=['status'])
+            if booking.status != 'PENDING':
+                return Response({'error': 'Only pending bookings can be expired.'}, status=status.HTTP_400_BAD_REQUEST)
+                
+            booking.status = 'EXPIRED'
+            booking.save(update_fields=['status'])
+        
+        from utils.supabase_logger import SupabaseLogger
+        SupabaseLogger.log_activity(
+            user_id=request.user.id,
+            activity_type='Booking Cancellation',
+            booking_id=booking.id,
+            train_number=booking.train.number
+        )
+        
         return Response({'success': True, 'message': 'Booking expired and seats released.'})

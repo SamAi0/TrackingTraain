@@ -277,3 +277,18 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 .bg-railway { background-color: var(--railway-blue) !important; }
 .bg-railway-dark { background-color: var(--railway-blue-dark) !important; }
 
+/* API Status Dot */
+.api-status-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 15px;
+    cursor: help;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+
+.dot-green { background-color: var(--accent-green); }
+.dot-red { background-color: var(--accent-red); }
+.dot-yellow { background-color: #ffc107; }

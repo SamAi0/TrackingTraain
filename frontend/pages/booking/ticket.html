@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="../../css/premium.css" rel="stylesheet">
     <script src="../../js/auth.js"></script>
+    <script src="../../js/components.js"></script>
     <style>
         body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .ticket-container { max-width: 800px; margin: 40px auto; background: #fff; border: 2px solid var(--text-dark); padding: 0; box-shadow: var(--shadow); }
@@ -31,7 +32,7 @@
 
     <div class="container d-flex justify-content-end mt-4 no-print" style="max-width: 800px;">
         <button class="btn btn-outline-dark fw-bold me-2" onclick="window.history.back()"><i class="bi bi-arrow-left me-1"></i> Back</button>
-        <button class="btn btn-dark fw-bold" onclick="window.print()"><i class="bi bi-printer me-1"></i> Print Ticket</button>
+        <button class="btn btn-dark fw-bold" onclick="logFrontendActivity('Ticket Downloaded', {booking_id: new URLSearchParams(window.location.search).get('booking_id')}); window.print()"><i class="bi bi-printer me-1"></i> Print Ticket</button>
     </div>
 
     <div class="ticket-container" id="ticketArea">
@@ -161,6 +162,8 @@
             .then(data => {
                 document.getElementById('loading').classList.add('d-none');
                 document.getElementById('ticketContent').classList.remove('d-none');
+                
+                logFrontendActivity('Ticket Viewed', {booking_id: data.id, train_number: data.train_number});
                 
                 document.getElementById('tktPnr').innerText = data.pnr_record?.pnr_number || 'N/A';
                 document.getElementById('tktBookingId').innerText = data.invoice?.transaction_id || `BKG-${data.id}`;

@@ -242,6 +242,48 @@ print("\nTrain count by type:")
 print(df_trains["type"].value_counts())
 ```
 
+## ⚙️ Local Project Setup (TrackEase Application)
+
+If you want to run the full TrackEase Django application locally:
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-repo/trackease.git
+cd trackease
+```
+
+### 2. Set up Virtual Environment
+```bash
+python -m venv venv
+# On Windows
+venv\Scripts\activate
+# On macOS/Linux
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+```bash
+cd backend
+pip install -r requirements.txt
+```
+
+### 4. Configure Environment Variables
+Create a `.env` file in the root directory:
+```env
+SECRET_KEY=your_django_secret_key
+DEBUG=True
+DATABASE_HOST=your_supabase_postgresql_url
+RAPIDAPI_KEY=your_rapidapi_key
+RAPIDAPI_HOST=irctc1.p.rapidapi.com
+```
+
+### 5. Run Migrations & Start Server
+```bash
+python manage.py migrate
+python manage.py runserver
+```
+The frontend will be available at `http://127.0.0.1:8000/`.
+
 ---
 
 ## 💡 Potential Use Cases

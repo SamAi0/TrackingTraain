@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Details | TrackEase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="../../css/premium.css" rel="stylesheet">
+    <style>
+        .header-section {
+            background-color: var(--railway-blue);
+            color: white;
+            padding: 30px 0;
+        }
+        .map-container {
+            height: calc(100vh - 200px);
+            min-height: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+        }
+        .timeline-container {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 15px;
+            bottom: 15px;
+            width: 3px;
+            background-color: #ddd;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 20px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background-color: white;
+            border: 3px solid var(--railway-blue);
+            z-index: 1;
+        }
+        .timeline-item.source::before { border-color: #28a745; background-color: #28a745; }
+        .timeline-item.destination::before { border-color: #dc3545; background-color: #dc3545; }
+        
+        .station-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+        }
+        .station-code {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .time-box {
+            font-family: monospace;
+            font-size: 1.1rem;
+            background: #f8f9fa;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+        }
+        
+        @media (max-width: 991.98px) {
+            .map-container {
+                height: 400px;
+                position: relative;
+                top: 0;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--railway-blue);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../../index.html">
+                <i class="bi bi-train-front me-2"></i>TrackEase
+            </a>
+            <a href="search.html" class="btn btn-outline-light btn-sm"><i class="bi bi-search me-1"></i> New Search</a>
+        </div>
+    </nav>
+
+    <div class="header-section">
+        <div class="container">
+            <div id="loadingHeader">
+                <h2 class="placeholder-glow"><span class="placeholder col-4"></span></h2>
+                <p class="placeholder-glow"><span class="placeholder col-6"></span></p>
+            </div>
+            <div id="trainHeader" class="d-none">
+                <div class="d-flex align-items-center mb-2">
+                    <h2 class="fw-bold mb-0 me-3" id="trainTitle">Train Name</h2>
+                    <span class="badge bg-light text-dark fs-6" id="trainType">EXPRESS</span>
+                </div>
+                <p class="mb-0 fs-5 opacity-75">
+                    <span id="trainSource"></span> <i class="bi bi-arrow-right mx-2"></i> <span id="trainDest"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-5">
+        <div id="errorAlert" class="alert alert-danger d-none"></div>
+        
+        <div class="row" id="contentRow" style="display: none;">
+            <div class="col-lg-5 mb-4 order-2 order-lg-1">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-white py-3">
+                        <h5 class="card-title mb-0 fw-bold"><i class="bi bi-list-ol me-2"></i> Route Schedule</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="timeline-container" id="timelineContainer">
+                            <!-- Timeline items injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-7 order-1 order-lg-2">
+                <div id="map" class="map-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../../js/train_details.js"></script>
+</body>
+</html>

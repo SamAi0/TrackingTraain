@@ -1,34 +1,59 @@
-from django.test import TestCase, Client
-from django.urls import reverse
+import os
+import sys
+import django
+from django.test import Client
 
-class TrainSearchAPITest(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.base_url = '/api/railway/trains/between/'
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings_mysql')
+django.setup()
 
-    def test_search_csmt_pnvl(self):
-        """Test 1: CSMT to PNVL"""
-        response = self.client.get(f'{self.base_url}?from=CSMT&to=PNVL')
-        self.assertEqual(response.status_code, 200)
-        data = response.json()
-        self.assertIn('success', data)
+client = Client()
 
-    def test_search_pnvl_csmt(self):
-        """Test 2: PNVL to CSMT (Reverse direction)"""
-        response = self.client.get(f'{self.base_url}?from=PNVL&to=CSMT')
-        self.assertEqual(response.status_code, 200)
+print("--- Testing Station Autocomplete API ---")
+response = client.get('/api/stations/autocomplete/?q=mumbai', HTTP_HOST='127.0.0.1')
+print(f"Status Code: {response.status_code}")
+data = response.json()
+print(f"Results Count: {len(data)}")
+if data:
+    print(f"First Result: {data[0]['name']} ({data[0]['code']})")
 
-    def test_search_sunday(self):
-        """Test 3: Sunday running day filter"""
-        response = self.client.get(f'{self.base_url}?from=CSMT&to=PNVL&date=2026-09-20')
-        self.assertEqual(response.status_code, 200)
+print("\n--- Testing Train Autocomplete API ---")
+response = client.get('/api/trains/autocomplete/?q=rajdhani', HTTP_HOST='127.0.0.1')
+print(f"Status Code: {response.status_code}")
+data = response.json()
+print(f"Results Count: {len(data)}")
+if data:
+    print(f"First Result: {data[0]['name']} ({data[0]['number']})")
 
-    def test_search_monday(self):
-        """Test 4: Monday running day filter"""
-        response = self.client.get(f'{self.base_url}?from=CSMT&to=PNVL&date=2026-09-21')
-        self.assertEqual(response.status_code, 200)
+print("\n--- Testing Train Search API (BCT to NDLS) ---")
+response = client.get('/api/trains/search/?source=BCT&destination=NDLS', HTTP_HOST='127.0.0.1')
+print(f"Status Code: {response.status_code}")
+data = response.json()
+print(f"Results Count: {len(data)}")
+found_12951 = False
+for tr in data:
+    if tr['number'] == '12951':
+        found_12951 = True
+        print(f"Train 12951 Found! Duration: {tr['duration']}, Dep: {tr['departure_time']}, Arr: {tr['arrival_time']}")
+print(f"Is 12951 in results? {found_12951}")
 
-    def test_search_pnvl_tna(self):
-        """Test 5: PNVL to TNA"""
-        response = self.client.get(f'{self.base_url}?from=PNVL&to=TNA')
-        self.assertEqual(response.status_code, 200)
+print("\n--- Testing Full Route API (12951) ---")
+response = client.get('/api/trains/12951/route/', HTTP_HOST='127.0.0.1')
+print(f"Status Code: {response.status_code}")
+data = response.json()
+print(f"Train: {data.get('train_name')}")
+route = data.get('route', [])
+print(f"Route Stations Count: {len(route)}")
+if route:
+    print(f"First Station: {route[0]['station_name']}")
+    print(f"Last Station: {route[-1]['station_name']}")
+    
+print("\n--- Testing Full Route API with filtering (12951 from BRC to KOTA) ---")
+response = client.get('/api/trains/12951/route/?source=BRC&destination=KOTA', HTTP_HOST='127.0.0.1')
+print(f"Status Code: {response.status_code}")
+data = response.json()
+route = data.get('route', [])
+print(f"Filtered Route Stations Count: {len(route)}")
+if route:
+    print(f"First Station: {route[0]['station_name']}")
+    print(f"Last Station: {route[-1]['station_name']}")

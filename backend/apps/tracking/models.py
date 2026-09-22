@@ -6,9 +6,12 @@ class TrainStatus(models.Model):
         ('ON_TIME', 'On Time'),
         ('DELAYED', 'Delayed'),
         ('CANCELLED', 'Cancelled'),
+        ('HALTED', 'Halted'),
+        ('COMPLETED', 'Completed'),
     )
     train = models.ForeignKey('trains.Train', on_delete=models.CASCADE, related_name='statuses')
     date = models.DateField(default=timezone.now)
+    previous_station = models.ForeignKey('stations.Station', on_delete=models.SET_NULL, null=True, blank=True, related_name='previous_status')
     current_station = models.ForeignKey('stations.Station', on_delete=models.SET_NULL, null=True, related_name='current_status')
     next_station = models.ForeignKey('stations.Station', on_delete=models.SET_NULL, null=True, blank=True, related_name='next_status')
     delay_minutes = models.PositiveIntegerField(default=0)

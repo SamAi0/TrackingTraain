@@ -1,0 +1,203 @@
+train_number,train_name,sequence,station_code,station_name,arrival_time,departure_time,day,latitude,longitude,state,zone,address
+12951,Mumbai Central-New Delhi Rajdhani Express,1,BCT,Mumbai Central,,16:40:00,1,18.970667,72.819383,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,2,MX,Mumbai Mahalakshmi,16:41:00,16:41:00,1,18.982103,72.823908,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,3,PL,Mumbai Lower Parel,16:42:00,16:42:00,1,18.994919,72.82961999999999,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,4,EPR,Mumbai Elphinstone Road,16:43:00,16:43:00,1,19.00694,72.835426,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,5,DDR,MUMBAI DADAR WEST,16:44:00,16:44:00,1,19.019731,72.84346500000001,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,6,MRU,MUMBAI MATUNGA ROAD,16:45:00,16:45:00,1,19.028606,72.847143,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,7,MM,MUMBAI MAHIM JN,16:46:00,16:46:00,1,19.040547,72.84687600000001,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,8,BA,BANDRA,16:47:00,16:47:00,1,19.05445443,72.84045439,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,9,BDTS,MUMBAI BANDRA TERMINUS,16:47:00,16:47:00,1,19.061911,72.840535,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,10,KHAR,KHAR,16:48:00,16:48:00,1,19.069166,72.840078,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,11,STC,SANTA CRUZ,16:49:00,16:49:00,1,19.082018,72.84133899999999,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,12,VLP,VILE PARLE,16:50:00,16:50:00,1,19.099273999999998,72.84363,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,13,ADH,ANDHERI,16:52:00,16:52:00,1,19.1174289,72.84685300000001,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,14,JOS,JOGESHWARI,16:53:00,16:53:00,1,19.136550999999997,72.84906600000001,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,15,GMN,GOREGAON,16:55:00,16:55:00,1,19.164447,72.849389,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,16,MDD,MALAD,16:57:00,16:57:00,1,19.187089,72.84917,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,17,KILE,KANDIVLI,16:58:00,16:58:00,1,19.204551,72.852098,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,18,BVI,BORIVALI,17:00:00,17:00:00,1,19.228739,72.85641199999999,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,19,DIC,DAHISAR,17:02:00,17:02:00,1,19.250166,72.859587,Maharashtra,WR,"Mumbai, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,20,MIRA,MIRA ROAD,17:04:00,17:04:00,1,19.280299,72.856072,Maharashtra,WR,"Mira Bhayandar, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,21,BYR,BHAYANDAR,17:06:00,17:06:00,1,19.311766,72.85303900000001,Maharashtra,WR,"Thane, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,22,NIG,NAIGAON,17:09:00,17:09:00,1,19.350875,72.845954,Maharashtra,WR,"Naigaon West, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,23,BSR,VASAI ROAD,17:12:00,17:12:00,1,19.3824486,72.8322217,Maharashtra,WR,"Thane Dist., Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,24,NSP,NALLA SOPARA,17:15:00,17:15:00,1,19.418238000000002,72.819464,Maharashtra,WR,"Nallasopara station Rd, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,25,VR,VIRAR,17:18:00,17:18:00,1,19.454407,72.811737,Maharashtra,WR,"Thane, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,26,VTN,VAITARNA,17:24:00,17:24:00,1,19.517672,72.849578,Maharashtra,WR,"Thane, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,27,SAH,SAPHALE,17:29:00,17:29:00,1,19.576592,72.82182599999999,Maharashtra,WR,"Thane, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,28,KLV,KELVA ROAD,17:33:00,17:33:00,1,19.624601000000002,72.79082100000001,Maharashtra,WR,"Thane, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,29,PLG,PALGHAR,17:39:00,17:39:00,1,19.698038,72.77248,Maharashtra,WR,"Palghar, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,30,UOI,UMROLI,17:43:00,17:43:00,1,19.754447000000003,72.76033699999999,Maharashtra,WR,"Boisar, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,31,BOR,BOISAR,17:47:00,17:47:00,1,19.7985273,72.76189900000001,Maharashtra,WR,"Boisar, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,32,VGN,VANGAON,17:53:00,17:53:00,1,19.882845,72.76318500000001,Maharashtra,WR,"Thane, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,33,DRD,DAHANU ROAD,18:01:00,18:01:00,1,19.991217,72.74336799999999,Maharashtra,WR,"Dahanu, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,34,GVD,GHOLVAD,18:09:00,18:09:00,1,20.08688,72.73799100000001,Maharashtra,WR,"Gholvad, Maharashtra"
+12951,Mumbai Central-New Delhi Rajdhani Express,35,BRRD,BORDI ROAD,18:12:00,18:12:00,1,20.122424,72.766138,Gujarat,WR,"Bordi, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,36,UBR,UMBARGAM ROAD,18:15:00,18:15:00,1,20.153499,72.79082100000001,Gujarat,WR,"Umbergaon, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,37,SJN,SANJAN,18:19:00,18:19:00,1,20.19165,72.820594,Gujarat,WR,"Sanjan, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,38,BLD,BHILAD,18:27:00,18:27:00,1,20.275323200000003,72.887446,Gujarat,WR,"Bhilad, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,39,KEB,KARAMBELI,18:30:00,18:30:00,1,20.316435,72.90153400000001,Gujarat,WR,"National Highway 8, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,40,VAPI,VAPI,18:34:00,18:34:00,1,20.374337999999998,72.90912700000001,Gujarat,WR,"Valsad, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,41,UVD,UDVADA,18:41:00,18:41:00,1,20.461236,72.918698,Gujarat,WR,"Udvada, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,42,PAD,PARDI,18:45:00,18:45:00,1,20.513153,72.92431099999999,Gujarat,WR,"Valsad, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,43,ATUL,ATUL,18:48:00,18:48:00,1,20.544593354,72.9271335858,Gujarat,WR,"Valsad, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,44,BL,VALSAD,18:52:00,18:52:00,1,20.6085595,72.9335291,Gujarat,WR,"Valsad, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,45,DGI,DUNGRI,18:58:00,18:58:00,1,20.687336000000002,72.949119,Gujarat,WR,"NH 8, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,46,JRS,JORAVASAN,19:02:00,19:02:00,1,20.729778,72.96576,Gujarat,WR,"Joravasan, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,47,BIM,BILIMORA JN,19:04:00,19:04:00,1,20.763319,72.970474,Gujarat,WR,"Bilimora, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,48,AML,AMALSAD,19:08:00,19:08:00,1,20.811373000000003,72.956092,Gujarat,WR,"Amalsad, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,49,ACL,ANCHELI,19:11:00,19:11:00,1,20.845167,72.944978,Gujarat,WR,"Navsari, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,50,VDH,VEDCHHA,19:13:00,19:13:00,1,20.874651,72.93641500000001,Gujarat,WR,"Navsari, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,51,NVS,NAVSARI,19:19:00,19:19:00,1,20.946851,72.914294,Gujarat,WR,"Navsari, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,52,MRL,MAROLI,19:24:00,19:24:00,1,21.019949,72.88999799999999,Gujarat,WR,"Maroli, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,53,SCH,SACHIN,19:29:00,19:29:00,1,21.077673,72.874083,Gujarat,WR,"Sachin, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,54,BHET,BHESTAN,19:33:00,19:33:00,1,21.1278829,72.8613128,Gujarat,WR,"Surat, Gujarat"
+12951,Mumbai Central-New Delhi Rajdhani Express,55,UDN,UDHNA JN,19:36:00,19:36:00,1,21.171156,72.851461,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,56,ST,SURAT,19:37:00,19:40:00,1,21.206568,72.840793,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,57,URN,UTRAN,19:43:00,19:43:00,1,21.232602,72.85479600000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,58,KSE,KOSAD,19:45:00,19:45:00,1,21.255892,72.86573000000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,59,GTX,GOTHANGAM,19:47:00,19:47:00,1,21.294043,72.880104,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,60,SYN,SAYAN,19:49:00,19:49:00,1,21.317203,72.890287,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,61,KDSD,KUDSAD,19:54:00,19:54:00,1,21.37682,72.91647999999999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,62,KIM,KIM,19:56:00,19:56:00,1,21.399697,72.926702,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,63,KSB,KOSAMBA JN,20:01:00,20:01:00,1,21.464052,72.95459799999999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,64,HAT,HATHURAN,20:04:00,20:04:00,1,21.501091000000002,72.969512,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,65,PAO,PANOLI,20:09:00,20:09:00,1,21.535197,72.978371,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,66,AKV,ANKLESHWAR JN,20:14:00,20:14:00,1,21.623889,73.000633,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,67,BH,BHARUCH JN,20:20:00,20:20:00,1,21.706907,72.997689,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,68,CVJ,CHAVAJ,20:23:00,20:23:00,1,21.753134000000003,73.010489,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,69,NIU,NABIPUR,20:28:00,20:28:00,1,21.807541,73.030592,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,70,VRE,VAREDIYA,20:33:00,20:33:00,1,21.85838,73.048979,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,71,PLJ,PALEJ,20:37:00,20:37:00,1,21.921578,73.072387,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,72,LKD,LAKODARA,20:42:00,20:42:00,1,21.991872,73.09899399999999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,73,MYGL,MIYAGAM KARJAN JUNCTION NG,20:47:00,20:47:00,1,22.050131999999998,73.119763,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,74,MYG,MIYAGAM KARJAN,20:47:00,20:47:00,1,22.050722,73.120353,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,75,KSPR,KASHIPURA SARAR,20:53:00,20:53:00,1,22.120085999999997,73.145838,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,76,ITA,ITOLA,20:55:00,20:55:00,1,22.149889,73.156746,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,77,VRM,VARNAMA,20:58:00,20:58:00,1,22.184274000000002,73.16928300000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,78,MPR,MAKARPURA,21:02:00,21:02:00,1,22.232706,73.175422,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,79,VS,VISHVAMITRI,21:05:00,21:05:00,1,22.283932999999998,73.178656,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,80,BRC,VADODARA JN,21:06:00,21:22:00,1,22.310756,73.181065,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,81,CYI,CHHAYAPURI,21:29:00,21:29:00,1,22.388284,73.179698,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,82,PIO,PILOL,21:30:00,21:30:00,1,22.39641,73.186675,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,83,AIR,ALINDRA ROAD,21:38:00,21:38:00,1,22.440575,73.239854,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,84,SMLA,SAMLAYA JN,21:42:00,21:42:00,1,22.483966,73.302104,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,85,LAN,LOTANA,21:49:00,21:49:00,1,22.523268,73.363557,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,86,CPN,CHAMPANER RD JN,21:51:00,21:51:00,1,22.541916,73.393378,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,87,BKRL,BAKROL,21:56:00,21:56:00,1,22.5881026822,73.4192042773,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,88,DRL,DEROL,22:01:00,22:01:00,1,22.630205,73.462158,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,89,KRSA,KHARSALIYA,22:10:00,22:10:00,1,22.7050879399,73.55448093439999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,90,GDA,GODHRA JN,22:19:00,22:19:00,1,22.776974,73.603672,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,91,KIZ,KANSUDHI,22:22:00,22:22:00,1,22.789343,73.64823,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,92,CCL,CHANCHELAV,22:27:00,22:27:00,1,22.795825439999998,73.71433934,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,93,SAT,SANT ROAD,22:34:00,22:34:00,1,22.7963945628,73.80040253419999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,94,PPD,PIPLOD JN,22:43:00,22:43:00,1,22.819148000000002,73.9091,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,95,LMK,LIMKHEDA,22:49:00,22:49:00,1,22.833894,73.984515,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,96,MAM,MANGAL MAHUDI,22:56:00,22:56:00,1,22.83578,74.058492,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,97,USRA,USRA,23:01:00,23:01:00,1,22.842055,74.102942,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,98,JKT,JEKOT,23:05:00,23:05:00,1,22.865616,74.15935400000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,99,RET,RENTIA,23:10:00,23:10:00,1,22.863268,74.210847,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,100,DHD,DAHOD,23:13:00,23:13:00,1,22.843607000000002,74.25337400000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,101,BIO,BORDI,23:22:00,23:22:00,1,22.8664871,74.3470986,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,102,ANAS,ANAS,23:28:00,23:28:00,1,22.866009,74.421513,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,103,MGN,MEGHNAGAR,23:39:00,23:39:00,1,22.907459,74.539834,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,104,THDR,THANDLA RD,23:45:00,23:45:00,1,23.032708,74.666939,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,105,BJG,BAJRANGARH,23:50:00,23:50:00,1,23.042607,74.69499300000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,106,PCN,PANCH PIPILA,23:56:00,23:56:00,1,23.06329,74.737549,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,107,AGR,AMARGARH,00:01:00,00:01:00,2,23.080689,74.747038,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,108,BMI,BAMNIA,00:06:00,00:06:00,2,23.0957635,74.7590158,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,109,BOG,BHAIRONGARH,00:20:00,00:20:00,2,23.1449211037,74.7760641077,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,110,RTI,RAOTI,00:24:00,00:24:00,2,23.183572,74.87867399999999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,111,BILD,BILDI,00:25:00,00:25:00,2,23.2255232,74.91853870000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,112,MRN,MORWANI,00:34:00,00:34:00,2,23.2764855209,74.9779687335,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,113,RTM,RATLAM JN,00:40:00,00:43:00,2,23.34038,75.050826,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,114,BOD,BANGROD,00:49:00,00:49:00,2,23.3982156,75.1241457,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,115,RNH,RUNKHERA,00:53:00,00:53:00,2,23.413846043299998,75.1888022272,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,116,KUH,KHACHROD,00:59:00,00:59:00,2,23.442673,75.286337,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,117,BRNA,BERAWANYA,01:03:00,01:03:00,2,23.465605999999998,75.33412200000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,118,NAD,NAGDA JN,01:08:00,01:08:00,2,23.45592,75.41249099999999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,119,RLK,ROHAL KHURD,01:14:00,01:14:00,2,23.482264,75.460561,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,120,MEP,MAHIDPUR ROAD,01:18:00,01:18:00,2,23.567509,75.500338,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,121,LNR,LUNI RICHHA,01:24:00,01:24:00,2,23.660393,75.51367,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,122,VMA,VIKRAMGARH ALOT,01:32:00,01:32:00,2,23.765121,75.53837899999999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,123,THUR,THURIA,01:36:00,01:36:00,2,23.833165,75.55457,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,124,TLZ,TALAVLI,01:42:00,01:42:00,2,23.903499,75.596821,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,125,CMU,CHAU MAHLA,01:45:00,01:45:00,2,23.948204999999998,75.60086100000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,126,NKH,NATHUKHERI,01:51:00,01:51:00,2,24.0200433795,75.64345572270001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,127,SVA,SUWASRA,01:54:00,01:54:00,2,24.069844,75.64834400000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,128,SGZ,SHAMGARH,02:02:00,02:02:00,2,24.191141000000002,75.642842,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,129,GOH,GAROT,02:14:00,02:14:00,2,24.2790919912,75.68432197690001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,130,KRLS,KURLAS,02:15:00,02:15:00,2,24.354200582,75.7260090143,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,131,BWM,BHAWANI MANDI,02:22:00,02:22:00,2,24.419472000000003,75.82981,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,132,DKRA,DHUANKHERI,02:28:00,02:28:00,2,24.504973000000003,75.89805,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,133,JHW,JHALAWAR ROAD,02:32:00,02:32:00,2,24.541893,75.919686,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,134,RMA,RAMGANJ MANDI,02:39:00,02:39:00,2,24.644606,75.939411,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,135,MKX,MORAK,02:44:00,02:44:00,2,24.730953,75.97333900000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,136,KIW,KANWALPURA,02:48:00,02:48:00,2,24.788625,75.98301000000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,137,DARA,DARA,02:53:00,02:53:00,2,24.832608999999998,76.005784,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,138,RDT,RAVTHA ROAD,03:01:00,03:01:00,2,24.933449,75.958203,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,139,DKQ,DHANI KASAR,03:05:00,03:05:00,2,24.9874595619,75.93221182010001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,140,ALNI,ALNIYA,03:08:00,03:08:00,2,25.0316757156,75.90874587280001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,141,DDV,DADHDEVI,03:11:00,03:11:00,2,25.077840000000002,75.898016,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,142,DKNT,DAKANIYA TALAV,03:16:00,03:16:00,2,25.145187999999997,75.865501,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,143,KOTA,KOTA JN,03:20:00,03:30:00,2,25.223553,75.8805,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,144,GQL,GURLA,03:34:00,03:34:00,2,25.270233,75.88526800000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,145,KPTN,KESHORAI PATAN,03:39:00,03:39:00,2,25.324522,75.937733,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,146,ARE,ARNETHA,03:44:00,03:44:00,2,25.3897784806,76.01867416990001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,147,KPZ,KAPREN,03:52:00,03:52:00,2,25.444815000000002,76.08649199999999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,148,GKB,GHATAKA VARANA,03:59:00,03:59:00,2,25.506883,76.160353,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,149,LBN,LABAN,04:05:00,04:05:00,2,25.574304,76.207965,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,150,LKE,LAKHERI,04:10:00,04:10:00,2,25.639864,76.192147,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,151,IDG,INDARGARH,04:17:00,04:17:00,2,25.727874,76.232938,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,152,AMLI,AMLI,04:25:00,04:25:00,2,25.828156,76.286156,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,153,RWJ,RAWANIA DUNGAR,04:30:00,04:30:00,2,25.887841,76.313705,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,154,KTA,KUSHTALA,04:36:00,04:36:00,2,25.961351,76.326705,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,155,SWM,SAWAI MADHOPUR,04:40:00,04:40:00,2,26.018279,76.35622,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,156,RNT,RANTHAMBHORE,04:47:00,04:47:00,2,26.093062999999997,76.41000100000001,Rajasthan,WCR,"MDR 111, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,157,MXL,MOKHOLI,04:53:00,04:53:00,2,26.160967,76.460845,Rajasthan,WCR,"MDR 111, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,158,MLZ,MALARNA,05:00:00,05:00:00,2,26.231078,76.534634,Rajasthan,WCR,"Sawai Madhopur, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,159,NMD,NOMODA,05:05:00,05:05:00,2,26.280074,76.57945000000001,Rajasthan,WCR,"MDR 111, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,160,NNW,NARAYANPUR TATWAR,05:11:00,05:11:00,2,26.344258999999997,76.635578,Rajasthan,WCR,"Sawai Madhopur, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,161,LRU,LALPUR UMRI,05:18:00,05:18:00,2,26.429998,76.680536,Rajasthan,WCR,"SH 1, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,162,GGC,GANGAPUR CITY,05:22:00,05:22:00,2,26.468979,76.72770799999999,Rajasthan,WCR,"Gangapur, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,163,COO,CHHOTI ODAI,05:30:00,05:30:00,2,26.558703,76.805294,Rajasthan,WCR,"SH 25, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,164,PDZ,PILIODA,05:36:00,05:36:00,2,26.606366,76.86438199999999,Rajasthan,WCR,"SH 1, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,165,KNDP,KHANDIP,05:40:00,05:40:00,2,26.641030999999998,76.911821,Rajasthan,WCR,"State Highway 1, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,166,SMBJ,SHRI MAHABIRJI,05:44:00,05:44:00,2,26.684155,76.96766400000001,Rajasthan,WCR,"Karauli, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,167,HAN,HINDAUN CITY,05:51:00,05:51:00,2,26.756164000000002,77.03168600000001,Rajasthan,WCR,"Karauli, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,168,DNHK,DHINDHORA HKMKD,05:57:00,05:57:00,2,26.803925,77.103482,Rajasthan,WCR,"Dhindhora, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,169,FSP,FATEH SINGHPURA,06:00:00,06:00:00,2,26.8216101334,77.1469610779,Rajasthan,WCR,"State Highway 1, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,170,DY,DUMARIYA,06:07:00,06:07:00,2,26.864673,77.234121,Rajasthan,WCR,"State Highway 1, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,171,BXN,BAYANA JN,06:13:00,06:13:00,2,26.916354000000002,77.29713100000001,Rajasthan,WCR,"Bayana, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,172,KEV,KELA DEVI,06:20:00,06:20:00,2,27.015612,77.329069,Rajasthan,WCR,"Bharatpur, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,173,PNGR,PINGORA,06:26:00,06:26:00,2,27.087305999999998,77.37130900000001,Rajasthan,WCR,"SH 1, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,174,JCU,JAICHOLI,06:30:00,06:30:00,2,27.131193,77.397778,Rajasthan,WCR,"SH 1, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,175,SWAR,SEWAR,06:34:00,06:34:00,2,27.177901,77.425499,Rajasthan,WCR,"Bharatpur, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,176,BTE,BHARATPUR JN,06:40:00,06:40:00,2,27.237106999999998,77.488613,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,177,DUM,DHAURMUI JAGHNA,06:45:00,06:45:00,2,27.292281,77.53653800000001,Rajasthan,WCR,"State Highway 33, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,178,RKR,RANIKUND RARAH,06:48:00,06:48:00,2,27.324191,77.55550000000001,Rajasthan,WCR,"Rarah, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,179,JJA,JAJAN PATTI,06:51:00,06:51:00,2,27.354893999999998,77.573854,Rajasthan,WCR,"State Highway 33, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,180,CRG,CHURAMAN NAGRI,06:55:00,06:55:00,2,27.40119,77.61766999999999,Rajasthan,WCR,"SH 33, Rajasthan"
+12951,Mumbai Central-New Delhi Rajdhani Express,181,MSRP,MURHESI RAMPUR,06:56:00,06:56:00,2,27.412426,77.62741799999999,Uttar Pradesh,WCR,"SH 33, Uttar Pradesh"
+12951,Mumbai Central-New Delhi Rajdhani Express,182,MTJ,MATHURA JN,07:02:00,07:02:00,2,27.480145,77.67311699999999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,183,BTSR,BHUTESHWAR,07:04:00,07:04:00,2,27.501369999999998,77.66784,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,184,VRBD,VRINDABAN ROAD,07:09:00,07:09:00,2,27.555461,77.622835,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,185,AJH,AJHAI,07:16:00,07:16:00,2,27.63615,77.55842299999999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,186,CHJ,CHATA,07:22:00,07:22:00,2,27.711992000000002,77.502978,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,187,KSV,KOSI KALAN,07:29:00,07:29:00,2,27.788551,77.445999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,188,HDL,HODAL,07:37:00,07:37:00,2,27.886147,77.38869,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,189,SHLK,SHOLAKA,07:44:00,07:44:00,2,27.973644,77.360583,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,190,RDE,RUNDHI,07:51:00,07:51:00,2,28.067751,77.350991,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,191,PWL,PALWAL,07:57:00,07:57:00,2,28.151841,77.34223200000001,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,192,AST,ASAOTI,08:04:00,08:04:00,2,28.250878,77.323569,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,193,BVH,BALLABGARH,08:11:00,08:11:00,2,28.3408609239,77.312775968,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,194,FDN,FARIDABAD NEW TOWN,08:13:00,08:13:00,2,28.376247999999997,77.30936799999999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,195,FDB,FARIDABAD,08:16:00,08:16:00,2,28.411473,77.30734799999999,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,196,TKD,TUGLAKABAD,08:23:00,08:23:00,2,28.511962999999998,77.294046,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,197,OKA,OKHLA,08:27:00,08:27:00,2,28.559332,77.264825,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,198,NZM,DELHI H NIZAMUDDIN,08:29:00,08:29:00,2,28.587329999999998,77.254249,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,199,PGMD,PRAGATI MAIDAN,08:30:00,08:30:00,2,28.615267999999997,77.247277,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,200,TKJ,TILAK BRIDGE,08:30:00,08:30:00,2,28.627633,77.237995,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,201,CSB,SHIVAJI BRIDGE,08:30:00,08:30:00,2,28.634101,77.226612,,,
+12951,Mumbai Central-New Delhi Rajdhani Express,202,NDLS,NEW DELHI,08:30:00,,2,28.642314,77.22000399999999,,,

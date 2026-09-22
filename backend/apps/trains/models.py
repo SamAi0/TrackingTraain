@@ -6,6 +6,8 @@ class Train(models.Model):
         ('LOCAL', 'Local'),
         ('PASSENGER', 'Passenger'),
         ('SUPERFAST', 'Superfast'),
+        ('SLOW', 'Slow'),
+        ('FAST', 'Fast'),
     )
     number = models.CharField(max_length=10, primary_key=True)
     name = models.CharField(max_length=100)

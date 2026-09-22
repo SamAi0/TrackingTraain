@@ -1,0 +1,47 @@
+station_code,station_name,state,zone,address,latitude,longitude
+ADH,ANDHERI,Maharashtra,WR,"Mumbai, Maharashtra",19.1174289,72.84685300000001
+BA,BANDRA,Maharashtra,WR,"Mumbai, Maharashtra",19.05445443,72.84045439
+BAP,BELAPUR,,,,19.619569311800003,74.6617443079
+BCT,Mumbai Central,Maharashtra,WR,"Mumbai, Maharashtra",18.970667,72.819383
+BDTS,MUMBAI BANDRA TERMINUS,Maharashtra,WR,"Mumbai, Maharashtra",19.061911,72.840535
+BSR,VASAI ROAD,Maharashtra,WR,"Thane Dist., Maharashtra",19.3824486,72.8322217
+BVI,BORIVALI,Maharashtra,WR,"Mumbai, Maharashtra",19.228739,72.85641199999999
+BY,BYCULLA,Maharashtra,CR,"Mumbai, Maharashtra",18.97695,72.833211
+BYR,BHAYANDAR,Maharashtra,WR,"Thane, Maharashtra",19.311766,72.85303900000001
+CHG,MUMBAI CHINCHPOKLI,Maharashtra,CR,"Mumbai, Maharashtra",18.986789,72.832659
+CRD,MUMBAI CURREY ROAD,Maharashtra,CR,"Mumbai, Maharashtra",18.9937,72.83265999999999
+CSTM,MUMBAI CST,Maharashtra,CR,"Mumbai, Maharashtra",18.944481,72.836903
+DDR,MUMBAI DADAR WEST,Maharashtra,WR,"Mumbai, Maharashtra",19.019731,72.84346500000001
+DIC,DAHISAR,Maharashtra,WR,"Mumbai, Maharashtra",19.250166,72.859587
+DR,MUMBAI DADAR CENTRAL,,,,19.017179,72.842972
+DTVL,DATIVLI,Maharashtra,CR,"Kalyan Shilphata Rd, Maharashtra",19.187012,73.059049
+EPR,Mumbai Elphinstone Road,Maharashtra,WR,"Mumbai, Maharashtra",19.00694,72.835426
+GMN,GOREGAON,Maharashtra,WR,"Mumbai, Maharashtra",19.164447,72.849389
+JOS,JOGESHWARI,Maharashtra,WR,"Mumbai, Maharashtra",19.136550999999997,72.84906600000001
+KHAR,KHAR,Maharashtra,WR,"Mumbai, Maharashtra",19.069166,72.840078
+KILE,KANDIVLI,Maharashtra,WR,"Mumbai, Maharashtra",19.204551,72.852098
+KLMC,KALAMBOLI,Maharashtra,CR,"Navi Mumbai., Maharashtra",19.035625,73.11480900000001
+KLMG,KALAMBOLI GOODS,Maharashtra,CR,"Navi Mumbai, Maharashtra",19.035116,73.11494900000001
+KLV,KELVA ROAD,Maharashtra,WR,"Thane, Maharashtra",19.624601000000002,72.79082100000001
+KYN,KALYAN JN,,,,19.234716000000002,73.12974
+LTT,LOKMANYA TILAK TERM,,,,19.070320000000002,72.89173899999999
+MDD,MALAD,Maharashtra,WR,"Mumbai, Maharashtra",19.187089,72.84917
+MIRA,MIRA ROAD,Maharashtra,WR,"Mira Bhayandar, Maharashtra",19.280299,72.856072
+MM,MUMBAI MAHIM JN,Maharashtra,WR,"Mumbai, Maharashtra",19.040547,72.84687600000001
+MRU,MUMBAI MATUNGA ROAD,Maharashtra,WR,"Mumbai, Maharashtra",19.028606,72.847143
+MSD,BOMBAY MASJID,Maharashtra,CR,"Mumbai, Maharashtra",18.952385,72.838561
+MTN,MUMBAI MATUNGA,,,,19.027347,72.84984200000001
+MX,Mumbai Mahalakshmi,Maharashtra,WR,"Mumbai, Maharashtra",18.982103,72.823908
+PL,Mumbai Lower Parel,Maharashtra,WR,"Mumbai, Maharashtra",18.994919,72.82961999999999
+PNVL,PANVEL,Maharashtra,CR,"Panvel, Maharashtra",18.990918999999998,73.121756
+PR,MUMBAI PAREL,Maharashtra,CR,"Mumbai, Maharashtra",19.009045,72.83750400000001
+SAH,SAPHALE,Maharashtra,WR,"Thane, Maharashtra",19.576592,72.82182599999999
+SIN,MUMBAI SION,,,,19.047725,72.864262
+SNRD,MUMBAI SANDHURST ROAD,Maharashtra,CR,"Mumbai, Maharashtra",18.962311,72.839733
+STC,SANTA CRUZ,Maharashtra,WR,"Mumbai, Maharashtra",19.082018,72.84133899999999
+TNA,THANE,,,,19.185757000000002,72.97541700000001
+TPND,TALOJA PANCHAND,Maharashtra,CR,"Navi Mumbai, Maharashtra",19.078901,73.087316
+VGN,VANGAON,Maharashtra,WR,"Thane, Maharashtra",19.882845,72.76318500000001
+VLP,VILE PARLE,Maharashtra,WR,"Mumbai, Maharashtra",19.099273999999998,72.84363
+VR,VIRAR,Maharashtra,WR,"Thane, Maharashtra",19.454407,72.811737
+VTN,VAITARNA,Maharashtra,WR,"Thane, Maharashtra",19.517672,72.849578

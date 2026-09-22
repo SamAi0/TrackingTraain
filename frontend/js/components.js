@@ -223,12 +223,12 @@ function updateApiDot(dot, statusObj) {
         statusText = 'Operational';
     }
     
-    dot.className = \`api-status-dot \${colorClass}\`;
+    dot.className = `api-status-dot ${colorClass}`;
     
-    const tooltipText = \`API Status: \${statusText}
-Data Source: \${statusObj.source.replace('_', ' ')}
-Fallback Active: \${statusObj.fallback ? 'Yes' : 'No'}
-Last Checked: \${statusObj.time}\`;
+    const tooltipText = `API Status: ${statusText}
+Data Source: ${statusObj.source.replace('_', ' ')}
+Fallback Active: ${statusObj.fallback ? 'Yes' : 'No'}
+Last Checked: ${statusObj.time}`;
 
     dot.title = tooltipText;
 }

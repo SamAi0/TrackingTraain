@@ -14,9 +14,9 @@ class Booking(models.Model):
     )
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
-    train = models.ForeignKey('trains.Train', on_delete=models.CASCADE, null=True)
-    source = models.ForeignKey('stations.Station', on_delete=models.CASCADE, related_name='booking_source', null=True)
-    destination = models.ForeignKey('stations.Station', on_delete=models.CASCADE, related_name='booking_destination', null=True)
+    train = models.ForeignKey('trains.Train', on_delete=models.SET_NULL, null=True)
+    source = models.ForeignKey('stations.Station', on_delete=models.SET_NULL, related_name='booking_source', null=True)
+    destination = models.ForeignKey('stations.Station', on_delete=models.SET_NULL, related_name='booking_destination', null=True)
     date_of_journey = models.DateField(null=True)
     ticket_class = models.CharField(max_length=10, blank=True, null=True)
     

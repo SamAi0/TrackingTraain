@@ -78,11 +78,12 @@ class TrainService(BaseRailwayService):
         if date:
             params["dateOfJourney"] = date
             
+        trains = []
+        source_label = "external_api"
+        
         try:
             # External API
             raw_data = cls.request("/api/v3/trainBetweenStations", params=params)
-            
-            trains = []
             results = raw_data.get("data", []) if isinstance(raw_data, dict) else raw_data
             
             for tr in results:
@@ -97,15 +98,27 @@ class TrainService(BaseRailwayService):
                     "classes": tr.get("availableClasses", []),
                     "type": tr.get("trainType", "EXPRESS")
                 })
-                
-            return ResponseNormalizer.normalize(trains, source="external_api")
-            
         except RailwayAPIException as e:
             logger.warning(f"External API trains_between failed: {e.message}. Falling back to DB.")
-            return cls._fallback_trains_between(from_station, to_station)
+            source_label = "local_database"
         except Exception as e:
             logger.error(f"Unexpected error in trains_between: {str(e)}")
-            return cls._fallback_trains_between(from_station, to_station)
+            source_label = "local_database"
+
+        # Always check local DB for local/suburban trains not in external API
+        local_result = cls._fallback_trains_between(from_station, to_station)
+        if local_result.get("success") and local_result.get("data"):
+            local_trains = local_result["data"]
+            # Merge and avoid duplicates by train number
+            existing_numbers = {t["number"] for t in trains}
+            for lt in local_trains:
+                if lt["number"] not in existing_numbers:
+                    trains.append(lt)
+            
+            if source_label == "external_api":
+                source_label = "merged"
+        
+        return ResponseNormalizer.normalize(trains, source=source_label)
 
     @classmethod
     def _fallback_trains_between(cls, from_station, to_station):

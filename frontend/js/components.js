@@ -46,12 +46,7 @@ function loadNavbar() {
                     <li class="nav-item">
                         <a class="nav-link text-white-50 hover-white px-3 fw-bold text-white" href="${basePath}pages/stations/stations.html">Station Explorer <span class="badge bg-warning text-dark ms-1">New</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white-50 hover-white px-3 fw-bold text-white" href="${basePath}pages/stats/stats.html">Data Insights <span class="badge bg-warning text-dark ms-1">New</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white-50 hover-white px-3" href="${basePath}pages/about/about.html">About Data</a>
-                    </li>
+
                 </ul>
                 <div class="d-flex auth-buttons" id="navAuthSection">
                     <!-- Auth injected by JS -->
@@ -110,8 +105,6 @@ function loadFooter() {
                     <h6 class="fw-bold mb-3 text-uppercase letter-spacing-1">Explore</h6>
                     <ul class="list-unstyled small">
                         <li class="mb-2"><a href="${basePath}pages/stations/stations.html" class="text-white-50 text-decoration-none hover-white">Station Explorer</a></li>
-                        <li class="mb-2"><a href="${basePath}pages/stats/stats.html" class="text-white-50 text-decoration-none hover-white">Stats Dashboard</a></li>
-                        <li class="mb-2"><a href="${basePath}pages/about/about.html" class="text-white-50 text-decoration-none hover-white">About Data</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">

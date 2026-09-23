@@ -189,17 +189,20 @@
         async function fetchGeoData() {
             try {
                 const res = await fetch('http://127.0.0.1:8000/api/stations/geo/');
-                allStationsGeo = await res.json();
+                const data = await res.json();
+                allStationsGeo = data.success ? data.data : data;
                 
                 const markers = [];
                 allStationsGeo.forEach(s => {
-                    const m = L.marker([s.latitude, s.longitude], { title: s.name })
-                        .bindPopup(`<b>${s.name}</b> (${s.code})<br><button class="btn btn-sm btn-primary mt-2" onclick="openDetails('${s.code}', '${s.name}', null, null, null)">View Details</button>`);
-                    markers.push(m);
+                    if (s.lat && s.lng) {
+                        const m = L.marker([s.lat, s.lng], { title: s.name })
+                            .bindPopup(`<b>${s.name}</b> (${s.code})<br><button class="btn btn-sm btn-primary mt-2" onclick="openDetails('${s.code}', '${s.name}', null, null, null)">View Details</button>`);
+                        markers.push(m);
+                    }
                 });
                 markersCluster.addLayers(markers);
             } catch (e) {
-                console.error("Failed to load map data");
+                console.error("Failed to load map data", e);
             }
         }
 

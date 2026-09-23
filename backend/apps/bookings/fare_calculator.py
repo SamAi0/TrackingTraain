@@ -20,8 +20,10 @@ def calculate_total_fare(train, source, destination, num_passengers, ticket_clas
         if src_rs.distance_from_source is not None and dst_rs.distance_from_source is not None:
             distance = dst_rs.distance_from_source - src_rs.distance_from_source
             if distance < 0:
-                # Reversing for safety in circular/return routes, though typically src < dst
                 distance = abs(distance)
+        elif src_rs.sequence_number is not None and dst_rs.sequence_number is not None:
+            # Fallback to sequence difference * 15km if distance data is missing
+            distance = abs(dst_rs.sequence_number - src_rs.sequence_number) * 15
     except RouteStation.DoesNotExist:
         pass
 

@@ -29,6 +29,7 @@
                         <h4 class="fw-bold text-railway mb-0"><i class="bi bi-search me-2"></i> Plan My Journey</h4>
                     </div>
                     <div class="card-body p-4">
+                        <form id="searchForm">
                             <div class="row align-items-end">
                                 <div class="col-md-3 mb-3">
                                     <label class="form-label text-muted small fw-bold">From Station</label>
@@ -243,13 +244,17 @@
                 const q = this.value.trim();
                 
                 clearTimeout(debounceTimer);
-                
                 debounceTimer = setTimeout(() => {
-                    fetch(`http://127.0.0.1:8000/api/railway/stations/search/?q=${q}`)
+                    if (q === '') {
+                        list.innerHTML = '<li class="dropdown-header text-railway fw-bold"><i class="bi bi-star-fill text-warning me-1"></i> Popular Stations</li>';
+                        list.classList.add('show');
+                        return;
+                    }
+                    fetch(`http://127.0.0.1:8000/api/stations/autocomplete/?q=${q}`)
                         .then(res => res.json())
                         .then(data => {
                             list.innerHTML = '';
-                            if(data.length === 0) {
+                            if(data.length === 0 || !data.data) {
                                 list.classList.remove('show');
                                 return;
                             }
@@ -258,10 +263,11 @@
                             if(q === '') {
                                 list.innerHTML = '<li class="dropdown-header text-railway fw-bold"><i class="bi bi-star-fill text-warning me-1"></i> Popular Stations</li>';
                             }
-                            
+                            // Add matching stations
                             data.data.forEach(st => {
                                 const li = document.createElement('li');
-                                li.innerHTML = `<a class="dropdown-item py-2" href="#"><span class="fw-bold">${st.code}</span> - <span class="text-muted small">${st.name}</span></a>`;
+                                const cityStr = st.city ? `<span class="text-muted small"> (${st.city})</span>` : '';
+                                li.innerHTML = `<a class="dropdown-item py-2" href="#"><span class="fw-bold text-dark">${st.code}</span> - <span class="text-muted small">${st.name}</span>${cityStr}</a>`;
                                 li.addEventListener('click', (e) => {
                                     e.preventDefault();
                                     input.value = st.code;
@@ -269,9 +275,21 @@
                                 });
                                 list.appendChild(li);
                             });
+
+                            // Add popular trains if available
+                            if (data.popular_trains && data.popular_trains.length > 0) {
+                                list.innerHTML += '<li><hr class="dropdown-divider"></li>';
+                                list.innerHTML += `<li class="dropdown-header text-railway fw-bold"><i class="bi bi-fire text-danger me-1"></i> Popular Trains (from ${data.target_station || 'here'})</li>`;
+                                data.popular_trains.forEach(t => {
+                                    const li = document.createElement('li');
+                                    li.innerHTML = `<span class="dropdown-item py-1 disabled"><span class="fw-bold text-dark">${t.number}</span> - <span class="text-muted small">${t.name}</span></span>`;
+                                    list.appendChild(li);
+                                });
+                            }
+
                             list.classList.add('show');
                         })
-                        .catch(err => console.error("Autocomplete failed"));
+                        .catch(err => console.error("Autocomplete failed:", err));
                 }, 200);
             };
 

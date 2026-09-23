@@ -63,7 +63,10 @@
                 const container = document.getElementById('bookingsContainer');
                 data.forEach(booking => {
                     const isConfirmed = booking.status === 'CONFIRMED';
-                    const badgeClass = isConfirmed ? 'bg-success' : 'bg-warning text-dark';
+                    let badgeClass = 'bg-warning text-dark';
+                    if (booking.status === 'CONFIRMED') badgeClass = 'bg-success';
+                    if (booking.status === 'CANCELLED' || booking.status === 'EXPIRED' || booking.status === 'FAILED') badgeClass = 'bg-danger';
+                    
                     const pnr = booking.pnr_record?.pnr_number || 'N/A';
                     
                     let actionButtons = '';
@@ -71,7 +74,7 @@
                         actionButtons = `
                             <a href="ticket.html?booking_id=${booking.id}" class="btn btn-sm btn-outline-primary fw-bold me-1"><i class="bi bi-ticket me-1"></i>Ticket</a>
                             <a href="invoice.html?booking_id=${booking.id}" class="btn btn-sm btn-outline-dark fw-bold me-1"><i class="bi bi-receipt me-1"></i>Invoice</a>
-
+                            <button onclick="cancelBooking(${booking.id})" class="btn btn-sm btn-outline-danger fw-bold"><i class="bi bi-x-circle me-1"></i>Cancel</button>
                         `;
                     } else if(booking.status === 'PENDING') {
                         actionButtons = `
@@ -128,6 +131,32 @@
                 document.getElementById('loading').innerHTML = `<div class="alert alert-danger">Error loading bookings: ${err.message}</div>`;
             });
         });
+
+        function cancelBooking(id) {
+            if(!confirm('Are you sure you want to cancel this booking? This action cannot be undone.')) {
+                return;
+            }
+            const token = localStorage.getItem('access_token');
+            fetch(`http://127.0.0.1:8000/api/bookings/${id}/cancel/`, {
+                method: 'POST',
+                headers: { 
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res => res.json().then(data => ({status: res.status, body: data})))
+            .then(res => {
+                if(res.status === 200) {
+                    alert(res.body.message || 'Booking cancelled successfully.');
+                    window.location.reload();
+                } else {
+                    alert('Failed to cancel booking: ' + (res.body.error || 'Unknown error'));
+                }
+            })
+            .catch(err => {
+                alert('An error occurred during cancellation: ' + err.message);
+            });
+        }
     </script>
 <div id="footer-container"></div>
 <script src="../../js/components.js"></script>

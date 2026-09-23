@@ -131,7 +131,7 @@
                 clearTimeout(debounceTimer);
                 
                 debounceTimer = setTimeout(() => {
-                    fetch(`http://127.0.0.1:8000/api/railway/trains/search/?q=${q}`)
+                    fetch(`http://127.0.0.1:8000/api/trains/autocomplete/?q=${q}`)
                         .then(async res => {
                             const data = await res.json();
                             if (!res.ok) {
@@ -198,7 +198,7 @@
             btn.disabled = true;
 
             // Fetch from real, verified API backend
-            fetch(`http://127.0.0.1:8000/api/railway/trains/${train}/live/`)
+            fetch(`http://127.0.0.1:8000/api/trains/${train}/track/`)
                 .then(async response => {
                     const data = await response.json();
                     if(!data.success) throw new Error(data.error || "Tracking data not found for this train.");

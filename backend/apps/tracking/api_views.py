@@ -164,19 +164,22 @@ class LiveTrackingAPIView(APIView):
                 'train_number': train.number,
                 'train_name': train.name,
                 'train_type': train.train_type,
-                'status': status_msg,
+                'running_status': status_msg,
                 'delay_minutes': demo_delay,
                 'previous_station': prev_stn.station.name if prev_stn else None,
-                'current_station': curr_stn.station.name,
+                'current_station': curr_stn.station.name if curr_stn else None,
                 'next_station': next_stn.station.name if next_stn else None,
-                'expected_arrival': curr_r['exp_arr_dt'].strftime('%H:%M'),
-                'expected_departure': curr_r['exp_dep_dt'].strftime('%H:%M'),
+                'expected_arrival': curr_r['exp_arr_dt'].strftime('%H:%M') if curr_r else None,
+                'expected_departure': curr_r['exp_dep_dt'].strftime('%H:%M') if curr_r else None,
                 'progress_percentage': progress_pct,
                 'last_updated': now.isoformat(),
-                'route': formatted_route
+                'route_timeline': formatted_route,
+                'coordinates': {'lat': curr_stn.station.latitude, 'lng': curr_stn.station.longitude} if curr_stn and curr_stn.station.latitude else {'lat': 0, 'lng': 0},
+                'simulated': True,
+                'is_live': False
             }
             
-            return Response(response_data, status=status.HTTP_200_OK)
+            return Response({'success': True, 'data': response_data, 'meta': {'source': 'local_db', 'simulated': True}}, status=status.HTTP_200_OK)
             
         except Train.DoesNotExist:
             return Response({'error': 'Train not found.'}, status=status.HTTP_404_NOT_FOUND)

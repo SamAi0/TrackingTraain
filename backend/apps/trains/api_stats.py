@@ -22,10 +22,25 @@ class DashboardStatsAPIView(APIView):
             trains = list(Train.objects.all().values('running_days'))
             days_count = {'MON': 0, 'TUE': 0, 'WED': 0, 'THU': 0, 'FRI': 0, 'SAT': 0, 'SUN': 0}
             for t in trains:
-                rd = t['running_days'] or {}
-                for day, runs in rd.items():
-                    if runs and day in days_count:
-                        days_count[day] += 1
+                rd = t['running_days']
+                if not rd: continue
+                
+                # If rd is a string, it might be stored as e.g. "MON, TUE" or JSON string
+                if isinstance(rd, str):
+                    try:
+                        import json
+                        rd = json.loads(rd)
+                    except:
+                        # If it's a comma-separated string
+                        for d in [day.strip().upper() for day in rd.split(',')]:
+                            if d in days_count:
+                                days_count[d] += 1
+                        continue
+                        
+                if isinstance(rd, dict):
+                    for day, runs in rd.items():
+                        if runs and day in days_count:
+                            days_count[day] += 1
             
             # 4. Busiest stations by train count
             busiest_stations = list(

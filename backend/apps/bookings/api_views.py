@@ -129,3 +129,52 @@ class ExpireBookingAPIView(APIView):
         )
         
         return Response({'success': True, 'message': 'Booking expired and seats released.'})
+
+class CancelBookingAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, pk):
+        with transaction.atomic():
+            booking = get_object_or_404(Booking.objects.select_for_update(), id=pk, user=request.user)
+            
+            if booking.status != 'CONFIRMED':
+                return Response({'error': f'Cancellation not allowed. Booking is currently {booking.status}.'}, status=status.HTTP_400_BAD_REQUEST)
+                
+            booking.status = 'CANCELLED'
+            booking.save(update_fields=['status'])
+            
+            pnr_number = None
+            pnr_status = None
+            if hasattr(booking, 'pnr_record'):
+                pnr = booking.pnr_record
+                pnr.status = 'CANCELLED'
+                pnr.save(update_fields=['status'])
+                pnr_number = pnr.pnr_number
+                pnr_status = pnr.status
+                
+            # Payment status logic - keeping SUCCESS as it was a valid transaction, but refund is simulated
+            
+            # System notification
+            from .models import SystemNotification
+            SystemNotification.objects.create(
+                user=request.user,
+                notification_type='BOOKING_CANCEL',
+                message=f"Your booking for train {booking.train.number} (Booking ID: {booking.id}) has been cancelled successfully. A mock refund of ₹{booking.total_fare} has been initiated."
+            )
+            
+            from utils.supabase_logger import SupabaseLogger
+            SupabaseLogger.log_activity(
+                user_id=request.user.id,
+                activity_type='Booking Cancellation',
+                booking_id=booking.id,
+                train_number=booking.train.number
+            )
+            
+            return Response({
+                'success': True, 
+                'message': 'Booking cancelled successfully. Mock refund initiated.',
+                'booking_id': booking.id,
+                'booking_status': booking.status,
+                'pnr_number': pnr_number,
+                'pnr_status': pnr_status
+            })

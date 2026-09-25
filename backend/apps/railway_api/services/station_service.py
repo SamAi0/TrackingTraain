@@ -15,7 +15,7 @@ class StationService(BaseRailwayService):
             
         try:
             # Try External API First
-            raw_data = cls.request("/api/v1/searchStation", params={"searchRules": query})
+            raw_data = cls.request(f"/autocomplete/station/{query}")
             
             # Normalize RapidAPI response
             stations = []

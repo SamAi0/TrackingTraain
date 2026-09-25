@@ -12,8 +12,18 @@ class StationAutocompleteAPIView(APIView):
         popular_trains = []
         target_station = None
         if not q:
+            popular_codes = ['NDLS', 'BCT', 'CSMT', 'HWH', 'MAS', 'SBC', 'PUNE', 'ST']
+            stations = Station.objects.filter(code__in=popular_codes).order_by('name')
+            for st in stations:
+                data.append({
+                    'code': st.code,
+                    'name': st.name,
+                    'city': st.city,
+                    'state': st.state,
+                    'latitude': st.latitude,
+                    'longitude': st.longitude
+                })
             return Response({'success': True, 'data': data, 'popular_trains': []}, status=status.HTTP_200_OK)
-            
         # Fast local DB search
         stations = Station.objects.filter(
             Q(code__icontains=q) | 

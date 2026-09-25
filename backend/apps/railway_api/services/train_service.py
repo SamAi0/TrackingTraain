@@ -15,7 +15,7 @@ class TrainService(BaseRailwayService):
             
         try:
             # Try External API First
-            raw_data = cls.request("/api/v1/searchTrain", params={"search": query})
+            raw_data = cls.request(f"/autocomplete/train/{query}")
             
             # Normalize RapidAPI response
             trains = []
@@ -29,11 +29,18 @@ class TrainService(BaseRailwayService):
                     })
             elif isinstance(raw_data, list):
                 for tr in raw_data:
-                    trains.append({
-                        "number": tr.get("trainNumber", tr.get("number", "")),
-                        "name": tr.get("trainName", tr.get("name", "")),
-                        "type": tr.get("trainType", "EXPRESS"),
-                    })
+                    if isinstance(tr, str):
+                        trains.append({
+                            "number": tr,
+                            "name": "",
+                            "type": "EXPRESS",
+                        })
+                    elif isinstance(tr, dict):
+                        trains.append({
+                            "number": tr.get("trainNumber", tr.get("number", "")),
+                            "name": tr.get("trainName", tr.get("name", "")),
+                            "type": tr.get("trainType", "EXPRESS"),
+                        })
                     
             return ResponseNormalizer.normalize(trains, source="external_api")
             
@@ -70,6 +77,29 @@ class TrainService(BaseRailwayService):
     def trains_between(cls, from_station, to_station, date=None):
         if not from_station or not to_station:
             return ResponseNormalizer.error("from_station and to_station are required", error_code="INVALID_REQUEST")
+            
+        from stations.models import Station
+        
+        def resolve_station(stn_query):
+            stn_query = stn_query.strip().upper()
+            stn = Station.objects.filter(code=stn_query).first()
+            if stn: return stn.code
+            stn = Station.objects.filter(name__iexact=stn_query).first()
+            if stn: return stn.code
+            stn = Station.objects.filter(name__icontains=stn_query).first()
+            if stn: return stn.code
+            return None
+            
+        resolved_from = resolve_station(from_station)
+        if not resolved_from:
+            return ResponseNormalizer.error(f"Invalid source station: {from_station}. Please provide a valid station code or name.", error_code="INVALID_REQUEST")
+            
+        resolved_to = resolve_station(to_station)
+        if not resolved_to:
+            return ResponseNormalizer.error(f"Invalid destination station: {to_station}. Please provide a valid station code or name.", error_code="INVALID_REQUEST")
+            
+        from_station = resolved_from
+        to_station = resolved_to
             
         params = {
             "fromStationCode": from_station,

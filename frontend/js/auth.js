@@ -22,7 +22,7 @@
             if (refreshToken) {
                 try {
                     // Attempt to refresh token
-                    const refreshRes = await originalFetch('http://127.0.0.1:8000/api/auth/login/refresh/', {
+                    const refreshRes = await originalFetch('${window.TRACKEASE_CONFIG.API_BASE_URL}/api/auth/login/refresh/', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ refresh: refreshToken })

@@ -226,5 +226,17 @@
     "source_url": "https://indianrailways.gov.in",
     "source_name/title": "IRCTC Official Station Codes",
     "notes": "Standard Indian Railways station code."
+  },
+  {
+    "source_name": "WADALA ROAD",
+    "canonical_name": "WADALA ROAD",
+    "station_code": "VDLR",
+    "corridor": "Mumbai Suburban",
+    "railway_zone_if_verified": "CR",
+    "verification_status": "VERIFIED",
+    "confidence": "HIGH",
+    "source_url": "https://indianrailways.gov.in",
+    "source_name/title": "IRCTC Official Station Codes",
+    "notes": "Standard Indian Railways station code. Verified from Harbour source data Table 51 and 52."
   }
 ]

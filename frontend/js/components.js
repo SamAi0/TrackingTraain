@@ -156,7 +156,7 @@ function logoutUser(basePath) {
 function logFrontendActivity(activityType, metadata = {}) {
     const token = localStorage.getItem('access_token');
     
-    fetch('http://127.0.0.1:8000/api/tracking/activity/', {
+    fetch('${window.TRACKEASE_CONFIG.API_BASE_URL}/api/tracking/activity/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ function checkApiStatus() {
     dot.className = 'api-status-dot dot-yellow';
     dot.title = 'API Status: Checking...';
     
-    fetch('http://127.0.0.1:8000/api/railway/stations/search/?q=CSMT')
+    fetch('${window.TRACKEASE_CONFIG.API_BASE_URL}/api/railway/stations/search/?q=CSMT')
         .then(res => res.json().then(data => ({ status: res.status, ok: res.ok, data })))
         .then(({ status, ok, data }) => {
             let statusObj = {

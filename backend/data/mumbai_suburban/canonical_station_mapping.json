@@ -1696,8 +1696,8 @@
     {
         "source_identifier": "WADALA ROAD",
         "source_name": "WADALA ROAD",
-        "canonical_code": "VAL",
-        "canonical_name": "VADAL",
+        "canonical_code": "VDLR",
+        "canonical_name": "WADALA ROAD",
         "mapping_type": "EXISTING_DB_ALIAS",
         "corridors": [
             "harbour"

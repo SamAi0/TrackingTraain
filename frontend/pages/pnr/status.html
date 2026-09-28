@@ -132,7 +132,7 @@
             btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
             btn.disabled = true;
 
-            fetch(`http://127.0.0.1:8000/api/pnr/${pnr}/`)
+            fetch(`${window.TRACKEASE_CONFIG.API_BASE_URL}/api/pnr/${pnr}/`)
                 .then(async response => {
                     const data = await response.json();
                     if(!data.success) throw new Error(data.error || "PNR details not found. Please verify the number.");
@@ -194,6 +194,7 @@
         });
     </script>
 <div id="footer-container"></div>
-<script src="../../js/components.js"></script>
+<script src="../../js/config.js"></script>
+    <script src="../../js/components.js"></script>
 </body>
 </html>

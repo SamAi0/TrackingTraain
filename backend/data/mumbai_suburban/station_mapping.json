@@ -1,0 +1,1066 @@
+[
+  {
+    "source_name": "Thane",
+    "canonical_name": "THANE",
+    "canonical_code": "TNA",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "DIGH",
+    "canonical_name": "DIGH",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "AIRL",
+    "canonical_name": "AIRL",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "RABE",
+    "canonical_name": "RABE",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "GNSL",
+    "canonical_name": "GHANSOLI",
+    "canonical_code": "GHANSOLI",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "KPHN",
+    "canonical_name": "KPHN",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "TUH",
+    "canonical_name": "TUH",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "SNPD",
+    "canonical_name": "SANPADA",
+    "canonical_code": "SANPADA",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "VSH",
+    "canonical_name": "VASHI",
+    "canonical_code": "VASHI",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "JNJ",
+    "canonical_name": "JUINAGAR",
+    "canonical_code": "JUINAGAR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "NEU",
+    "canonical_name": "NERUL",
+    "canonical_code": "NERUL",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "SWDV",
+    "canonical_name": "SEAWOODS DARAWE",
+    "canonical_code": "SEAWOODSDARAWE",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "BEPR",
+    "canonical_name": "BELAPUR",
+    "canonical_code": "BAP",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "KHAG",
+    "canonical_name": "KHARGHAR",
+    "canonical_code": "KHARGHAR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "MANR",
+    "canonical_name": "MANSAROVAR",
+    "canonical_code": "MANSAROVAR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "KNDS",
+    "canonical_name": "KHANDESHWAR",
+    "canonical_code": "KHANDESHWAR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "PNVL",
+    "canonical_name": "PANVEL",
+    "canonical_code": "PNVL",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Kasara",
+    "canonical_name": "KASARA",
+    "canonical_code": "KSRA",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Khardi",
+    "canonical_name": "KHARDI",
+    "canonical_code": "KE",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Atgaon",
+    "canonical_name": "ATGAON",
+    "canonical_code": "ATG",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Asangaon",
+    "canonical_name": "ASANGAON",
+    "canonical_code": "ASO",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Vasind",
+    "canonical_name": "VASIND",
+    "canonical_code": "VSD",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Khadavli",
+    "canonical_name": "KHADAVLI",
+    "canonical_code": "KDV",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Titwala",
+    "canonical_name": "TITVALA",
+    "canonical_code": "TLA",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Ambivli",
+    "canonical_name": "AMBIVLI",
+    "canonical_code": "ABY",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Shahad",
+    "canonical_name": "SHAHAD",
+    "canonical_code": "SHAD",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Khopoli",
+    "canonical_name": "KHOPOLI",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Lowjee",
+    "canonical_name": "LOWJEE",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Dolavli",
+    "canonical_name": "DOLAVLI",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Kelavli",
+    "canonical_name": "KELAVLI",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Palasdhari",
+    "canonical_name": "PALASDHARI",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Karjat",
+    "canonical_name": "KARJAT",
+    "canonical_code": "KJT",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Bhivpuri Road",
+    "canonical_name": "BHIVPURI ROAD",
+    "canonical_code": "BVS",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Neral",
+    "canonical_name": "NERAL",
+    "canonical_code": "NRL",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Shelu",
+    "canonical_name": "SHELU",
+    "canonical_code": "SHLU",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Vangani",
+    "canonical_name": "VANGANI",
+    "canonical_code": "VGI",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Badlapur",
+    "canonical_name": "BADLAPUR",
+    "canonical_code": "BUD",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Ambernath",
+    "canonical_name": "AMBERNATH",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Ulhas Nagar",
+    "canonical_name": "NAGAR",
+    "canonical_code": "NGE",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Vithalwadi",
+    "canonical_name": "VITHALWADI",
+    "canonical_code": "VLDI",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Kalyan",
+    "canonical_name": "KALYANPUR ROAD",
+    "canonical_code": "KPRD",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Thakurli",
+    "canonical_name": "THAKURLI",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Dombivli",
+    "canonical_name": "DOMBIVLI CTL",
+    "canonical_code": "DCTL",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Kopar",
+    "canonical_name": "GHATKOPAR",
+    "canonical_code": "GC",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Diva",
+    "canonical_name": "DIVA",
+    "canonical_code": "DIVA",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Mumbra",
+    "canonical_name": "MUMBRA",
+    "canonical_code": "MBQ",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Kalva",
+    "canonical_name": "KALVA",
+    "canonical_code": "KLVA",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Mulund",
+    "canonical_name": "MULUND",
+    "canonical_code": "MLND",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Nahur",
+    "canonical_name": "NAHUR",
+    "canonical_code": "NHU",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Bhandup",
+    "canonical_name": "BHANDUP",
+    "canonical_code": "BND",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Kanjur Marg",
+    "canonical_name": "KANJUR MARG",
+    "canonical_code": "KJMG",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Vikhroli",
+    "canonical_name": "VIKHROLI",
+    "canonical_code": "VK",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Ghatkopar",
+    "canonical_name": "GHATKOPAR",
+    "canonical_code": "GC",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Vidyavihar",
+    "canonical_name": "VIDYAVIHAR",
+    "canonical_code": "VVH",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Kurla",
+    "canonical_name": "KURLA JN",
+    "canonical_code": "CLA",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Sion",
+    "canonical_name": "MUMBAI SION",
+    "canonical_code": "SIN",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Matunga",
+    "canonical_name": "MUMBAI MATUNGA ROAD",
+    "canonical_code": "MRU",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Dadar",
+    "canonical_name": "MUMBAI DADAR WEST",
+    "canonical_code": "DDR",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Parel",
+    "canonical_name": "Mumbai Lower Parel",
+    "canonical_code": "PL",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Currey Road",
+    "canonical_name": "MUMBAI CURREY ROAD",
+    "canonical_code": "CRD",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Chinchpokli",
+    "canonical_name": "MUMBAI CHINCHPOKLI",
+    "canonical_code": "CHG",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Byculla",
+    "canonical_name": "BYCULLA",
+    "canonical_code": "BY",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Sandhurst Road",
+    "canonical_name": "MUMBAI SANDHURST ROAD",
+    "canonical_code": "SNRD",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Masjid",
+    "canonical_name": "BOMBAY MASJID",
+    "canonical_code": "MSD",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "CSMT",
+    "canonical_name": "CSMT",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Mumbai CSMT",
+    "canonical_name": "CSMT",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Dockyard Road",
+    "canonical_name": "DOCKYARD ROAD",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Reay Road",
+    "canonical_name": "REAY ROAD",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Cotton Green",
+    "canonical_name": "COTTON GREEN",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Sewri",
+    "canonical_name": "SEWRI",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Vadala Road",
+    "canonical_name": "VADAL",
+    "canonical_code": "VAL",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "King's Circle",
+    "canonical_name": "KINGS CIRCLE",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Mahim Jn",
+    "canonical_name": "MUMBAI MAHIM JN",
+    "canonical_code": "MM",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Bandra",
+    "canonical_name": "BANDRA",
+    "canonical_code": "BA",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Khar Road",
+    "canonical_name": "KHAR ROAD",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Santacruz",
+    "canonical_name": "SANTACRUZ",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Vileparle",
+    "canonical_name": "VILE PARLE",
+    "canonical_code": "VLP",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Andheri",
+    "canonical_name": "ANDHERI",
+    "canonical_code": "ADH",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Jogeshwari",
+    "canonical_name": "JOGESHWARI",
+    "canonical_code": "JOS",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Ramnagar",
+    "canonical_name": "RAMNAGAR",
+    "canonical_code": "RMR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Goregaon",
+    "canonical_name": "GOREGAON",
+    "canonical_code": "GMN",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "GTB Nagar",
+    "canonical_name": "NAGAR",
+    "canonical_code": "NGE",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Chunabhatti",
+    "canonical_name": "Nabha",
+    "canonical_code": "NBA",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Tilaknagar",
+    "canonical_name": "NAGAR",
+    "canonical_code": "NGE",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Chembur",
+    "canonical_name": "CHEMBUR",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Govandi",
+    "canonical_name": "GOVANDI",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Mankhurd",
+    "canonical_name": "MANKHURD",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Vashi",
+    "canonical_name": "VASHI",
+    "canonical_code": "VASHI",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Sanpada",
+    "canonical_name": "SANPADA",
+    "canonical_code": "SANPADA",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Juinagar",
+    "canonical_name": "JUINAGAR",
+    "canonical_code": "JUINAGAR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Nerul",
+    "canonical_name": "NERUL",
+    "canonical_code": "NERUL",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Seawood Darave",
+    "canonical_name": "SEAWOOD DARAVE",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Belapur CBD",
+    "canonical_name": "BELAPUR",
+    "canonical_code": "BAP",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Kharghar",
+    "canonical_name": "KHARGHAR",
+    "canonical_code": "KHARGHAR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Mansarovar",
+    "canonical_name": "MANSAROVAR",
+    "canonical_code": "MANSAROVAR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Khandeshwar",
+    "canonical_name": "KHANDESHWAR",
+    "canonical_code": "KHANDESHWAR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Panvel",
+    "canonical_name": "PANVEL",
+    "canonical_code": "PNVL",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "HARBOUR (MUMBAI CSMT-GOREGAON-PANVEL)",
+    "canonical_name": "GOREGAON",
+    "canonical_code": "GMN",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "HARBOUR (PANVEL-GOREGAON-MUMBAI CSMT)",
+    "canonical_name": "GOREGAON",
+    "canonical_code": "GMN",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "CHURCHGATE",
+    "canonical_name": "CHURCHGATE",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Marine Lines",
+    "canonical_name": "MARINE LINES",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Charni Road",
+    "canonical_name": "ARNI ROAD",
+    "canonical_code": "ARV",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Grant Road",
+    "canonical_name": "GRANT ROAD",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "M'BAI CENTRAL (L)",
+    "canonical_name": "Mumbai Central",
+    "canonical_code": "BCT",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Mahalakshmi",
+    "canonical_name": "Mumbai Mahalakshmi",
+    "canonical_code": "MX",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Lower Parel",
+    "canonical_name": "Mumbai Lower Parel",
+    "canonical_code": "PL",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Prabhadevi",
+    "canonical_name": "PRABHADEVI",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Matunga Road",
+    "canonical_name": "MUMBAI MATUNGA ROAD",
+    "canonical_code": "MRU",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Mahim Jn.",
+    "canonical_name": "MUMBAI MAHIM JN",
+    "canonical_code": "MM",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Santa Cruz",
+    "canonical_name": "SANTA CRUZ",
+    "canonical_code": "STC",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Vile Parle",
+    "canonical_name": "VILE PARLE",
+    "canonical_code": "VLP",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Ram Mandir",
+    "canonical_name": "RAM MANDIR",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Malad",
+    "canonical_name": "MALAD",
+    "canonical_code": "MDD",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Kandivli",
+    "canonical_name": "KANDIVLI",
+    "canonical_code": "KILE",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "BORIVALI",
+    "canonical_name": "BORIVALI",
+    "canonical_code": "BVI",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Dahisar",
+    "canonical_name": "DAHISAR",
+    "canonical_code": "DIC",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Mira Road",
+    "canonical_name": "MIRA ROAD",
+    "canonical_code": "MIRA",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Bhayandar",
+    "canonical_name": "BHAYANDAR",
+    "canonical_code": "BYR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Naigaon",
+    "canonical_name": "NAIGAON",
+    "canonical_code": "NIG",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Vasai Road",
+    "canonical_name": "VASAI ROAD",
+    "canonical_code": "BSR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Nalla Sopara",
+    "canonical_name": "NALLA SOPARA",
+    "canonical_code": "NSP",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "VIRAR",
+    "canonical_name": "VIRAR",
+    "canonical_code": "VR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Mahalakshmi Lower Parel Prabhadevi DADAR",
+    "canonical_name": "MAHALAKSHMI LOWER PAREL PRABHADEVI DADAR",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Matunga Road Mahim Jn. BANDRA",
+    "canonical_name": "BANDRA",
+    "canonical_code": "BA",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "M'BAI CENTRAL",
+    "canonical_name": "Mumbai Central",
+    "canonical_code": "BCT",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Nallasopara",
+    "canonical_name": "NALLASOPARA",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "Vaiterna",
+    "canonical_name": "VAITERNA",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "SAPHALE",
+    "canonical_name": "SAPHALE",
+    "canonical_code": "SAH",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Kelve Road",
+    "canonical_name": "KELVE ROAD",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "PALGHAR",
+    "canonical_name": "PALGHAR",
+    "canonical_code": "PLG",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Umroli",
+    "canonical_name": "UMROLI",
+    "canonical_code": "UOI",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "BOISAR",
+    "canonical_name": "BOISAR",
+    "canonical_code": "BOR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Vangaon",
+    "canonical_name": "VANGAON",
+    "canonical_code": "VGN",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "DAHANU ROAD",
+    "canonical_name": "DAHANU ROAD",
+    "canonical_code": "DRD",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "DAHANU ROAD Vangaon Boisar",
+    "canonical_name": "BOISAR",
+    "canonical_code": "BOR",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "PALGHAR Kelve Road",
+    "canonical_name": "PALGHAR",
+    "canonical_code": "PLG",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "VIRAR Nallasopara",
+    "canonical_name": "VIRAR",
+    "canonical_code": "VR",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Naigaon Bhayandar",
+    "canonical_name": "BHAYANDAR",
+    "canonical_code": "BYR",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Mira Road Dahisar",
+    "canonical_name": "DAHISAR",
+    "canonical_code": "DIC",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "BORIVALI ANDHERI BANDRA",
+    "canonical_name": "ANDHERI",
+    "canonical_code": "ADH",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "Grant Road Charni Road Marine Lines CHURCHGATE",
+    "canonical_name": "ARNI ROAD",
+    "canonical_code": "ARV",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "DOCK YARD ROAD",
+    "canonical_name": "DOCKYARD ROAD",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "SEWERI",
+    "canonical_name": "SEWRI",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "KHAR",
+    "canonical_name": "KHAR",
+    "canonical_code": "KHAR",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "SANTACURTZ",
+    "canonical_name": "SANTACRUZ",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "JOGESWARI",
+    "canonical_name": "JOGESHWARI",
+    "canonical_code": "JOS",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "Kandivali",
+    "canonical_name": "KANDIVALI",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  },
+  {
+    "source_name": "M'BAI CENTRAL(L",
+    "canonical_name": "Mumbai Central",
+    "canonical_code": "BCT",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "VIRAR Nalla Sopara",
+    "canonical_name": "NALLA SOPARA",
+    "canonical_code": "NSP",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "VASAI ROAD Naigaon",
+    "canonical_name": "VASAI ROAD",
+    "canonical_code": "BSR",
+    "mapping_method": "partial_match",
+    "confidence": "MEDIUM"
+  },
+  {
+    "source_name": "M'BAI CENTRAL(L)",
+    "canonical_name": "Mumbai Central",
+    "canonical_code": "BCT",
+    "mapping_method": "alias_or_exact",
+    "confidence": "HIGH"
+  },
+  {
+    "source_name": "AIR CONDITIONED SERVICES",
+    "canonical_name": "AIR CONDITIONED SERVICES",
+    "canonical_code": null,
+    "mapping_method": "unresolved_missing_from_db",
+    "confidence": "UNRESOLVED"
+  }
+]

@@ -1,0 +1,2568 @@
+{
+  "source": "Umang-Lodaya/Mumbai-Local-TimeTable-Extractor",
+  "source_type": "community-extracted",
+  "source_version": "2023/2024",
+  "corridor": "uran",
+  "trains": [
+    {
+      "train_number": "99701",
+      "train_name": null,
+      "service_code": "99701 UBR 1",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": "06:00",
+          "departure": "06:00"
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "06:12",
+          "departure": "06:12"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "06:16",
+          "departure": "06:16"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "06:26",
+          "departure": "06:26"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "06:31",
+          "departure": "06:31"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "06:36",
+          "departure": "06:36"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "06:41",
+          "departure": "06:41"
+        }
+      ]
+    },
+    {
+      "train_number": "99601",
+      "train_name": null,
+      "service_code": "99601 UNU 1",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": "07:10",
+          "departure": "07:10"
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "07:14",
+          "departure": "07:14"
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "07:24",
+          "departure": "07:24"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "07:28",
+          "departure": "07:28"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "07:38",
+          "departure": "07:38"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "07:43",
+          "departure": "07:43"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "07:48",
+          "departure": "07:48"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "07:53",
+          "departure": "07:53"
+        }
+      ]
+    },
+    {
+      "train_number": "99603",
+      "train_name": null,
+      "service_code": "99603 UNU 3",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": "07:55",
+          "departure": "07:55"
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "07:59",
+          "departure": "07:59"
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "08:09",
+          "departure": "08:09"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "08:13",
+          "departure": "08:13"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "08:23",
+          "departure": "08:23"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "08:28",
+          "departure": "08:28"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "08:33",
+          "departure": "08:33"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "08:38",
+          "departure": "08:38"
+        }
+      ]
+    },
+    {
+      "train_number": "99703",
+      "train_name": null,
+      "service_code": "99703 UBR 3",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": "08:20",
+          "departure": "08:20"
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "08:32",
+          "departure": "08:32"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "08:36",
+          "departure": "08:36"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "08:46",
+          "departure": "08:46"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "08:51",
+          "departure": "08:51"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "08:56",
+          "departure": "08:56"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "09:01",
+          "departure": "09:01"
+        }
+      ]
+    },
+    {
+      "train_number": "99605",
+      "train_name": null,
+      "service_code": "99605 UNU 5",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": "08:55",
+          "departure": "08:55"
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "08:59",
+          "departure": "08:59"
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "09:09",
+          "departure": "09:09"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "09:13",
+          "departure": "09:13"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "09:23",
+          "departure": "09:23"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "09:28",
+          "departure": "09:28"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "09:33",
+          "departure": "09:33"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "09:38",
+          "departure": "09:38"
+        }
+      ]
+    },
+    {
+      "train_number": "99705",
+      "train_name": null,
+      "service_code": "99705 UBR 5",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": "09:22",
+          "departure": "09:22"
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "09:34",
+          "departure": "09:34"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "09:38",
+          "departure": "09:38"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "09:48",
+          "departure": "09:48"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "09:53",
+          "departure": "09:53"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "09:58",
+          "departure": "09:58"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "10:03",
+          "departure": "10:03"
+        }
+      ]
+    },
+    {
+      "train_number": "99607",
+      "train_name": null,
+      "service_code": "99607 UNU 7",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": "09:55",
+          "departure": "09:55"
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "09:59",
+          "departure": "09:59"
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "10:09",
+          "departure": "10:09"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "10:13",
+          "departure": "10:13"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "10:23",
+          "departure": "10:23"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "10:28",
+          "departure": "10:28"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "10:33",
+          "departure": "10:33"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "10:38",
+          "departure": "10:38"
+        }
+      ]
+    },
+    {
+      "train_number": "99707",
+      "train_name": null,
+      "service_code": "99707 UBR 7",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": "10:37",
+          "departure": "10:37"
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "10:49",
+          "departure": "10:49"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "10:53",
+          "departure": "10:53"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "11:03",
+          "departure": "11:03"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "11:08",
+          "departure": "11:08"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "11:13",
+          "departure": "11:13"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "11:18",
+          "departure": "11:18"
+        }
+      ]
+    },
+    {
+      "train_number": "99609",
+      "train_name": null,
+      "service_code": "99609 UNU 9",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": "11:40",
+          "departure": "11:40"
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "11:44",
+          "departure": "11:44"
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "11:54",
+          "departure": "11:54"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "11:58",
+          "departure": "11:58"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "12:08",
+          "departure": "12:08"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "12:13",
+          "departure": "12:13"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "12:18",
+          "departure": "12:18"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "12:23",
+          "departure": "12:23"
+        }
+      ]
+    },
+    {
+      "train_number": "99709",
+      "train_name": null,
+      "service_code": "99709 UBR 9",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": "12:37",
+          "departure": "12:37"
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "12:49",
+          "departure": "12:49"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "12:53",
+          "departure": "12:53"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "13:03",
+          "departure": "13:03"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "13:08",
+          "departure": "13:08"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "13:13",
+          "departure": "13:13"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "13:18",
+          "departure": "13:18"
+        }
+      ]
+    },
+    {
+      "train_number": "99611",
+      "train_name": null,
+      "service_code": "99611 UNU 11",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": "13:40",
+          "departure": "13:40"
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "13:44",
+          "departure": "13:44"
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "13:54",
+          "departure": "13:54"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "13:58",
+          "departure": "13:58"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "14:08",
+          "departure": "14:08"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "14:13",
+          "departure": "14:13"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "14:18",
+          "departure": "14:18"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "14:23",
+          "departure": "14:23"
+        }
+      ]
+    },
+    {
+      "train_number": "99711",
+      "train_name": null,
+      "service_code": "99711 UBR 11",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": "14:37",
+          "departure": "14:37"
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "14:49",
+          "departure": "14:49"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "14:53",
+          "departure": "14:53"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "15:03",
+          "departure": "15:03"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "15:08",
+          "departure": "15:08"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "15:13",
+          "departure": "15:13"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "15:18",
+          "departure": "15:18"
+        }
+      ]
+    },
+    {
+      "train_number": "99613",
+      "train_name": null,
+      "service_code": "99613 UNU 13",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": "15:45",
+          "departure": "15:45"
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "15:49",
+          "departure": "15:49"
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "15:59",
+          "departure": "15:59"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "16:03",
+          "departure": "16:03"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "16:13",
+          "departure": "16:13"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "16:18",
+          "departure": "16:18"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "16:23",
+          "departure": "16:23"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "16:28",
+          "departure": "16:28"
+        }
+      ]
+    },
+    {
+      "train_number": "99713",
+      "train_name": null,
+      "service_code": "99713 UBR 13",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": "16:27",
+          "departure": "16:27"
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "16:39",
+          "departure": "16:39"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "16:43",
+          "departure": "16:43"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "16:53",
+          "departure": "16:53"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "16:58",
+          "departure": "16:58"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "17:03",
+          "departure": "17:03"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "17:08",
+          "departure": "17:08"
+        }
+      ]
+    },
+    {
+      "train_number": "99615",
+      "train_name": null,
+      "service_code": "99615 UNU 15",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": "17:35",
+          "departure": "17:35"
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "17:39",
+          "departure": "17:39"
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "17:49",
+          "departure": "17:49"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "17:53",
+          "departure": "17:53"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "18:03",
+          "departure": "18:03"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "18:08",
+          "departure": "18:08"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "18:13",
+          "departure": "18:13"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "18:18",
+          "departure": "18:18"
+        }
+      ]
+    },
+    {
+      "train_number": "99715",
+      "train_name": null,
+      "service_code": "99715 UBR 15",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": "18:27",
+          "departure": "18:27"
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "18:39",
+          "departure": "18:39"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "18:43",
+          "departure": "18:43"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "18:53",
+          "departure": "18:53"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "18:58",
+          "departure": "18:58"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "19:03",
+          "departure": "19:03"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "19:08",
+          "departure": "19:08"
+        }
+      ]
+    },
+    {
+      "train_number": "99617",
+      "train_name": null,
+      "service_code": "99617 UNU 17",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": "19:15",
+          "departure": "19:15"
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "19:19",
+          "departure": "19:19"
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "19:29",
+          "departure": "19:29"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "19:33",
+          "departure": "19:33"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "19:43",
+          "departure": "19:43"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "19:48",
+          "departure": "19:48"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "19:53",
+          "departure": "19:53"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "19:58",
+          "departure": "19:58"
+        }
+      ]
+    },
+    {
+      "train_number": "99717",
+      "train_name": null,
+      "service_code": "99717 UBR 17",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": "19:57",
+          "departure": "19:57"
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "20:09",
+          "departure": "20:09"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "20:13",
+          "departure": "20:13"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "20:23",
+          "departure": "20:23"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "20:28",
+          "departure": "20:28"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "20:33",
+          "departure": "20:33"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "20:38",
+          "departure": "20:38"
+        }
+      ]
+    },
+    {
+      "train_number": "99619",
+      "train_name": null,
+      "service_code": "99619 UNU 19",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": "20:55",
+          "departure": "20:55"
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "20:59",
+          "departure": "20:59"
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "21:09",
+          "departure": "21:09"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "21:13",
+          "departure": "21:13"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "21:23",
+          "departure": "21:23"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "21:28",
+          "departure": "21:28"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "21:33",
+          "departure": "21:33"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "21:38",
+          "departure": "21:38"
+        }
+      ]
+    },
+    {
+      "train_number": "99719",
+      "train_name": null,
+      "service_code": "99719 UBR 19",
+      "running_days": null,
+      "direction": "NERUL to URAN",
+      "source_table": "Table - 15.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 2,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 3,
+          "station_name": "BELAPUR",
+          "arrival": "21:32",
+          "departure": "21:32"
+        },
+        {
+          "sequence": 4,
+          "station_name": "BAMANDONGRI",
+          "arrival": "21:44",
+          "departure": "21:44"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "21:48",
+          "departure": "21:48"
+        },
+        {
+          "sequence": 6,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "21:58",
+          "departure": "21:58"
+        },
+        {
+          "sequence": 7,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "22:03",
+          "departure": "22:03"
+        },
+        {
+          "sequence": 8,
+          "station_name": "DRONAGIRI",
+          "arrival": "22:08",
+          "departure": "22:08"
+        },
+        {
+          "sequence": 9,
+          "station_name": "URAN",
+          "arrival": "22:13",
+          "departure": "22:13"
+        }
+      ]
+    },
+    {
+      "train_number": "99602",
+      "train_name": null,
+      "service_code": "99602 UNU 2",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "06:05",
+          "departure": "06:05"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "06:10",
+          "departure": "06:10"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "06:15",
+          "departure": "06:15"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "06:20",
+          "departure": "06:20"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "06:30",
+          "departure": "06:30"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "06:34",
+          "departure": "06:34"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "06:44",
+          "departure": "06:44"
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": "06:48",
+          "departure": "06:48"
+        }
+      ]
+    },
+    {
+      "train_number": "99702",
+      "train_name": null,
+      "service_code": "99702 UBR 2",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "07:20",
+          "departure": "07:20"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "07:25",
+          "departure": "07:25"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "07:30",
+          "departure": "07:30"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "07:35",
+          "departure": "07:35"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "07:45",
+          "departure": "07:45"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "07:49",
+          "departure": "07:49"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": "08:01",
+          "departure": "08:01"
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        }
+      ]
+    },
+    {
+      "train_number": "99604",
+      "train_name": null,
+      "service_code": "99604 UNU 4",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "07:50",
+          "departure": "07:50"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "07:55",
+          "departure": "07:55"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "08:00",
+          "departure": "08:00"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "08:05",
+          "departure": "08:05"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "08:15",
+          "departure": "08:15"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "08:19",
+          "departure": "08:19"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "08:29",
+          "departure": "08:29"
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": "08:33",
+          "departure": "08:33"
+        }
+      ]
+    },
+    {
+      "train_number": "99704",
+      "train_name": null,
+      "service_code": "99704 UBR 4",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "08:30",
+          "departure": "08:30"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "08:35",
+          "departure": "08:35"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "08:40",
+          "departure": "08:40"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "08:45",
+          "departure": "08:45"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "08:55",
+          "departure": "08:55"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "08:59",
+          "departure": "08:59"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": "09:11",
+          "departure": "09:11"
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        }
+      ]
+    },
+    {
+      "train_number": "99606",
+      "train_name": null,
+      "service_code": "99606 UNU 6",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "09:00",
+          "departure": "09:00"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "09:05",
+          "departure": "09:05"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "09:10",
+          "departure": "09:10"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "09:15",
+          "departure": "09:15"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "09:25",
+          "departure": "09:25"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "09:29",
+          "departure": "09:29"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "09:39",
+          "departure": "09:39"
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": "09:43",
+          "departure": "09:43"
+        }
+      ]
+    },
+    {
+      "train_number": "99706",
+      "train_name": null,
+      "service_code": "99706 UBR 6",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "09:30",
+          "departure": "09:30"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "09:35",
+          "departure": "09:35"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "09:40",
+          "departure": "09:40"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "09:45",
+          "departure": "09:45"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "09:55",
+          "departure": "09:55"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "09:59",
+          "departure": "09:59"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": "10:11",
+          "departure": "10:11"
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        }
+      ]
+    },
+    {
+      "train_number": "99608",
+      "train_name": null,
+      "service_code": "99608 UNU 8",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "10:00",
+          "departure": "10:00"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "10:05",
+          "departure": "10:05"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "10:10",
+          "departure": "10:10"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "10:15",
+          "departure": "10:15"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "10:25",
+          "departure": "10:25"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "10:29",
+          "departure": "10:29"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "10:39",
+          "departure": "10:39"
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": "10:43",
+          "departure": "10:43"
+        }
+      ]
+    },
+    {
+      "train_number": "99708",
+      "train_name": null,
+      "service_code": "99708 UBR 8",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "11:00",
+          "departure": "11:00"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "11:05",
+          "departure": "11:05"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "11:10",
+          "departure": "11:10"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "11:15",
+          "departure": "11:15"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "11:25",
+          "departure": "11:25"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "11:29",
+          "departure": "11:29"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": "11:41",
+          "departure": "11:41"
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        }
+      ]
+    },
+    {
+      "train_number": "99610",
+      "train_name": null,
+      "service_code": "99610 UNU 10",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "12:00",
+          "departure": "12:00"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "12:05",
+          "departure": "12:05"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "12:10",
+          "departure": "12:10"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "12:15",
+          "departure": "12:15"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "12:25",
+          "departure": "12:25"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "12:29",
+          "departure": "12:29"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "12:39",
+          "departure": "12:39"
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": "12:43",
+          "departure": "12:43"
+        }
+      ]
+    },
+    {
+      "train_number": "99710",
+      "train_name": null,
+      "service_code": "99710 UBR 10",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "13:00",
+          "departure": "13:00"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "13:05",
+          "departure": "13:05"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "13:10",
+          "departure": "13:10"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "13:15",
+          "departure": "13:15"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "13:25",
+          "departure": "13:25"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "13:29",
+          "departure": "13:29"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": "13:41",
+          "departure": "13:41"
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        }
+      ]
+    },
+    {
+      "train_number": "99612",
+      "train_name": null,
+      "service_code": "99612 UNU 12",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "14:00",
+          "departure": "14:00"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "14:05",
+          "departure": "14:05"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "14:10",
+          "departure": "14:10"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "14:15",
+          "departure": "14:15"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "14:25",
+          "departure": "14:25"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "14:29",
+          "departure": "14:29"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "14:39",
+          "departure": "14:39"
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": "14:43",
+          "departure": "14:43"
+        }
+      ]
+    },
+    {
+      "train_number": "99712",
+      "train_name": null,
+      "service_code": "99712 UBR 12",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "15:00",
+          "departure": "15:00"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "15:05",
+          "departure": "15:05"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "15:10",
+          "departure": "15:10"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "15:15",
+          "departure": "15:15"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "15:25",
+          "departure": "15:25"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "15:29",
+          "departure": "15:29"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": "15:41",
+          "departure": "15:41"
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        }
+      ]
+    },
+    {
+      "train_number": "99614",
+      "train_name": null,
+      "service_code": "99614 UNU 14",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "16:00",
+          "departure": "16:00"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "16:05",
+          "departure": "16:05"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "16:10",
+          "departure": "16:10"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "16:15",
+          "departure": "16:15"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "16:25",
+          "departure": "16:25"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "16:29",
+          "departure": "16:29"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "16:39",
+          "departure": "16:39"
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": "16:43",
+          "departure": "16:43"
+        }
+      ]
+    },
+    {
+      "train_number": "99714",
+      "train_name": null,
+      "service_code": "99714 UBR 14",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "16:50",
+          "departure": "16:50"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "16:55",
+          "departure": "16:55"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "17:00",
+          "departure": "17:00"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "17:05",
+          "departure": "17:05"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "17:15",
+          "departure": "17:15"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "17:19",
+          "departure": "17:19"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": "17:31",
+          "departure": "17:31"
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        }
+      ]
+    },
+    {
+      "train_number": "99616",
+      "train_name": null,
+      "service_code": "99616 UNU 16",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "17:40",
+          "departure": "17:40"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "17:45",
+          "departure": "17:45"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "17:50",
+          "departure": "17:50"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "17:55",
+          "departure": "17:55"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "18:05",
+          "departure": "18:05"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "18:09",
+          "departure": "18:09"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "18:19",
+          "departure": "18:19"
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": "18:23",
+          "departure": "18:23"
+        }
+      ]
+    },
+    {
+      "train_number": "99716",
+      "train_name": null,
+      "service_code": "99716 UBR 16",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "18:30",
+          "departure": "18:30"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "18:35",
+          "departure": "18:35"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "18:40",
+          "departure": "18:40"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "18:45",
+          "departure": "18:45"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "18:55",
+          "departure": "18:55"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "18:59",
+          "departure": "18:59"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": "19:11",
+          "departure": "19:11"
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        }
+      ]
+    },
+    {
+      "train_number": "99618",
+      "train_name": null,
+      "service_code": "99618 UNU 18",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "19:20",
+          "departure": "19:20"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "19:25",
+          "departure": "19:25"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "19:30",
+          "departure": "19:30"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "19:35",
+          "departure": "19:35"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "19:45",
+          "departure": "19:45"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "19:49",
+          "departure": "19:49"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "19:59",
+          "departure": "19:59"
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": "20:03",
+          "departure": "20:03"
+        }
+      ]
+    },
+    {
+      "train_number": "99718",
+      "train_name": null,
+      "service_code": "99718 UBR 18",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "20:00",
+          "departure": "20:00"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "20:05",
+          "departure": "20:05"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "20:10",
+          "departure": "20:10"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "20:15",
+          "departure": "20:15"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "20:25",
+          "departure": "20:25"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "20:29",
+          "departure": "20:29"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": "20:41",
+          "departure": "20:41"
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        }
+      ]
+    },
+    {
+      "train_number": "99620",
+      "train_name": null,
+      "service_code": "99620 UNU 20",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "21:00",
+          "departure": "21:00"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "21:05",
+          "departure": "21:05"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "21:10",
+          "departure": "21:10"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "21:15",
+          "departure": "21:15"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "21:25",
+          "departure": "21:25"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "21:29",
+          "departure": "21:29"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": "21:39",
+          "departure": "21:39"
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": "21:43",
+          "departure": "21:43"
+        }
+      ]
+    },
+    {
+      "train_number": "99720",
+      "train_name": null,
+      "service_code": "99720 UBR 20",
+      "running_days": null,
+      "direction": "URAN to NERUL",
+      "source_table": "Table - 16.csv",
+      "stops": [
+        {
+          "sequence": 1,
+          "station_name": "URAN",
+          "arrival": "21:55",
+          "departure": "21:55"
+        },
+        {
+          "sequence": 2,
+          "station_name": "DRONAGIRI",
+          "arrival": "22:00",
+          "departure": "22:00"
+        },
+        {
+          "sequence": 3,
+          "station_name": "NHAVE-SHEVA",
+          "arrival": "22:05",
+          "departure": "22:05"
+        },
+        {
+          "sequence": 4,
+          "station_name": "SHEMATIKHAR",
+          "arrival": "22:10",
+          "departure": "22:10"
+        },
+        {
+          "sequence": 5,
+          "station_name": "KHARKOPAR",
+          "arrival": "22:20",
+          "departure": "22:20"
+        },
+        {
+          "sequence": 6,
+          "station_name": "BAMANDONGRI",
+          "arrival": "22:24",
+          "departure": "22:24"
+        },
+        {
+          "sequence": 7,
+          "station_name": "BELAPUR",
+          "arrival": "22:36",
+          "departure": "22:36"
+        },
+        {
+          "sequence": 8,
+          "station_name": "SEAWOODS DARAVE",
+          "arrival": null,
+          "departure": null
+        },
+        {
+          "sequence": 9,
+          "station_name": "NERUL",
+          "arrival": null,
+          "departure": null
+        }
+      ]
+    }
+  ]
+}

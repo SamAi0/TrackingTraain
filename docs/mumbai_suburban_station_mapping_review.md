@@ -1,0 +1,159 @@
+# TrackEase – Station Mapping Review
+
+### Confirmed Mappings
+- Thane -> THANE (TNA)
+- GNSL -> GHANSOLI (GHANSOLI)
+- VSH -> VASHI (VASHI)
+- NEU -> NERUL (NERUL)
+- KHAG -> KHARGHAR (KHARGHAR)
+- PNVL -> PANVEL (PNVL)
+- Kasara -> KASARA (KSRA)
+- Khardi -> KHARDI (KE)
+- Atgaon -> ATGAON (ATG)
+- Asangaon -> ASANGAON (ASO)
+- Vasind -> VASIND (VSD)
+- Khadavli -> KHADAVLI (KDV)
+- Ambivli -> AMBIVLI (ABY)
+- Shahad -> SHAHAD (SHAD)
+- Karjat -> KARJAT (KJT)
+- Bhivpuri Road -> BHIVPURI ROAD (BVS)
+- Neral -> NERAL (NRL)
+- Shelu -> SHELU (SHLU)
+- Vangani -> VANGANI (VGI)
+- Badlapur -> BADLAPUR (BUD)
+- Vithalwadi -> VITHALWADI (VLDI)
+- Diva -> DIVA (DIVA)
+- Mumbra -> MUMBRA (MBQ)
+- Kalva -> KALVA (KLVA)
+- Mulund -> MULUND (MLND)
+- Nahur -> NAHUR (NHU)
+- Bhandup -> BHANDUP (BND)
+- Kanjur Marg -> KANJUR MARG (KJMG)
+- Vikhroli -> VIKHROLI (VK)
+- Ghatkopar -> GHATKOPAR (GC)
+- Vidyavihar -> VIDYAVIHAR (VVH)
+- Byculla -> BYCULLA (BY)
+- Bandra -> BANDRA (BA)
+- Andheri -> ANDHERI (ADH)
+- Jogeshwari -> JOGESHWARI (JOS)
+- Ramnagar -> RAMNAGAR (RMR)
+- Goregaon -> GOREGAON (GMN)
+- Vashi -> VASHI (VASHI)
+- Sanpada -> SANPADA (SANPADA)
+- Juinagar -> JUINAGAR (JUINAGAR)
+- Nerul -> NERUL (NERUL)
+- Kharghar -> KHARGHAR (KHARGHAR)
+- Mansarovar -> MANSAROVAR (MANSAROVAR)
+- Khandeshwar -> KHANDESHWAR (KHANDESHWAR)
+- Panvel -> PANVEL (PNVL)
+- Santa Cruz -> SANTA CRUZ (STC)
+- Vile Parle -> VILE PARLE (VLP)
+- Malad -> MALAD (MDD)
+- Kandivli -> KANDIVLI (KILE)
+- BORIVALI -> BORIVALI (BVI)
+- Dahisar -> DAHISAR (DIC)
+- Mira Road -> MIRA ROAD (MIRA)
+- Bhayandar -> BHAYANDAR (BYR)
+- Naigaon -> NAIGAON (NIG)
+- Vasai Road -> VASAI ROAD (BSR)
+- Nalla Sopara -> NALLA SOPARA (NSP)
+- VIRAR -> VIRAR (VR)
+- SAPHALE -> SAPHALE (SAH)
+- PALGHAR -> PALGHAR (PLG)
+- Umroli -> UMROLI (UOI)
+- BOISAR -> BOISAR (BOR)
+- Vangaon -> VANGAON (VGN)
+- DAHANU ROAD -> DAHANU ROAD (DRD)
+- KHAR -> KHAR (KHAR)
+- JOGESWARI -> JOGESHWARI (JOS)
+
+### Uncertain Mappings
+- DIGH -> DIGH (None) [REVIEW]
+- AIRL -> AIROLI (None) [REVIEW]
+- RABE -> RABALE (None) [REVIEW]
+- KPHN -> KPHN (None) [REVIEW]
+- TUH -> TUH (None) [REVIEW]
+- SNPD -> SNPD (None) [REVIEW]
+- JNJ -> JNJ (None) [REVIEW]
+- SWDV -> SWDV (None) [REVIEW]
+- BEPR -> BEPR (None) [REVIEW]
+- MANR -> MANR (None) [REVIEW]
+- KNDS -> KNDS (None) [REVIEW]
+- Titwala -> TITWALA (None) [REVIEW]
+- Khopoli -> KHOPOLI (None) [REVIEW]
+- Lowjee -> LOWJEE (None) [REVIEW]
+- Dolavli -> DOLAVLI (None) [REVIEW]
+- Kelavli -> KELAVLI (None) [REVIEW]
+- Palasdhari -> PALASDHARI (None) [REVIEW]
+- Ambernath -> AMBERNATH (None) [REVIEW]
+- Ulhas Nagar -> ULHAS NAGAR (None) [REVIEW]
+- Kalyan -> KALYAN (None) [REVIEW]
+- Thakurli -> THAKURLI (None) [REVIEW]
+- Dombivli -> DOMBIVLI (None) [REVIEW]
+- Kopar -> KOPAR (None) [REVIEW]
+- Kurla -> KURLA (None) [REVIEW]
+- Sion -> SION (None) [REVIEW]
+- Matunga -> MATUNGA (None) [REVIEW]
+- Dadar -> DADAR (None) [REVIEW]
+- Parel -> PAREL (None) [REVIEW]
+- Currey Road -> CURREY ROAD (None) [REVIEW]
+- Chinchpokli -> CHINCHPOKLI (None) [REVIEW]
+- Sandhurst Road -> SANDHURST ROAD (None) [REVIEW]
+- Masjid -> MASJID (None) [REVIEW]
+- CSMT -> CSMT (None) [REVIEW]
+- Mumbai CSMT -> CSMT (None) [REVIEW]
+- Dockyard Road -> DOCKYARD ROAD (None) [REVIEW]
+- Reay Road -> REAY ROAD (None) [REVIEW]
+- Cotton Green -> COTTON GREEN (None) [REVIEW]
+- Sewri -> SEWRI (None) [REVIEW]
+- Vadala Road -> WADALA ROAD (None) [REVIEW]
+- King's Circle -> KING'S CIRCLE (None) [REVIEW]
+- Mahim Jn -> MAHIM JN (None) [REVIEW]
+- Khar Road -> KHAR ROAD (None) [REVIEW]
+- Santacruz -> SANTACRUZ (None) [REVIEW]
+- Vileparle -> VILEPARLE (None) [REVIEW]
+- GTB Nagar -> GTB NAGAR (None) [REVIEW]
+- Chunabhatti -> CHUNABHATTI (None) [REVIEW]
+- Tilaknagar -> TILAKNAGAR (None) [REVIEW]
+- Chembur -> CHEMBUR (None) [REVIEW]
+- Govandi -> GOVANDI (None) [REVIEW]
+- Mankhurd -> MANKHURD (None) [REVIEW]
+- Seawood Darave -> SEAWOOD DARAVE (None) [REVIEW]
+- Belapur CBD -> BELAPUR CBD (None) [REVIEW]
+- HARBOUR (MUMBAI CSMT-GOREGAON-PANVEL) -> HARBOUR (MUMBAI CSMT-GOREGAON-PANVEL) (None) [REVIEW]
+- HARBOUR (PANVEL-GOREGAON-MUMBAI CSMT) -> HARBOUR (PANVEL-GOREGAON-MUMBAI CSMT) (None) [REVIEW]
+- CHURCHGATE -> CHURCHGATE (None) [REVIEW]
+- Marine Lines -> MARINE LINES (None) [REVIEW]
+- Charni Road -> CHARNI ROAD (None) [REVIEW]
+- Grant Road -> GRANT ROAD (None) [REVIEW]
+- M'BAI CENTRAL (L) -> M'BAI CENTRAL (L) (None) [REVIEW]
+- Mahalakshmi -> MAHALAKSHMI (None) [REVIEW]
+- Lower Parel -> LOWER PAREL (None) [REVIEW]
+- Prabhadevi -> PRABHADEVI (None) [REVIEW]
+- Matunga Road -> MATUNGA ROAD (None) [REVIEW]
+- Mahim Jn. -> MAHIM JN. (None) [REVIEW]
+- Ram Mandir -> RAM MANDIR (None) [REVIEW]
+- Mahalakshmi Lower Parel Prabhadevi DADAR -> MAHALAKSHMI LOWER PAREL PRABHADEVI DADAR (None) [REVIEW]
+- Matunga Road Mahim Jn. BANDRA -> MATUNGA ROAD MAHIM JN. BANDRA (None) [REVIEW]
+- M'BAI CENTRAL -> M'BAI CENTRAL (None) [REVIEW]
+- Nallasopara -> NALLASOPARA (None) [REVIEW]
+- Vaiterna -> VAITERNA (None) [REVIEW]
+- Kelve Road -> KELVE ROAD (None) [REVIEW]
+- DAHANU ROAD Vangaon Boisar -> DAHANU ROAD VANGAON BOISAR (None) [REVIEW]
+- PALGHAR Kelve Road -> PALGHAR KELVE ROAD (None) [REVIEW]
+- VIRAR Nallasopara -> VIRAR NALLASOPARA (None) [REVIEW]
+- Naigaon Bhayandar -> NAIGAON BHAYANDAR (None) [REVIEW]
+- Mira Road Dahisar -> MIRA ROAD DAHISAR (None) [REVIEW]
+- BORIVALI ANDHERI BANDRA -> BORIVALI ANDHERI BANDRA (None) [REVIEW]
+- Grant Road Charni Road Marine Lines CHURCHGATE -> GRANT ROAD CHARNI ROAD MARINE LINES CHURCHGATE (None) [REVIEW]
+- DOCK YARD ROAD -> DOCK YARD ROAD (None) [REVIEW]
+- SEWERI -> SEWRI (None) [REVIEW]
+- SANTACURTZ -> SANTACRUZ (None) [REVIEW]
+- Kandivali -> KANDIVALI (None) [REVIEW]
+- M'BAI CENTRAL(L -> M'BAI CENTRAL(L (None) [REVIEW]
+- VIRAR Nalla Sopara -> VIRAR NALLA SOPARA (None) [REVIEW]
+- VASAI ROAD Naigaon -> VASAI ROAD NAIGAON (None) [REVIEW]
+- M'BAI CENTRAL(L) -> M'BAI CENTRAL(L) (None) [REVIEW]
+- AIR CONDITIONED SERVICES -> AIR CONDITIONED SERVICES (None) [REVIEW]
+
+### Unmapped Stations

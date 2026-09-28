@@ -20,13 +20,27 @@ class TrainService(BaseRailwayService):
             # Normalize RapidAPI response
             trains = []
             if isinstance(raw_data, dict) and "data" in raw_data:
-                results = raw_data.get("data", [])
-                for tr in results:
-                    trains.append({
-                        "number": tr.get("trainNumber", ""),
-                        "name": tr.get("trainName", ""),
-                        "type": tr.get("trainType", "EXPRESS"),
-                    })
+                data_obj = raw_data.get("data")
+                if isinstance(data_obj, dict) and "results" in data_obj:
+                    results_list = data_obj.get("results", [])
+                elif isinstance(data_obj, list):
+                    results_list = data_obj
+                else:
+                    results_list = []
+                    
+                for tr in results_list:
+                    if isinstance(tr, str):
+                        trains.append({
+                            "number": tr,
+                            "name": "",
+                            "type": "EXPRESS",
+                        })
+                    elif isinstance(tr, dict):
+                        trains.append({
+                            "number": tr.get("trainNumber", tr.get("train_no", "")),
+                            "name": tr.get("trainName", tr.get("train_name", "")),
+                            "type": tr.get("trainType", "EXPRESS"),
+                        })
             elif isinstance(raw_data, list):
                 for tr in raw_data:
                     if isinstance(tr, str):
@@ -101,9 +115,13 @@ class TrainService(BaseRailwayService):
         from_station = resolved_from
         to_station = resolved_to
             
+        from .mapping import to_api_station, to_canonical_station
+        api_from = to_api_station(from_station)
+        api_to = to_api_station(to_station)
+
         params = {
-            "fromStationCode": from_station,
-            "toStationCode": to_station,
+            "fromStationCode": api_from,
+            "toStationCode": api_to,
         }
         if date:
             params["dateOfJourney"] = date
@@ -120,8 +138,8 @@ class TrainService(BaseRailwayService):
                 trains.append({
                     "number": tr.get("trainNumber", ""),
                     "name": tr.get("trainName", ""),
-                    "source": tr.get("fromStnCode", from_station),
-                    "destination": tr.get("toStnCode", to_station),
+                    "source": to_canonical_station(tr.get("fromStnCode", from_station)),
+                    "destination": to_canonical_station(tr.get("toStnCode", to_station)),
                     "departure_time": tr.get("departureTime", ""),
                     "arrival_time": tr.get("arrivalTime", ""),
                     "duration": tr.get("duration", ""),
@@ -135,15 +153,16 @@ class TrainService(BaseRailwayService):
             logger.error(f"Unexpected error in trains_between: {str(e)}")
             source_label = "local_database"
 
-        # Always check local DB for local/suburban trains not in external API
+        # Always check local DB for local/suburban trains
         local_result = cls._fallback_trains_between(from_station, to_station)
         if local_result.get("success") and local_result.get("data"):
             local_trains = local_result["data"]
-            # Merge and avoid duplicates by train number
-            existing_numbers = {t["number"] for t in trains}
-            for lt in local_trains:
-                if lt["number"] not in existing_numbers:
-                    trains.append(lt)
+            existing_local_numbers = {t["number"] for t in local_trains}
+            
+            # Keep API trains only if they don't exist in local dataset
+            filtered_api_trains = [t for t in trains if t["number"] not in existing_local_numbers]
+            
+            trains = filtered_api_trains + local_trains
             
             if source_label == "external_api":
                 source_label = "merged"

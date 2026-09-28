@@ -20,22 +20,51 @@ class StationService(BaseRailwayService):
             # Normalize RapidAPI response
             stations = []
             if isinstance(raw_data, dict) and "data" in raw_data:
-                results = raw_data.get("data", [])
-                for st in results:
-                    stations.append({
-                        "code": st.get("stationCode", ""),
-                        "name": st.get("stationName", ""),
-                        "city": st.get("city", ""),
-                        "state": st.get("state", ""),
-                    })
+                data_obj = raw_data.get("data")
+                if isinstance(data_obj, dict) and "results" in data_obj:
+                    results_list = data_obj.get("results", [])
+                elif isinstance(data_obj, list):
+                    results_list = data_obj
+                else:
+                    results_list = []
+                    
+                for st in results_list:
+                    if isinstance(st, str):
+                        stations.append({
+                            "code": st,
+                            "name": "",
+                            "city": "",
+                            "state": "",
+                        })
+                    elif isinstance(st, dict):
+                        from .mapping import to_canonical_station
+                        raw_code = st.get("stationCode", st.get("station_code", ""))
+                        
+                        stations.append({
+                            "code": to_canonical_station(raw_code),
+                            "name": st.get("stationName", st.get("station_name", "")),
+                            "city": st.get("city", ""),
+                            "state": st.get("state", ""),
+                        })
             elif isinstance(raw_data, list):
                 for st in raw_data:
-                    stations.append({
-                        "code": st.get("stationCode", st.get("code", "")),
-                        "name": st.get("stationName", st.get("name", "")),
-                        "city": st.get("city", ""),
-                        "state": st.get("state", ""),
-                    })
+                    if isinstance(st, str):
+                        stations.append({
+                            "code": st,
+                            "name": "",
+                            "city": "",
+                            "state": "",
+                        })
+                    elif isinstance(st, dict):
+                        from .mapping import to_canonical_station
+                        raw_code = st.get("stationCode", st.get("code", ""))
+                        
+                        stations.append({
+                            "code": to_canonical_station(raw_code),
+                            "name": st.get("stationName", st.get("name", "")),
+                            "city": st.get("city", ""),
+                            "state": st.get("state", ""),
+                        })
             
             return ResponseNormalizer.normalize(stations, source="external_api")
             

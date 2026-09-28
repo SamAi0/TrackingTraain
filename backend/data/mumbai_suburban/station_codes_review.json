@@ -1,0 +1,58 @@
+[
+  {
+    "source_name": "PALASDHARI",
+    "canonical_name": "PALASDHARI",
+    "proposed_code": "PDI",
+    "conflict_with_existing": true,
+    "existing_station_name": "PALASDARI",
+    "reason": "Code exists in DB under different name"
+  },
+  {
+    "source_name": "THAKURLI",
+    "canonical_name": "THAKURLI",
+    "proposed_code": "THK",
+    "conflict_with_existing": true,
+    "existing_station_name": "THAKRULI",
+    "reason": "Code exists in DB under different name"
+  },
+  {
+    "source_name": "KHAR ROAD",
+    "canonical_name": "KHAR ROAD",
+    "proposed_code": "KHAR",
+    "conflict_with_existing": true,
+    "existing_station_name": "KHAR",
+    "reason": "Code exists in DB under different name"
+  },
+  {
+    "source_name": "SANTACRUZ",
+    "canonical_name": "SANTACRUZ",
+    "proposed_code": "STC",
+    "conflict_with_existing": true,
+    "existing_station_name": "SANTA CRUZ",
+    "reason": "Code exists in DB under different name"
+  },
+  {
+    "source_name": "NALLASOPARA",
+    "canonical_name": "NALLASOPARA",
+    "proposed_code": "NSP",
+    "conflict_with_existing": true,
+    "existing_station_name": "NALLA SOPARA",
+    "reason": "Code exists in DB under different name"
+  },
+  {
+    "source_name": "KELVE ROAD",
+    "canonical_name": "KELVE ROAD",
+    "proposed_code": "KLV",
+    "conflict_with_existing": true,
+    "existing_station_name": "KELVA ROAD",
+    "reason": "Code exists in DB under different name"
+  },
+  {
+    "source_name": "KANDIVALI",
+    "canonical_name": "KANDIVALI",
+    "proposed_code": "KILE",
+    "conflict_with_existing": true,
+    "existing_station_name": "KANDIVLI",
+    "reason": "Code exists in DB under different name"
+  }
+]

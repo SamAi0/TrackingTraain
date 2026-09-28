@@ -1,15 +1,15 @@
 # TrackEase – Mumbai Suburban Cleaning Report
 
 ### Central
-- Services before: 1646
-- Services after: 1638
-- Duplicate records removed: 8
-- Valid times: 30180
-- Blank values: 40440
+- Services before: 916
+- Services after: 916
+- Duplicate records removed: 0
+- Valid times: 17248
+- Blank values: 27134
 - Annotations: 0
 - Unresolved values: 0
-- Stations mapped: 33758
-- Stations requiring review: 36862
+- Stations mapped: 24340
+- Stations requiring review: 20042
 
 ### Western
 - Services before: 1434
@@ -23,15 +23,15 @@
 - Stations requiring review: 18582
 
 ### Harbour
-- Services before: 449
-- Services after: 159
-- Duplicate records removed: 290
-- Valid times: 5628
-- Blank values: 2454
+- Services before: 1179
+- Services after: 881
+- Duplicate records removed: 298
+- Valid times: 18560
+- Blank values: 15760
 - Annotations: 0
 - Unresolved values: 0
-- Stations mapped: 2245
-- Stations requiring review: 5837
+- Stations mapped: 11663
+- Stations requiring review: 22657
 
 ### Vasai_diva
 - Services before: 1021

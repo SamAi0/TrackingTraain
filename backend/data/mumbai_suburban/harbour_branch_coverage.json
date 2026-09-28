@@ -1,0 +1,100 @@
+{
+  "branches": [
+    {
+      "branch": "CSMT-PANVEL",
+      "status": "PRESENT",
+      "service_count": 722,
+      "source_files": [
+        "backend/data/mumbai_suburban/raw/central/Table - 19.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 20.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 21.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 22.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 23.csv"
+      ],
+      "evidence": [
+        "These files were misclassified as 'central' during raw data organization, but they clearly contain Harbour Line data (CSMT to Panvel)."
+      ]
+    },
+    {
+      "branch": "CSMT-VASHI",
+      "status": "PRESENT",
+      "service_count": 722,
+      "source_files": [
+        "backend/data/mumbai_suburban/raw/central/Table - 19.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 20.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 21.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 22.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 23.csv"
+      ],
+      "evidence": [
+        "Trains in these files stop at both Mumbai CSMT and Vashi."
+      ]
+    },
+    {
+      "branch": "CSMT-BELAPUR",
+      "status": "PRESENT",
+      "service_count": 722,
+      "source_files": [
+        "backend/data/mumbai_suburban/raw/central/Table - 19.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 20.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 21.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 22.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 23.csv"
+      ],
+      "evidence": [
+        "Trains in these files stop at both Mumbai CSMT and Belapur CBD."
+      ]
+    },
+    {
+      "branch": "CSMT-KHARGHAR",
+      "status": "PRESENT",
+      "service_count": 722,
+      "source_files": [
+        "backend/data/mumbai_suburban/raw/central/Table - 19.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 20.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 21.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 22.csv",
+        "backend/data/mumbai_suburban/raw/central/Table - 23.csv"
+      ],
+      "evidence": [
+        "Trains in these files stop at both Mumbai CSMT and Kharghar."
+      ]
+    },
+    {
+      "branch": "WADALA-PANVEL",
+      "status": "ABSENT",
+      "service_count": 0,
+      "source_files": [],
+      "evidence": [
+        "There are no Wadala to Panvel originating services. All services originate from CSMT."
+      ]
+    },
+    {
+      "branch": "WADALA-VASHI",
+      "status": "ABSENT",
+      "service_count": 0,
+      "source_files": [],
+      "evidence": [
+        "There are no Wadala to Vashi originating services."
+      ]
+    },
+    {
+      "branch": "WADALA-GOREGAON",
+      "status": "ABSENT",
+      "service_count": 0,
+      "source_files": [],
+      "evidence": [
+        "There are no Wadala to Goregaon originating services."
+      ]
+    },
+    {
+      "branch": "WADALA-BANDRA",
+      "status": "ABSENT",
+      "service_count": 0,
+      "source_files": [],
+      "evidence": [
+        "There are no Wadala to Bandra originating services."
+      ]
+    }
+  ]
+}

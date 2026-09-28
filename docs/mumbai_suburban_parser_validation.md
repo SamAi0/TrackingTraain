@@ -1,21 +1,21 @@
 # TrackEase – Mumbai Suburban Parser Validation
 
 ### Central
-- Services (Train Count): 1646
-- Unique stations: 99
-- Stops (Timetable records): 70620
+- Services (Train Count): 916
+- Unique stations: 65
+- Stops (Timetable records): 44382
 - Exact duplicates: 0
-- Invalid times: 5095
-- Missing times: 40440
+- Invalid times: 4368
+- Missing times: 27134
 - Sequence issues: 13
 
 ### Harbour
-- Services (Train Count): 449
-- Unique stations: 18
-- Stops (Timetable records): 10782
+- Services (Train Count): 1179
+- Unique stations: 55
+- Stops (Timetable records): 37020
 - Exact duplicates: 327
-- Invalid times: 2772
-- Missing times: 5154
+- Invalid times: 3499
+- Missing times: 18460
 - Sequence issues: 0
 
 ### Panvel_karjat

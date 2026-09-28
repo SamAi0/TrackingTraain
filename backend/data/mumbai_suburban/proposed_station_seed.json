@@ -1,0 +1,262 @@
+[
+  {
+    "source_name": "KHOPOLI",
+    "canonical_name": "KHOPOLI",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "LOWJEE",
+    "canonical_name": "LOWJEE",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "DOLAVLI",
+    "canonical_name": "DOLAVLI",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "KELAVLI",
+    "canonical_name": "KELAVLI",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "PALASDHARI",
+    "canonical_name": "PALASDHARI",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "THAKURLI",
+    "canonical_name": "THAKURLI",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "CSMT",
+    "canonical_name": "CSMT",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "DOCKYARD ROAD",
+    "canonical_name": "DOCKYARD ROAD",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "REAY ROAD",
+    "canonical_name": "REAY ROAD",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "COTTON GREEN",
+    "canonical_name": "COTTON GREEN",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "SEWRI",
+    "canonical_name": "SEWRI",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "KING'S CIRCLE",
+    "canonical_name": "KING'S CIRCLE",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "KHAR ROAD",
+    "canonical_name": "KHAR ROAD",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "SANTACRUZ",
+    "canonical_name": "SANTACRUZ",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "CHEMBUR",
+    "canonical_name": "CHEMBUR",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "GOVANDI",
+    "canonical_name": "GOVANDI",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "MANKHURD",
+    "canonical_name": "MANKHURD",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "SEAWOODSDARAWE",
+    "canonical_name": "SEAWOODSDARAWE",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "CHURCHGATE",
+    "canonical_name": "CHURCHGATE",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "MARINE LINES",
+    "canonical_name": "MARINE LINES",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "GRANT ROAD",
+    "canonical_name": "GRANT ROAD",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "PRABHADEVI",
+    "canonical_name": "PRABHADEVI",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "RAM MANDIR",
+    "canonical_name": "RAM MANDIR",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "NALLASOPARA",
+    "canonical_name": "NALLASOPARA",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "KELVE ROAD",
+    "canonical_name": "KELVE ROAD",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  },
+  {
+    "source_name": "KANDIVALI",
+    "canonical_name": "KANDIVALI",
+    "station_code": "CODE_NOT_VERIFIED",
+    "corridor": "Mumbai Suburban",
+    "confidence": "HIGH",
+    "source_file": "Umang-Lodaya CSV",
+    "mapping_reason": "Missing commuter station",
+    "coordinates_if_verified": null
+  }
+]

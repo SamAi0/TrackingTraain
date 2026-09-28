@@ -33,21 +33,12 @@
 - Ghatkopar -> GHATKOPAR (GC)
 - Vidyavihar -> VIDYAVIHAR (VVH)
 - Byculla -> BYCULLA (BY)
-- Bandra -> BANDRA (BA)
-- Andheri -> ANDHERI (ADH)
-- Jogeshwari -> JOGESHWARI (JOS)
-- Ramnagar -> RAMNAGAR (RMR)
-- Goregaon -> GOREGAON (GMN)
-- Vashi -> VASHI (VASHI)
-- Sanpada -> SANPADA (SANPADA)
-- Juinagar -> JUINAGAR (JUINAGAR)
-- Nerul -> NERUL (NERUL)
-- Kharghar -> KHARGHAR (KHARGHAR)
-- Mansarovar -> MANSAROVAR (MANSAROVAR)
-- Khandeshwar -> KHANDESHWAR (KHANDESHWAR)
-- Panvel -> PANVEL (PNVL)
+- BANDRA -> BANDRA (BA)
 - Santa Cruz -> SANTA CRUZ (STC)
 - Vile Parle -> VILE PARLE (VLP)
+- ANDHERI -> ANDHERI (ADH)
+- Jogeshwari -> JOGESHWARI (JOS)
+- Goregaon -> GOREGAON (GMN)
 - Malad -> MALAD (MDD)
 - Kandivli -> KANDIVLI (KILE)
 - BORIVALI -> BORIVALI (BVI)
@@ -64,6 +55,15 @@
 - BOISAR -> BOISAR (BOR)
 - Vangaon -> VANGAON (VGN)
 - DAHANU ROAD -> DAHANU ROAD (DRD)
+- Ramnagar -> RAMNAGAR (RMR)
+- Vashi -> VASHI (VASHI)
+- Sanpada -> SANPADA (SANPADA)
+- Juinagar -> JUINAGAR (JUINAGAR)
+- Nerul -> NERUL (NERUL)
+- Kharghar -> KHARGHAR (KHARGHAR)
+- Mansarovar -> MANSAROVAR (MANSAROVAR)
+- Khandeshwar -> KHANDESHWAR (KHANDESHWAR)
+- Panvel -> PANVEL (PNVL)
 - KHAR -> KHAR (KHAR)
 - JOGESWARI -> JOGESHWARI (JOS)
 
@@ -101,27 +101,6 @@
 - Sandhurst Road -> SANDHURST ROAD (None) [REVIEW]
 - Masjid -> MASJID (None) [REVIEW]
 - CSMT -> CSMT (None) [REVIEW]
-- Mumbai CSMT -> CSMT (None) [REVIEW]
-- Dockyard Road -> DOCKYARD ROAD (None) [REVIEW]
-- Reay Road -> REAY ROAD (None) [REVIEW]
-- Cotton Green -> COTTON GREEN (None) [REVIEW]
-- Sewri -> SEWRI (None) [REVIEW]
-- Vadala Road -> WADALA ROAD (None) [REVIEW]
-- King's Circle -> KING'S CIRCLE (None) [REVIEW]
-- Mahim Jn -> MAHIM JN (None) [REVIEW]
-- Khar Road -> KHAR ROAD (None) [REVIEW]
-- Santacruz -> SANTACRUZ (None) [REVIEW]
-- Vileparle -> VILEPARLE (None) [REVIEW]
-- GTB Nagar -> GTB NAGAR (None) [REVIEW]
-- Chunabhatti -> CHUNABHATTI (None) [REVIEW]
-- Tilaknagar -> TILAKNAGAR (None) [REVIEW]
-- Chembur -> CHEMBUR (None) [REVIEW]
-- Govandi -> GOVANDI (None) [REVIEW]
-- Mankhurd -> MANKHURD (None) [REVIEW]
-- Seawood Darave -> SEAWOOD DARAVE (None) [REVIEW]
-- Belapur CBD -> BELAPUR CBD (None) [REVIEW]
-- HARBOUR (MUMBAI CSMT-GOREGAON-PANVEL) -> HARBOUR (MUMBAI CSMT-GOREGAON-PANVEL) (None) [REVIEW]
-- HARBOUR (PANVEL-GOREGAON-MUMBAI CSMT) -> HARBOUR (PANVEL-GOREGAON-MUMBAI CSMT) (None) [REVIEW]
 - CHURCHGATE -> CHURCHGATE (None) [REVIEW]
 - Marine Lines -> MARINE LINES (None) [REVIEW]
 - Charni Road -> CHARNI ROAD (None) [REVIEW]
@@ -132,6 +111,7 @@
 - Prabhadevi -> PRABHADEVI (None) [REVIEW]
 - Matunga Road -> MATUNGA ROAD (None) [REVIEW]
 - Mahim Jn. -> MAHIM JN. (None) [REVIEW]
+- Khar Road -> KHAR ROAD (None) [REVIEW]
 - Ram Mandir -> RAM MANDIR (None) [REVIEW]
 - Mahalakshmi Lower Parel Prabhadevi DADAR -> MAHALAKSHMI LOWER PAREL PRABHADEVI DADAR (None) [REVIEW]
 - Matunga Road Mahim Jn. BANDRA -> MATUNGA ROAD MAHIM JN. BANDRA (None) [REVIEW]
@@ -146,6 +126,26 @@
 - Mira Road Dahisar -> MIRA ROAD DAHISAR (None) [REVIEW]
 - BORIVALI ANDHERI BANDRA -> BORIVALI ANDHERI BANDRA (None) [REVIEW]
 - Grant Road Charni Road Marine Lines CHURCHGATE -> GRANT ROAD CHARNI ROAD MARINE LINES CHURCHGATE (None) [REVIEW]
+- Mumbai CSMT -> CSMT (None) [REVIEW]
+- Dockyard Road -> DOCKYARD ROAD (None) [REVIEW]
+- Reay Road -> REAY ROAD (None) [REVIEW]
+- Cotton Green -> COTTON GREEN (None) [REVIEW]
+- Sewri -> SEWRI (None) [REVIEW]
+- Vadala Road -> WADALA ROAD (None) [REVIEW]
+- King's Circle -> KING'S CIRCLE (None) [REVIEW]
+- Mahim Jn -> MAHIM JN (None) [REVIEW]
+- Santacruz -> SANTACRUZ (None) [REVIEW]
+- Vileparle -> VILEPARLE (None) [REVIEW]
+- GTB Nagar -> GTB NAGAR (None) [REVIEW]
+- Chunabhatti -> CHUNABHATTI (None) [REVIEW]
+- Tilaknagar -> TILAKNAGAR (None) [REVIEW]
+- Chembur -> CHEMBUR (None) [REVIEW]
+- Govandi -> GOVANDI (None) [REVIEW]
+- Mankhurd -> MANKHURD (None) [REVIEW]
+- Seawood Darave -> SEAWOOD DARAVE (None) [REVIEW]
+- Belapur CBD -> BELAPUR CBD (None) [REVIEW]
+- HARBOUR (MUMBAI CSMT-GOREGAON-PANVEL) -> HARBOUR (MUMBAI CSMT-GOREGAON-PANVEL) (None) [REVIEW]
+- HARBOUR (PANVEL-GOREGAON-MUMBAI CSMT) -> HARBOUR (PANVEL-GOREGAON-MUMBAI CSMT) (None) [REVIEW]
 - DOCK YARD ROAD -> DOCK YARD ROAD (None) [REVIEW]
 - SEWERI -> SEWRI (None) [REVIEW]
 - SANTACURTZ -> SANTACRUZ (None) [REVIEW]

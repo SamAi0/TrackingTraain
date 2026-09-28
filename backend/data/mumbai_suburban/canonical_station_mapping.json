@@ -1,0 +1,1708 @@
+[
+    {
+        "source_identifier": "VSH",
+        "source_name": "VSH",
+        "canonical_code": "VASHI",
+        "canonical_name": "VASHI",
+        "mapping_type": "API_NORMALIZATION",
+        "corridors": [
+            "Trans-Harbour",
+            "Harbour"
+        ],
+        "confidence": "HIGH",
+        "notes": "API Normalization rule"
+    },
+    {
+        "source_identifier": "NEU",
+        "source_name": "NEU",
+        "canonical_code": "NERUL",
+        "canonical_name": "NERUL",
+        "mapping_type": "API_NORMALIZATION",
+        "corridors": [
+            "Trans-Harbour",
+            "Harbour"
+        ],
+        "confidence": "HIGH",
+        "notes": "API Normalization rule"
+    },
+    {
+        "source_identifier": "SWDK",
+        "source_name": "SWDK",
+        "canonical_code": "SEAWOODSDARAWE",
+        "canonical_name": "SEAWOODS DARAWE",
+        "mapping_type": "API_NORMALIZATION",
+        "corridors": [
+            "Trans-Harbour",
+            "Harbour"
+        ],
+        "confidence": "HIGH",
+        "notes": "API Normalization rule"
+    },
+    {
+        "source_identifier": "KHAG",
+        "source_name": "KHAG",
+        "canonical_code": "KHARGHAR",
+        "canonical_name": "KHARGHAR",
+        "mapping_type": "API_NORMALIZATION",
+        "corridors": [
+            "Trans-Harbour",
+            "Harbour"
+        ],
+        "confidence": "HIGH",
+        "notes": "API Normalization rule"
+    },
+    {
+        "source_identifier": "GNSL",
+        "source_name": "GNSL",
+        "canonical_code": "GHANSOLI",
+        "canonical_name": "GHANSOLI",
+        "mapping_type": "API_NORMALIZATION",
+        "corridors": [
+            "Trans-Harbour",
+            "Harbour"
+        ],
+        "confidence": "HIGH",
+        "notes": "API Normalization rule"
+    },
+    {
+        "source_identifier": "BAP",
+        "source_name": "BAP",
+        "canonical_code": "BAP",
+        "canonical_name": "BELAPUR",
+        "mapping_type": "API_NORMALIZATION",
+        "corridors": [
+            "Trans-Harbour",
+            "Harbour"
+        ],
+        "confidence": "HIGH",
+        "notes": "API Normalization rule"
+    },
+    {
+        "source_identifier": "PNVL",
+        "source_name": "PNVL",
+        "canonical_code": "PNVL",
+        "canonical_name": "PANVEL",
+        "mapping_type": "API_NORMALIZATION",
+        "corridors": [
+            "Trans-Harbour",
+            "Harbour"
+        ],
+        "confidence": "HIGH",
+        "notes": "API Normalization rule"
+    },
+    {
+        "source_identifier": "TNA",
+        "source_name": "TNA",
+        "canonical_code": "TNA",
+        "canonical_name": "THANE",
+        "mapping_type": "API_NORMALIZATION",
+        "corridors": [
+            "Trans-Harbour",
+            "Harbour"
+        ],
+        "confidence": "HIGH",
+        "notes": "API Normalization rule"
+    },
+    {
+        "source_identifier": "THANE",
+        "source_name": "THANE",
+        "canonical_code": "TNA",
+        "canonical_name": "THANE",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "DIGH",
+        "source_name": "DIGH",
+        "canonical_code": "DIGHAGAON",
+        "canonical_name": "DIGHA GAON",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manually corrected alias mapping"
+    },
+    {
+        "source_identifier": "AIRL",
+        "source_name": "AIRL",
+        "canonical_code": "AIRAVALI",
+        "canonical_name": "AIRAVALI",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manually corrected alias mapping"
+    },
+    {
+        "source_identifier": "RABE",
+        "source_name": "RABE",
+        "canonical_code": "RABADA",
+        "canonical_name": "RABADA",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KPHN",
+        "source_name": "KPHN",
+        "canonical_code": "KOPARKHAIRNA",
+        "canonical_name": "KOPAR KHAIRNA",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "TUH",
+        "source_name": "TUH",
+        "canonical_code": "TURBHE",
+        "canonical_name": "TURBHE",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manually corrected alias mapping"
+    },
+    {
+        "source_identifier": "SNPD",
+        "source_name": "SNPD",
+        "canonical_code": "SANPADA",
+        "canonical_name": "SANPADA",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "JNJ",
+        "source_name": "JNJ",
+        "canonical_code": "JUINAGAR",
+        "canonical_name": "JUINAGAR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "SWDV",
+        "source_name": "SWDV",
+        "canonical_code": "SEAWOODSDARAWE",
+        "canonical_name": "SEAWOODS DARAWE",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "BEPR",
+        "source_name": "BEPR",
+        "canonical_code": "BAP",
+        "canonical_name": "BELAPUR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "MANR",
+        "source_name": "MANR",
+        "canonical_code": "MANSAROVAR",
+        "canonical_name": "MANSAROVAR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KNDS",
+        "source_name": "KNDS",
+        "canonical_code": "KHANDESHWAR",
+        "canonical_name": "KHANDESHWAR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KASARA",
+        "source_name": "KASARA",
+        "canonical_code": "KSRA",
+        "canonical_name": "KASARA",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KHARDI",
+        "source_name": "KHARDI",
+        "canonical_code": "KE",
+        "canonical_name": "KHARDI",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "ATGAON",
+        "source_name": "ATGAON",
+        "canonical_code": "ATG",
+        "canonical_name": "ATGAON",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "ASANGAON",
+        "source_name": "ASANGAON",
+        "canonical_code": "ASO",
+        "canonical_name": "ASANGAON",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "VASIND",
+        "source_name": "VASIND",
+        "canonical_code": "VSD",
+        "canonical_name": "VASIND",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KHADAVLI",
+        "source_name": "KHADAVLI",
+        "canonical_code": "KDV",
+        "canonical_name": "KHADAVLI",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "TITWALA",
+        "source_name": "TITWALA",
+        "canonical_code": "TLA",
+        "canonical_name": "TITVALA",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "AMBIVLI",
+        "source_name": "AMBIVLI",
+        "canonical_code": "ABY",
+        "canonical_name": "AMBIVLI",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "SHAHAD",
+        "source_name": "SHAHAD",
+        "canonical_code": "SHAD",
+        "canonical_name": "SHAHAD",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KHOPOLI",
+        "source_name": "KHOPOLI",
+        "canonical_code": "KHPI",
+        "canonical_name": "KHOPOLI",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "LOWJEE",
+        "source_name": "LOWJEE",
+        "canonical_code": "LWJ",
+        "canonical_name": "LOWJEE",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "DOLAVLI",
+        "source_name": "DOLAVLI",
+        "canonical_code": "DLV",
+        "canonical_name": "DOLAVLI",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "KELAVLI",
+        "source_name": "KELAVLI",
+        "canonical_code": "KLY",
+        "canonical_name": "KELAVLI",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "PALASDHARI",
+        "source_name": "PALASDHARI",
+        "canonical_code": "PDI",
+        "canonical_name": "PALASDARI",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Maps to existing physical station PALASDARI"
+    },
+    {
+        "source_identifier": "KARJAT",
+        "source_name": "KARJAT",
+        "canonical_code": "KJT",
+        "canonical_name": "KARJAT",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "BHIVPURI ROAD",
+        "source_name": "BHIVPURI ROAD",
+        "canonical_code": "BVS",
+        "canonical_name": "BHIVPURI ROAD",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "NERAL",
+        "source_name": "NERAL",
+        "canonical_code": "NRL",
+        "canonical_name": "NERAL",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "SHELU",
+        "source_name": "SHELU",
+        "canonical_code": "SHLU",
+        "canonical_name": "SHELU",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "VANGANI",
+        "source_name": "VANGANI",
+        "canonical_code": "VGI",
+        "canonical_name": "VANGANI",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "BADLAPUR",
+        "source_name": "BADLAPUR",
+        "canonical_code": "BUD",
+        "canonical_name": "BADLAPUR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "AMBERNATH",
+        "source_name": "AMBERNATH",
+        "canonical_code": "ABH",
+        "canonical_name": "AMBARNATH",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "ULHAS NAGAR",
+        "source_name": "ULHAS NAGAR",
+        "canonical_code": "NGE",
+        "canonical_name": "NAGAR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "VITHALWADI",
+        "source_name": "VITHALWADI",
+        "canonical_code": "VLDI",
+        "canonical_name": "VITHALWADI",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KALYAN",
+        "source_name": "KALYAN",
+        "canonical_code": "KYN",
+        "canonical_name": "KALYAN JN",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manually corrected alias mapping"
+    },
+    {
+        "source_identifier": "THAKURLI",
+        "source_name": "THAKURLI",
+        "canonical_code": "THK",
+        "canonical_name": "THAKRULI",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Maps to existing physical station THAKRULI"
+    },
+    {
+        "source_identifier": "DOMBIVLI",
+        "source_name": "DOMBIVLI",
+        "canonical_code": "DCTL",
+        "canonical_name": "DOMBIVLI CTL",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KOPAR",
+        "source_name": "KOPAR",
+        "canonical_code": "GC",
+        "canonical_name": "GHATKOPAR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "DIVA",
+        "source_name": "DIVA",
+        "canonical_code": "DIVA",
+        "canonical_name": "DIVA",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "MUMBRA",
+        "source_name": "MUMBRA",
+        "canonical_code": "MBQ",
+        "canonical_name": "MUMBRA",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KALVA",
+        "source_name": "KALVA",
+        "canonical_code": "KLVA",
+        "canonical_name": "KALVA",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "MULUND",
+        "source_name": "MULUND",
+        "canonical_code": "MLND",
+        "canonical_name": "MULUND",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "NAHUR",
+        "source_name": "NAHUR",
+        "canonical_code": "NHU",
+        "canonical_name": "NAHUR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "BHANDUP",
+        "source_name": "BHANDUP",
+        "canonical_code": "BND",
+        "canonical_name": "BHANDUP",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KANJUR MARG",
+        "source_name": "KANJUR MARG",
+        "canonical_code": "KJMG",
+        "canonical_name": "KANJUR MARG",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "VIKHROLI",
+        "source_name": "VIKHROLI",
+        "canonical_code": "VK",
+        "canonical_name": "VIKHROLI",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "GHATKOPAR",
+        "source_name": "GHATKOPAR",
+        "canonical_code": "GC",
+        "canonical_name": "GHATKOPAR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "VIDYAVIHAR",
+        "source_name": "VIDYAVIHAR",
+        "canonical_code": "VVH",
+        "canonical_name": "VIDYAVIHAR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KURLA",
+        "source_name": "KURLA",
+        "canonical_code": "CLA",
+        "canonical_name": "KURLA JN",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "SION",
+        "source_name": "SION",
+        "canonical_code": "SIN",
+        "canonical_name": "MUMBAI SION",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "MATUNGA",
+        "source_name": "MATUNGA",
+        "canonical_code": "MRU",
+        "canonical_name": "MUMBAI MATUNGA ROAD",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "DADAR",
+        "source_name": "DADAR",
+        "canonical_code": "DDR",
+        "canonical_name": "MUMBAI DADAR WEST",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "PAREL",
+        "source_name": "PAREL",
+        "canonical_code": "PL",
+        "canonical_name": "Mumbai Lower Parel",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "CURREY ROAD",
+        "source_name": "CURREY ROAD",
+        "canonical_code": "CRD",
+        "canonical_name": "MUMBAI CURREY ROAD",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "CHINCHPOKLI",
+        "source_name": "CHINCHPOKLI",
+        "canonical_code": "CHG",
+        "canonical_name": "MUMBAI CHINCHPOKLI",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "BYCULLA",
+        "source_name": "BYCULLA",
+        "canonical_code": "BY",
+        "canonical_name": "BYCULLA",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "SANDHURST ROAD",
+        "source_name": "SANDHURST ROAD",
+        "canonical_code": "SNRD",
+        "canonical_name": "MUMBAI SANDHURST ROAD",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "MASJID",
+        "source_name": "MASJID",
+        "canonical_code": "MSD",
+        "canonical_name": "BOMBAY MASJID",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "CSMT",
+        "source_name": "CSMT",
+        "canonical_code": "CSMT",
+        "canonical_name": "CSMT",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "MUMBAI CSMT",
+        "source_name": "MUMBAI CSMT",
+        "canonical_code": "CSMT",
+        "canonical_name": "CSMT",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "DOCKYARD ROAD",
+        "source_name": "DOCKYARD ROAD",
+        "canonical_code": "DKRD",
+        "canonical_name": "DOCKYARD ROAD",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "REAY ROAD",
+        "source_name": "REAY ROAD",
+        "canonical_code": "RRD",
+        "canonical_name": "REAY ROAD",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "COTTON GREEN",
+        "source_name": "COTTON GREEN",
+        "canonical_code": "CTGN",
+        "canonical_name": "COTTON GREEN",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "SEWRI",
+        "source_name": "SEWRI",
+        "canonical_code": "SVE",
+        "canonical_name": "SEWRI",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "VADALA ROAD",
+        "source_name": "VADALA ROAD",
+        "canonical_code": "VAL",
+        "canonical_name": "VADAL",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KING'S CIRCLE",
+        "source_name": "KING'S CIRCLE",
+        "canonical_code": "KCE",
+        "canonical_name": "KING'S CIRCLE",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "MAHIM JN",
+        "source_name": "MAHIM JN",
+        "canonical_code": "MM",
+        "canonical_name": "MUMBAI MAHIM JN",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "BANDRA",
+        "source_name": "BANDRA",
+        "canonical_code": "BA",
+        "canonical_name": "BANDRA",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KHAR ROAD",
+        "source_name": "KHAR ROAD",
+        "canonical_code": "KHAR",
+        "canonical_name": "KHAR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Maps to existing physical station KHAR"
+    },
+    {
+        "source_identifier": "SANTACRUZ",
+        "source_name": "SANTACRUZ",
+        "canonical_code": "STC",
+        "canonical_name": "SANTA CRUZ",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Maps to existing physical station SANTA CRUZ"
+    },
+    {
+        "source_identifier": "VILEPARLE",
+        "source_name": "VILEPARLE",
+        "canonical_code": "VLP",
+        "canonical_name": "VILE PARLE",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "ANDHERI",
+        "source_name": "ANDHERI",
+        "canonical_code": "ADH",
+        "canonical_name": "ANDHERI",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "JOGESHWARI",
+        "source_name": "JOGESHWARI",
+        "canonical_code": "JOS",
+        "canonical_name": "JOGESHWARI",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "RAMNAGAR",
+        "source_name": "RAMNAGAR",
+        "canonical_code": "RMR",
+        "canonical_name": "RAMNAGAR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "GOREGAON",
+        "source_name": "GOREGAON",
+        "canonical_code": "GMN",
+        "canonical_name": "GOREGAON",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "GTB NAGAR",
+        "source_name": "GTB NAGAR",
+        "canonical_code": "NGE",
+        "canonical_name": "NAGAR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "CHUNABHATTI",
+        "source_name": "CHUNABHATTI",
+        "canonical_code": "NBA",
+        "canonical_name": "Nabha",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "TILAKNAGAR",
+        "source_name": "TILAKNAGAR",
+        "canonical_code": "NGE",
+        "canonical_name": "NAGAR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "CHEMBUR",
+        "source_name": "CHEMBUR",
+        "canonical_code": "CMBR",
+        "canonical_name": "CHEMBUR",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "GOVANDI",
+        "source_name": "GOVANDI",
+        "canonical_code": "GV",
+        "canonical_name": "GOVANDI",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "MANKHURD",
+        "source_name": "MANKHURD",
+        "canonical_code": "MNKD",
+        "canonical_name": "MANKHURD",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "VASHI",
+        "source_name": "VASHI",
+        "canonical_code": "VASHI",
+        "canonical_name": "VASHI",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manually corrected alias mapping"
+    },
+    {
+        "source_identifier": "SANPADA",
+        "source_name": "SANPADA",
+        "canonical_code": "SANPADA",
+        "canonical_name": "SANPADA",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "JUINAGAR",
+        "source_name": "JUINAGAR",
+        "canonical_code": "JUINAGAR",
+        "canonical_name": "JUINAGAR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "NERUL",
+        "source_name": "NERUL",
+        "canonical_code": "NERUL",
+        "canonical_name": "NERUL",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "SEAWOOD DARAVE",
+        "source_name": "SEAWOOD DARAVE",
+        "canonical_code": "SWDV",
+        "canonical_name": "SEAWOODSDARAWE",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "BELAPUR CBD",
+        "source_name": "BELAPUR CBD",
+        "canonical_code": "BAP",
+        "canonical_name": "BELAPUR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KHARGHAR",
+        "source_name": "KHARGHAR",
+        "canonical_code": "KHARGHAR",
+        "canonical_name": "KHARGHAR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "MANSAROVAR",
+        "source_name": "MANSAROVAR",
+        "canonical_code": "MANSAROVAR",
+        "canonical_name": "MANSAROVAR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KHANDESHWAR",
+        "source_name": "KHANDESHWAR",
+        "canonical_code": "KHANDESHWAR",
+        "canonical_name": "KHANDESHWAR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "PANVEL",
+        "source_name": "PANVEL",
+        "canonical_code": "PNVL",
+        "canonical_name": "PANVEL",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "HARBOUR (MUMBAI CSMT-GOREGAON-PANVEL)",
+        "source_name": "HARBOUR (MUMBAI CSMT-GOREGAON-PANVEL)",
+        "canonical_code": "GMN",
+        "canonical_name": "GOREGAON",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "HARBOUR (PANVEL-GOREGAON-MUMBAI CSMT)",
+        "source_name": "HARBOUR (PANVEL-GOREGAON-MUMBAI CSMT)",
+        "canonical_code": "GMN",
+        "canonical_name": "GOREGAON",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "CHURCHGATE",
+        "source_name": "CHURCHGATE",
+        "canonical_code": "CCG",
+        "canonical_name": "CHURCHGATE",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "MARINE LINES",
+        "source_name": "MARINE LINES",
+        "canonical_code": "MEL",
+        "canonical_name": "MARINE LINES",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "CHARNI ROAD",
+        "source_name": "CHARNI ROAD",
+        "canonical_code": "ARV",
+        "canonical_name": "ARNI ROAD",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "GRANT ROAD",
+        "source_name": "GRANT ROAD",
+        "canonical_code": "GTR",
+        "canonical_name": "GRANT ROAD",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "M'BAI CENTRAL (L)",
+        "source_name": "M'BAI CENTRAL (L)",
+        "canonical_code": "BCT",
+        "canonical_name": "Mumbai Central",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "MAHALAKSHMI",
+        "source_name": "MAHALAKSHMI",
+        "canonical_code": "MX",
+        "canonical_name": "Mumbai Mahalakshmi",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "LOWER PAREL",
+        "source_name": "LOWER PAREL",
+        "canonical_code": "PL",
+        "canonical_name": "Mumbai Lower Parel",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "PRABHADEVI",
+        "source_name": "PRABHADEVI",
+        "canonical_code": "PBHD",
+        "canonical_name": "PRABHADEVI",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "MATUNGA ROAD",
+        "source_name": "MATUNGA ROAD",
+        "canonical_code": "MRU",
+        "canonical_name": "MUMBAI MATUNGA ROAD",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "MAHIM JN.",
+        "source_name": "MAHIM JN.",
+        "canonical_code": "MM",
+        "canonical_name": "MUMBAI MAHIM JN",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "SANTA CRUZ",
+        "source_name": "SANTA CRUZ",
+        "canonical_code": "STC",
+        "canonical_name": "SANTA CRUZ",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "VILE PARLE",
+        "source_name": "VILE PARLE",
+        "canonical_code": "VLP",
+        "canonical_name": "VILE PARLE",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "RAM MANDIR",
+        "source_name": "RAM MANDIR",
+        "canonical_code": "RMAR",
+        "canonical_name": "RAM MANDIR",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "MALAD",
+        "source_name": "MALAD",
+        "canonical_code": "MDD",
+        "canonical_name": "MALAD",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KANDIVLI",
+        "source_name": "KANDIVLI",
+        "canonical_code": "KILE",
+        "canonical_name": "KANDIVLI",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "BORIVALI",
+        "source_name": "BORIVALI",
+        "canonical_code": "BVI",
+        "canonical_name": "BORIVALI",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "DAHISAR",
+        "source_name": "DAHISAR",
+        "canonical_code": "DIC",
+        "canonical_name": "DAHISAR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "MIRA ROAD",
+        "source_name": "MIRA ROAD",
+        "canonical_code": "MIRA",
+        "canonical_name": "MIRA ROAD",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "BHAYANDAR",
+        "source_name": "BHAYANDAR",
+        "canonical_code": "BYR",
+        "canonical_name": "BHAYANDAR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "NAIGAON",
+        "source_name": "NAIGAON",
+        "canonical_code": "NIG",
+        "canonical_name": "NAIGAON",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "VASAI ROAD",
+        "source_name": "VASAI ROAD",
+        "canonical_code": "BSR",
+        "canonical_name": "VASAI ROAD",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "NALLA SOPARA",
+        "source_name": "NALLA SOPARA",
+        "canonical_code": "NSP",
+        "canonical_name": "NALLA SOPARA",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "VIRAR",
+        "source_name": "VIRAR",
+        "canonical_code": "VR",
+        "canonical_name": "VIRAR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "MAHALAKSHMI LOWER PAREL PRABHADEVI DADAR",
+        "source_name": "MAHALAKSHMI LOWER PAREL PRABHADEVI DADAR",
+        "canonical_code": null,
+        "canonical_name": null,
+        "mapping_type": "UNRESOLVED",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Parser artifact"
+    },
+    {
+        "source_identifier": "MATUNGA ROAD MAHIM JN. BANDRA",
+        "source_name": "MATUNGA ROAD MAHIM JN. BANDRA",
+        "canonical_code": "BA",
+        "canonical_name": "BANDRA",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "M'BAI CENTRAL",
+        "source_name": "M'BAI CENTRAL",
+        "canonical_code": "BCT",
+        "canonical_name": "Mumbai Central",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "NALLASOPARA",
+        "source_name": "NALLASOPARA",
+        "canonical_code": "NSP",
+        "canonical_name": "NALLA SOPARA",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Maps to existing physical station NALLA SOPARA"
+    },
+    {
+        "source_identifier": "VAITERNA",
+        "source_name": "VAITERNA",
+        "canonical_code": "VTN",
+        "canonical_name": "VAITARNA",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "SAPHALE",
+        "source_name": "SAPHALE",
+        "canonical_code": "SAH",
+        "canonical_name": "SAPHALE",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KELVE ROAD",
+        "source_name": "KELVE ROAD",
+        "canonical_code": "KLV",
+        "canonical_name": "KELVA ROAD",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Maps to existing physical station KELVA ROAD"
+    },
+    {
+        "source_identifier": "PALGHAR",
+        "source_name": "PALGHAR",
+        "canonical_code": "PLG",
+        "canonical_name": "PALGHAR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "UMROLI",
+        "source_name": "UMROLI",
+        "canonical_code": "UOI",
+        "canonical_name": "UMROLI",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "BOISAR",
+        "source_name": "BOISAR",
+        "canonical_code": "BOR",
+        "canonical_name": "BOISAR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "VANGAON",
+        "source_name": "VANGAON",
+        "canonical_code": "VGN",
+        "canonical_name": "VANGAON",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "DAHANU ROAD",
+        "source_name": "DAHANU ROAD",
+        "canonical_code": "DRD",
+        "canonical_name": "DAHANU ROAD",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "DAHANU ROAD VANGAON BOISAR",
+        "source_name": "DAHANU ROAD VANGAON BOISAR",
+        "canonical_code": "BOR",
+        "canonical_name": "BOISAR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "PALGHAR KELVE ROAD",
+        "source_name": "PALGHAR KELVE ROAD",
+        "canonical_code": "PLG",
+        "canonical_name": "PALGHAR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "VIRAR NALLASOPARA",
+        "source_name": "VIRAR NALLASOPARA",
+        "canonical_code": "VR",
+        "canonical_name": "VIRAR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "NAIGAON BHAYANDAR",
+        "source_name": "NAIGAON BHAYANDAR",
+        "canonical_code": "BYR",
+        "canonical_name": "BHAYANDAR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "MIRA ROAD DAHISAR",
+        "source_name": "MIRA ROAD DAHISAR",
+        "canonical_code": "DIC",
+        "canonical_name": "DAHISAR",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "BORIVALI ANDHERI BANDRA",
+        "source_name": "BORIVALI ANDHERI BANDRA",
+        "canonical_code": "ADH",
+        "canonical_name": "ANDHERI",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "GRANT ROAD CHARNI ROAD MARINE LINES CHURCHGATE",
+        "source_name": "GRANT ROAD CHARNI ROAD MARINE LINES CHURCHGATE",
+        "canonical_code": "ARV",
+        "canonical_name": "ARNI ROAD",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "DOCK YARD ROAD",
+        "source_name": "DOCK YARD ROAD",
+        "canonical_code": "DKRD",
+        "canonical_name": "DOCKYARD ROAD",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "SEWERI",
+        "source_name": "SEWERI",
+        "canonical_code": "SVE",
+        "canonical_name": "SEWRI",
+        "mapping_type": "NEW_VERIFIED_STATION",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Verified authentic IRCTC code"
+    },
+    {
+        "source_identifier": "KHAR",
+        "source_name": "KHAR",
+        "canonical_code": "KHAR",
+        "canonical_name": "KHAR",
+        "mapping_type": "EXISTING_DB_EXACT",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "SANTACURTZ",
+        "source_name": "SANTACURTZ",
+        "canonical_code": "STC",
+        "canonical_name": "SANTA CRUZ",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Maps to existing physical station SANTA CRUZ"
+    },
+    {
+        "source_identifier": "JOGESWARI",
+        "source_name": "JOGESWARI",
+        "canonical_code": "JOS",
+        "canonical_name": "JOGESHWARI",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "KANDIVALI",
+        "source_name": "KANDIVALI",
+        "canonical_code": "KILE",
+        "canonical_name": "KANDIVLI",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Maps to existing physical station KANDIVLI"
+    },
+    {
+        "source_identifier": "M'BAI CENTRAL(L",
+        "source_name": "M'BAI CENTRAL(L",
+        "canonical_code": "BCT",
+        "canonical_name": "Mumbai Central",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "VIRAR NALLA SOPARA",
+        "source_name": "VIRAR NALLA SOPARA",
+        "canonical_code": "NSP",
+        "canonical_name": "NALLA SOPARA",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "VASAI ROAD NAIGAON",
+        "source_name": "VASAI ROAD NAIGAON",
+        "canonical_code": "BSR",
+        "canonical_name": "VASAI ROAD",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "M'BAI CENTRAL(L)",
+        "source_name": "M'BAI CENTRAL(L)",
+        "canonical_code": "BCT",
+        "canonical_name": "Mumbai Central",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Matched to existing DB station"
+    },
+    {
+        "source_identifier": "AIR CONDITIONED SERVICES",
+        "source_name": "AIR CONDITIONED SERVICES",
+        "canonical_code": null,
+        "canonical_name": null,
+        "mapping_type": "UNRESOLVED",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Parser artifact"
+    },
+    {
+        "source_identifier": "KALYAN JN",
+        "source_name": "KALYAN JN",
+        "canonical_code": "KYN",
+        "canonical_name": "KALYAN JN",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manual alias mapping"
+    },
+    {
+        "source_identifier": "KALYANPUR ROAD",
+        "source_name": "KALYANPUR ROAD",
+        "canonical_code": "KPRD",
+        "canonical_name": "KALYANPUR ROAD",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manual alias mapping"
+    },
+    {
+        "source_identifier": "AIROLI",
+        "source_name": "AIROLI",
+        "canonical_code": "AIRAVALI",
+        "canonical_name": "AIRAVALI",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manual alias mapping"
+    },
+    {
+        "source_identifier": "RABALE",
+        "source_name": "RABALE",
+        "canonical_code": "RABADA",
+        "canonical_name": "RABADA",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manual alias mapping"
+    },
+    {
+        "source_identifier": "KOPAR KHAIRANE",
+        "source_name": "KOPAR KHAIRANE",
+        "canonical_code": "KOPARKHAIRNA",
+        "canonical_name": "KOPAR KHAIRNA",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manual alias mapping"
+    },
+    {
+        "source_identifier": "DIGHA GAON",
+        "source_name": "DIGHA GAON",
+        "canonical_code": "DIGHAGAON",
+        "canonical_name": "DIGHA GAON",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manual alias mapping"
+    },
+    {
+        "source_identifier": "TURBHE",
+        "source_name": "TURBHE",
+        "canonical_code": "TURBHE",
+        "canonical_name": "TURBHE",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manual alias mapping"
+    },
+    {
+        "source_identifier": "AIRAVALI",
+        "source_name": "AIRAVALI",
+        "canonical_code": "AIRAVALI",
+        "canonical_name": "AIRAVALI",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manual alias mapping"
+    },
+    {
+        "source_identifier": "RABADA",
+        "source_name": "RABADA",
+        "canonical_code": "RABADA",
+        "canonical_name": "RABADA",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manual alias mapping"
+    },
+    {
+        "source_identifier": "KOPAR KHAIRNA",
+        "source_name": "KOPAR KHAIRNA",
+        "canonical_code": "KOPARKHAIRNA",
+        "canonical_name": "KOPAR KHAIRNA",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manual alias mapping"
+    },
+    {
+        "source_identifier": "SEAWOODS",
+        "source_name": "SEAWOODS",
+        "canonical_code": "SEAWOODSDARAWE",
+        "canonical_name": "SEAWOODS DARAWE",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manual alias mapping"
+    },
+    {
+        "source_identifier": "SEAWOODSDARAWE",
+        "source_name": "SEAWOODSDARAWE",
+        "canonical_code": "SEAWOODSDARAWE",
+        "canonical_name": "SEAWOODS DARAWE",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [],
+        "confidence": "HIGH",
+        "notes": "Manual alias mapping"
+    },
+    {
+        "source_identifier": "WADALA ROAD",
+        "source_name": "WADALA ROAD",
+        "canonical_code": "VAL",
+        "canonical_name": "VADAL",
+        "mapping_type": "EXISTING_DB_ALIAS",
+        "corridors": [
+            "harbour"
+        ],
+        "confidence": "HIGH",
+        "notes": "Explicit Wadala Road mapping"
+    }
+]

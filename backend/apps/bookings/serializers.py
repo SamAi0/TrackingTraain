@@ -48,23 +48,54 @@ class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
         fields = ['id', 'user', 'pnr_record', 'invoice', 'ticket', 'booking_date', 'total_fare', 
+                  'base_fare', 'gst_amount', 'fee_amount',
                   'status', 'train_number', 'train_type', 'source_code', 'destination_code', 
                   'date_of_journey', 'ticket_class', 'passengers', 'train_details', 'source_station', 'destination_station', 'expires_at', 'journey_type', 'ticket_type', 'ticket_duration']
-        read_only_fields = ['user', 'booking_date', 'total_fare', 'status', 'pnr_record', 'invoice', 'ticket', 'train_type', 'train_details', 'source_station', 'destination_station', 'expires_at']
+        read_only_fields = ['user', 'booking_date', 'total_fare', 'base_fare', 'gst_amount', 'fee_amount', 'status', 'pnr_record', 'invoice', 'ticket', 'train_type', 'train_details', 'source_station', 'destination_station', 'expires_at']
 
     def get_train_type(self, obj):
         return obj.train.normalized_type if obj.train else 'UNKNOWN'
 
     def validate(self, attrs):
-        if len(attrs.get('passengers', [])) == 0:
-            raise serializers.ValidationError("At least one passenger is required.")
+        train = None
+        if 'train_number' in attrs:
+            try:
+                train = Train.objects.get(number=attrs['train_number'])
+            except Train.DoesNotExist:
+                pass
+                
+        passengers = attrs.get('passengers', [])
+        if len(passengers) == 0:
+            if train and train.normalized_type != 'LOCAL':
+                raise serializers.ValidationError("At least one passenger is required for Express trains.")
+            elif not train:
+                raise serializers.ValidationError("At least one passenger is required.")
         return attrs
 
     def create(self, validated_data):
-        train = Train.objects.get(number=validated_data.pop('train_number'))
-        source = Station.objects.get(code=validated_data.pop('source_code'))
-        destination = Station.objects.get(code=validated_data.pop('destination_code'))
-        passengers_data = validated_data.pop('passengers')
+        train_num = validated_data.pop('train_number')
+        try:
+            train = Train.objects.get(number=train_num)
+        except Train.DoesNotExist:
+            raise serializers.ValidationError({"train_number": f"Invalid train number: {train_num}"})
+            
+        src_code = validated_data.pop('source_code')
+        try:
+            source = Station.objects.get(code=src_code)
+        except Station.DoesNotExist:
+            source = Station.objects.filter(name__iexact=src_code).first()
+            if not source:
+                raise serializers.ValidationError({"source_code": f"Invalid source station: {src_code}"})
+                
+        dst_code = validated_data.pop('destination_code')
+        try:
+            destination = Station.objects.get(code=dst_code)
+        except Station.DoesNotExist:
+            destination = Station.objects.filter(name__iexact=dst_code).first()
+            if not destination:
+                raise serializers.ValidationError({"destination_code": f"Invalid destination station: {dst_code}"})
+                
+        passengers_data = validated_data.pop('passengers', [])
         ticket_class = validated_data.pop('ticket_class', None)
         journey_type = validated_data.pop('journey_type', 'SINGLE')
         ticket_type = validated_data.pop('ticket_type', 'NORMAL')
@@ -81,7 +112,8 @@ class BookingSerializer(serializers.ModelSerializer):
 
         # Calculate fare
         try:
-            fare_details = calculate_total_fare(train, source, destination, len(passengers_data), ticket_class, journey_type, ticket_type)
+            num_pass = max(1, len(passengers_data))
+            fare_details = calculate_total_fare(train, source, destination, num_pass, ticket_class, journey_type, ticket_type)
         except FareCalculationError as e:
             raise serializers.ValidationError({"error": str(e)})
             

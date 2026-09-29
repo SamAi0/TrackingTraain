@@ -52,7 +52,7 @@
             </div>
 
             <div class="row mb-4">
-                <div class="col-6">
+                <div class="col-6" id="billedToSection">
                     <h6 class="fw-bold text-uppercase text-muted mb-2">Billed To:</h6>
                     <div class="fw-bold fs-5" id="customerName">User</div>
                     <div>TrackEase Registered Member</div>
@@ -61,7 +61,7 @@
                     <h6 class="fw-bold text-uppercase text-muted mb-2">Booking Reference:</h6>
                     <div class="fw-bold fs-6">Booking ID: <span id="invBookingId">-</span></div>
                     <div class="fw-bold fs-6 text-success">PNR: <span id="invPnr">-</span></div>
-                    <div class="badge bg-success mt-2 fs-6">PAID</div>
+                    <div id="paymentBadge" class="badge bg-success mt-2 fs-6">PAID</div>
                 </div>
             </div>
 
@@ -83,14 +83,14 @@
                         </tr>
                         <tr>
                             <td>
-                                <div><strong>GST (5%)</strong></div>
+                                <div><strong id="gstLabel">GST (5%)</strong></div>
                             </td>
                             <td class="text-end" id="invGst">-</td>
                         </tr>
                         <tr>
                             <td>
                                 <div><strong>Convenience Fee</strong></div>
-                                <div class="small text-muted">Platform charges</div>
+                                <div id="feeLabel" class="small text-muted">Platform charges</div>
                             </td>
                             <td class="text-end" id="invFee">-</td>
                         </tr>
@@ -109,7 +109,7 @@
                     <h6 class="fw-bold">Transaction Details</h6>
                     <table class="table table-sm table-borderless w-auto">
                         <tr><td class="text-muted">Transaction ID:</td><td class="fw-bold" id="invTxnId">-</td></tr>
-                        <tr><td class="text-muted">Payment Status:</td><td class="fw-bold text-success">SUCCESS</td></tr>
+                        <tr><td class="text-muted">Payment Status:</td><td id="paymentStatus" class="fw-bold text-success">SUCCESS</td></tr>
                     </table>
                 </div>
             </div>
@@ -147,6 +147,14 @@
             })
             .then(data => {
                 document.getElementById('loading').classList.add('d-none');
+                document.getElementById('loading').classList.add('d-none');
+                
+                if (data.status !== 'CONFIRMED') {
+                    document.getElementById('errorBox').innerHTML = '<h4>Payment Pending</h4><p>Complete payment to generate your ticket/invoice.</p>';
+                    document.getElementById('errorBox').classList.remove('d-none');
+                    return;
+                }
+                
                 document.getElementById('invoiceContent').classList.remove('d-none');
                 
                 logFrontendActivity('Invoice Viewed', {booking_id: data.id, train_number: data.train_details?.number});
@@ -157,16 +165,37 @@
                     document.getElementById('invTxnId').innerText = data.invoice.transaction_id || 'N/A';
                 }
                 
-                document.getElementById('customerName').innerText = data.passengers && data.passengers.length > 0 ? data.passengers[0].name : "Customer";
+                if (data.train_type === 'LOCAL') {
+                    document.getElementById('billedToSection').classList.add('d-none');
+                } else {
+                    document.getElementById('billedToSection').classList.remove('d-none');
+                    document.getElementById('customerName').innerText = data.passengers && data.passengers.length > 0 ? data.passengers[0].name : "Customer";
+                }
+                
                 document.getElementById('invBookingId').innerText = data.id;
                 document.getElementById('invPnr').innerText = data.pnr_record?.pnr_number || 'N/A';
+                if (data.status !== 'CONFIRMED' && (!data.pnr_record || !data.pnr_record.pnr_number)) {
+                    document.getElementById('invPnr').innerText = 'PENDING / N/A';
+                    document.getElementById('invPnr').parentElement.classList.replace('text-success', 'text-warning');
+                }
                 
                 document.getElementById('invJourney').innerText = `${data.train_details ? data.train_details.number : 'N/A'} | ${data.source_station ? data.source_station.code : 'N/A'} to ${data.destination_station ? data.destination_station.code : 'N/A'} | ${data.date_of_journey}`;
                 
-                document.getElementById('invBase').innerText = `₹${data.base_fare}`;
-                document.getElementById('invGst').innerText = `₹${data.gst_amount}`;
-                document.getElementById('invFee').innerText = `₹${data.fee_amount}`;
-                document.getElementById('invTotal').innerText = `₹${data.total_fare}`;
+                document.getElementById('invBase').innerText = `₹${data.base_fare || '0.00'}`;
+                
+                const gst = parseFloat(data.gst_amount || 0);
+                if (gst === 0) {
+                    document.getElementById('gstLabel').innerText = 'GST';
+                }
+                document.getElementById('invGst').innerText = `₹${data.gst_amount || '0.00'}`;
+                
+                const fee = parseFloat(data.fee_amount || 0);
+                if (fee === 0) {
+                    document.getElementById('feeLabel').innerText = 'Waived for this ticket type';
+                }
+                document.getElementById('invFee').innerText = `₹${data.fee_amount || '0.00'}`;
+                
+                document.getElementById('invTotal').innerText = `₹${data.total_fare || '0.00'}`;
             })
             .catch(err => {
                 document.getElementById('loading').classList.add('d-none');

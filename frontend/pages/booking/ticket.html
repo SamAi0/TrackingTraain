@@ -179,10 +179,15 @@
                 
                 const isLocal = data.train_type === 'LOCAL';
                 const thead = document.querySelector('.pass-table thead tr');
+                const passengerHeader = document.querySelector('h5.border-bottom');
+                const passengerTable = document.querySelector('.table-responsive');
                 if(isLocal) {
-                    thead.innerHTML = `<th>#</th><th>Name</th><th>Age</th><th>Gender</th><th>Status</th>`;
+                    passengerHeader.classList.add('d-none');
+                    passengerTable.classList.add('d-none');
                     document.getElementById('tktClassContainer').classList.add('d-none');
                 } else {
+                    passengerHeader.classList.remove('d-none');
+                    passengerTable.classList.remove('d-none');
                     thead.innerHTML = `<th>#</th><th>Name</th><th>Age</th><th>Gender</th><th>Berth</th><th>Status</th>`;
                     document.getElementById('tktClassContainer').classList.remove('d-none');
                 }

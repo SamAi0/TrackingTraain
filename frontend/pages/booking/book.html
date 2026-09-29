@@ -379,13 +379,21 @@
                             // Adjust UI for LOCAL vs EXPRESS
                             const classSelector = document.getElementById('classSelectorContainer');
                             const berthCols = document.querySelectorAll('.berth-col');
+                            const passTable = document.querySelector('.table-responsive.mt-4');
+                            const addPassBtn = document.getElementById('addPassengerBtn');
                             
                             if(selectedTrainType === 'LOCAL') {
                                 classSelector.classList.add('d-none');
                                 berthCols.forEach(col => col.classList.add('d-none'));
+                                passTable.classList.add('d-none');
+                                addPassBtn.classList.add('d-none');
+                                document.querySelectorAll('.pass-name, .pass-age').forEach(el => el.removeAttribute('required'));
                             } else {
                                 classSelector.classList.remove('d-none');
                                 berthCols.forEach(col => col.classList.remove('d-none'));
+                                passTable.classList.remove('d-none');
+                                addPassBtn.classList.remove('d-none');
+                                document.querySelectorAll('.pass-name, .pass-age').forEach(el => el.setAttribute('required', 'required'));
                                 
                                 // Fetch dynamic classes
                                 const tc = document.getElementById('ticketClass');
@@ -483,26 +491,28 @@
             btn.disabled = true;
             
             const passengers = [];
-            document.querySelectorAll('.passenger-row').forEach(row => {
-                const name = row.querySelector('.pass-name').value;
-                const age = row.querySelector('.pass-age').value;
-                const berth = row.querySelector('.pass-berth').value;
-                if(name && age) {
-                    passengers.push({
-                        name: name,
-                        age: parseInt(age),
-                        berth_preference: berth,
-                        gender: 'Unknown'
-                    });
-                }
-            });
+            if(selectedTrainType !== 'LOCAL') {
+                document.querySelectorAll('.passenger-row').forEach(row => {
+                    const name = row.querySelector('.pass-name').value;
+                    const age = row.querySelector('.pass-age').value;
+                    const berth = row.querySelector('.pass-berth').value;
+                    if(name && age) {
+                        passengers.push({
+                            name: name,
+                            age: parseInt(age),
+                            berth_preference: berth,
+                            gender: 'Unknown'
+                        });
+                    }
+                });
 
-            if(passengers.length === 0) {
-                errDiv.innerText = "Please add at least one valid passenger.";
-                errDiv.classList.remove('d-none');
-                btn.innerText = "Confirm Booking";
-                btn.disabled = false;
-                return;
+                if(passengers.length === 0) {
+                    errDiv.innerText = "Please add at least one valid passenger.";
+                    errDiv.classList.remove('d-none');
+                    btn.innerText = "Confirm Booking";
+                    btn.disabled = false;
+                    return;
+                }
             }
 
             const payload = {

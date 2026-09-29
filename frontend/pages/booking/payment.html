@@ -238,11 +238,11 @@
                             <span id="osBase">₹0.00</span>
                         </div>
                         <div class="d-flex justify-content-between mb-2">
-                            <span class="text-muted">GST (5%)</span>
+                            <span class="text-muted" id="osGstLabel">GST (5%)</span>
                             <span id="osGst">₹0.00</span>
                         </div>
                         <div class="d-flex justify-content-between mb-3">
-                            <span class="text-muted">Convenience Fee</span>
+                            <span class="text-muted" id="osFeeLabel">Convenience Fee</span>
                             <span id="osFee">₹0.00</span>
                         </div>
                         
@@ -296,13 +296,29 @@
                 document.getElementById('osTrainName').innerText = `${data.train_details?.number || 'N/A'} - ${data.train_details?.name || 'N/A'}`;
                 document.getElementById('osRoute').innerText = `${data.source_station.name} to ${data.destination_station.name}`;
                 document.getElementById('osDate').innerText = new Date(data.date_of_journey).toLocaleDateString('en-IN', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
-                document.getElementById('osPassengers').innerText = `${data.passengers.length} Passenger(s)`;
+                if (data.train_type === 'LOCAL') {
+                    document.getElementById('osPassengers').innerText = `1 Ticket`;
+                    document.getElementById('osPassengers').previousElementSibling.innerText = 'Tickets';
+                } else {
+                    document.getElementById('osPassengers').innerText = `${data.passengers.length} Passenger(s)`;
+                }
                 document.getElementById('osClass').innerText = data.ticket_class;
                 
-                document.getElementById('osBase').innerText = `₹${data.base_fare}`;
-                document.getElementById('osGst').innerText = `₹${data.gst_amount}`;
-                document.getElementById('osFee').innerText = `₹${data.fee_amount}`;
-                document.getElementById('osTotal').innerText = `₹${data.total_fare}`;
+                document.getElementById('osBase').innerText = `₹${data.base_fare || '0.00'}`;
+                
+                const gst = parseFloat(data.gst_amount || 0);
+                if (gst === 0) {
+                    document.getElementById('osGstLabel').innerText = 'GST';
+                }
+                document.getElementById('osGst').innerText = `₹${data.gst_amount || '0.00'}`;
+                
+                const fee = parseFloat(data.fee_amount || 0);
+                if (fee === 0) {
+                    document.getElementById('osFeeLabel').innerText = 'Convenience Fee (Waived)';
+                }
+                document.getElementById('osFee').innerText = `₹${data.fee_amount || '0.00'}`;
+                
+                document.getElementById('osTotal').innerText = `₹${data.total_fare || '0.00'}`;
                 
                 totalAmount = data.total_fare;
                 document.querySelectorAll('.pay-amount').forEach(el => el.innerText = `₹${totalAmount}`);

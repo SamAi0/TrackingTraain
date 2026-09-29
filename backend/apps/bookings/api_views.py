@@ -169,7 +169,7 @@ class CancelBookingAPIView(APIView):
         with transaction.atomic():
             booking = get_object_or_404(Booking.objects.select_for_update(), id=pk, user=request.user)
             
-            if booking.status != 'CONFIRMED':
+            if booking.status not in ['CONFIRMED', 'PENDING']:
                 return Response({'error': f'Cancellation not allowed. Booking is currently {booking.status}.'}, status=status.HTTP_400_BAD_REQUEST)
                 
             booking.status = 'CANCELLED'

@@ -142,6 +142,7 @@
                                 <div class="col-md-3 text-center border-start">
                                     <a href="../booking/ticket.html?booking_id=${booking.id}" class="btn btn-outline-primary btn-sm fw-bold mb-2 w-100 ${booking.pnr_record ? '' : 'disabled'}"><i class="bi bi-ticket-perforated me-1"></i> E-Ticket</a>
                                     <a href="../booking/invoice.html?booking_id=${booking.id}" class="btn btn-outline-secondary btn-sm fw-bold w-100"><i class="bi bi-receipt me-1"></i> Invoice</a>
+                                    <button class="btn btn-outline-danger btn-sm fw-bold w-100 mt-2" onclick="showCancelModal(${booking.id}, '${booking.train_details.number}', '${booking.source_station.code}', '${booking.destination_station.code}', '${booking.date_of_journey}', ${booking.total_fare})" ${['PENDING', 'CONFIRMED'].includes(booking.status) ? '' : 'disabled'}><i class="bi bi-x-circle me-1"></i> Cancel Booking</button>
                                 </div>
                             </div>
                         </div>
@@ -155,6 +156,77 @@
                 error.classList.remove('d-none');
             });
         }
+        
+        // Cancellation Logic
+        let bookingToCancel = null;
+        function showCancelModal(id, train, src, dst, date, fare) {
+            bookingToCancel = id;
+            document.getElementById('cancelBookingDetails').innerHTML = `
+                <ul class="list-group mb-3 text-start">
+                    <li class="list-group-item d-flex justify-content-between"><span>Booking ID</span> <strong>${id}</strong></li>
+                    <li class="list-group-item d-flex justify-content-between"><span>Train</span> <strong>${train}</strong></li>
+                    <li class="list-group-item d-flex justify-content-between"><span>Route</span> <strong>${src} ➔ ${dst}</strong></li>
+                    <li class="list-group-item d-flex justify-content-between"><span>Date</span> <strong>${date}</strong></li>
+                    <li class="list-group-item d-flex justify-content-between"><span>Total Fare</span> <strong>₹${fare}</strong></li>
+                </ul>
+            `;
+            new bootstrap.Modal(document.getElementById('cancelModal')).show();
+        }
+        
+        function confirmCancellation() {
+            if (!bookingToCancel) return;
+            const btn = document.getElementById('confirmCancelBtn');
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Cancelling...';
+            btn.disabled = true;
+            
+            fetch(`${window.TRACKEASE_CONFIG.API_BASE_URL}/api/bookings/${bookingToCancel}/cancel/`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                bootstrap.Modal.getInstance(document.getElementById('cancelModal')).hide();
+                if(data.status === 'success' || data.success) {
+                    alert("Booking cancelled successfully.");
+                    fetchBookings(); // Refresh list
+                } else {
+                    alert("Failed to cancel booking.");
+                }
+            })
+            .catch(err => {
+                bootstrap.Modal.getInstance(document.getElementById('cancelModal')).hide();
+                alert("Error cancelling booking.");
+            })
+            .finally(() => {
+                btn.innerHTML = 'Yes, Cancel Booking';
+                btn.disabled = false;
+            });
+        }
+    </script>
+
+    <!-- Cancel Modal -->
+    <div class="modal fade" id="cancelModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title fw-bold">Cancel this booking?</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <p class="mb-4">Are you sure you want to cancel the following booking? This action cannot be undone.</p>
+                    <div id="cancelBookingDetails"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">Keep Booking</button>
+                    <button type="button" class="btn btn-danger px-4 fw-bold" id="confirmCancelBtn" onclick="confirmCancellation()">Yes, Cancel Booking</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     </script>
 <div id="footer-container"></div>
 <script src="../../js/components.js"></script>

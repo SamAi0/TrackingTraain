@@ -36,6 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
             
             contentRow.style.display = 'flex';
             
+            setTimeout(() => {
+                if (map) map.invalidateSize();
+            }, 250);
+
+            
         } catch (err) {
             loadingIndicator.classList.add('d-none');
             errorAlert.textContent = err.message;

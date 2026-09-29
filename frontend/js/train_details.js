@@ -35,6 +35,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         trainHeader.classList.remove('d-none');
         contentRow.style.display = 'flex';
         
+        // Fix Leaflet map sizing issue after container becomes visible
+        setTimeout(() => {
+            if(window._leafletMap) window._leafletMap.invalidateSize();
+        }, 200);
+        
     } catch (err) {
         loadingHeader.classList.add('d-none');
         showError(err.message);
@@ -113,6 +118,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Initialize map centered roughly in the middle of the route
         const midPoint = validCoords[Math.floor(validCoords.length / 2)];
         const map = L.map('map').setView([midPoint.latitude, midPoint.longitude], 5);
+        window._leafletMap = map;
         
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors'

@@ -324,6 +324,13 @@
                         });
                         
                         trainMarker = L.marker([lat, lng], {icon: trainIcon, zIndexOffset: 1000}).addTo(map);
+                        
+                        setTimeout(() => {
+                            if(map) {
+                                map.invalidateSize();
+                                if(routeLayer) map.fitBounds(routeLayer.getBounds());
+                            }
+                        }, 250);
                     }
                 })
                 .catch(error => {

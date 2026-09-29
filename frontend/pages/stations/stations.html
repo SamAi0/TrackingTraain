@@ -189,7 +189,7 @@
 
         async function fetchGeoData() {
             try {
-                const res = await fetch('${window.TRACKEASE_CONFIG.API_BASE_URL}/api/stations/geo/');
+                const res = await fetch(`${window.TRACKEASE_CONFIG.API_BASE_URL}/api/stations/geo/`);
                 const data = await res.json();
                 allStationsGeo = data.success ? data.data : data;
                 

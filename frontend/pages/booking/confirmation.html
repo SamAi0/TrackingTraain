@@ -85,8 +85,8 @@
             .then(res => res.json())
             .then(data => {
                 document.getElementById('confPnr').innerText = data.pnr_record?.pnr_number || pnr;
-                document.getElementById('confTrain').innerText = data.train_number;
-                document.getElementById('confRoute').innerText = `${data.source_code} ➔ ${data.destination_code}`;
+                document.getElementById('confTrain').innerText = data.train_details?.number || 'N/A';
+                document.getElementById('confRoute').innerText = `${data.source_station?.code || 'N/A'} ➔ ${data.destination_station?.code || 'N/A'}`;
                 document.getElementById('confAmount').innerText = `₹${data.total_fare}`;
                 
 

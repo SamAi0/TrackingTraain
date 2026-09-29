@@ -73,11 +73,7 @@
                 return;
             }
 
-            document.getElementById('logoutBtn').addEventListener('click', () => {
-                localStorage.removeItem('access_token');
-                localStorage.removeItem('refresh_token');
-                window.location.href = '../auth/login.html';
-            });
+
 
             fetchBookings();
         });
@@ -89,7 +85,7 @@
             const empty = document.getElementById('emptyBookings');
             const list = document.getElementById('bookingsList');
 
-            fetch('${window.TRACKEASE_CONFIG.API_BASE_URL}/api/bookings/', {
+            fetch(`${window.TRACKEASE_CONFIG.API_BASE_URL}/api/bookings/`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

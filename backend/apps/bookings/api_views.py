@@ -69,7 +69,39 @@ class VerifyPaymentAPIView(APIView):
         # Generate Ticket
         import time
         ticket_number = f"TKT{int(time.time())}"
-        Ticket.objects.create(booking=booking, ticket_number=ticket_number)
+        from django.utils import timezone
+        from datetime import timedelta
+        now = timezone.now()
+        valid_from = now
+        valid_until = None
+        if booking.train.normalized_type == 'LOCAL':
+            if booking.ticket_type == 'SEASON':
+                if booking.ticket_duration == 'MONTHLY':
+                    valid_until = now + timedelta(days=30)
+                elif booking.ticket_duration == 'QUARTERLY':
+                    valid_until = now + timedelta(days=90)
+                elif booking.ticket_duration == 'HALF_YEARLY':
+                    valid_until = now + timedelta(days=180)
+                elif booking.ticket_duration == 'YEARLY':
+                    valid_until = now + timedelta(days=365)
+                else:
+                    valid_until = now + timedelta(days=30)
+            elif booking.ticket_type == 'TOURIST':
+                if booking.ticket_duration == '1_DAY':
+                    valid_until = now + timedelta(days=1)
+                elif booking.ticket_duration == '3_DAYS':
+                    valid_until = now + timedelta(days=3)
+                elif booking.ticket_duration == '5_DAYS':
+                    valid_until = now + timedelta(days=5)
+                else:
+                    valid_until = now + timedelta(days=1)
+            else:
+                if booking.journey_type == 'RETURN':
+                    next_day = now + timedelta(days=1)
+                    valid_until = next_day.replace(hour=23, minute=59, second=59)
+                else:
+                    valid_until = now + timedelta(hours=1)
+        Ticket.objects.create(booking=booking, ticket_number=ticket_number, valid_from=valid_from, valid_until=valid_until)
         
         # Generate Invoice
         Invoice.objects.create(

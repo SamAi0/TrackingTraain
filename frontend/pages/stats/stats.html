@@ -139,7 +139,7 @@
             document.getElementById('statsContent').classList.add('d-none');
             
             try {
-                const res = await fetch('${window.TRACKEASE_CONFIG.API_BASE_URL}/api/trains/stats/');
+                const res = await fetch(`${window.TRACKEASE_CONFIG.API_BASE_URL}/api/trains/stats/`);
                 const data = await res.json();
                 
                 // KPIs

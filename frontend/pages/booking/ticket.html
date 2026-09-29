@@ -164,15 +164,15 @@
                 document.getElementById('loading').classList.add('d-none');
                 document.getElementById('ticketContent').classList.remove('d-none');
                 
-                logFrontendActivity('Ticket Viewed', {booking_id: data.id, train_number: data.train_number});
+                logFrontendActivity('Ticket Viewed', {booking_id: data.id, train_number: data.train_details?.number});
                 
                 document.getElementById('tktPnr').innerText = data.pnr_record?.pnr_number || 'N/A';
                 document.getElementById('tktBookingId').innerText = data.invoice?.transaction_id || `BKG-${data.id}`;
                 
-                document.getElementById('tktTrainNo').innerText = `${data.train_number} [${data.train_type}]`;
+                document.getElementById('tktTrainNo').innerText = `${data.train_details?.number || 'N/A'} [${data.train_type}]`;
                 document.getElementById('tktDate').innerText = data.date_of_journey;
-                document.getElementById('tktSrc').innerText = data.source_code;
-                document.getElementById('tktDst').innerText = data.destination_code;
+                document.getElementById('tktSrc').innerText = data.source_station?.code || 'N/A';
+                document.getElementById('tktDst').innerText = data.destination_station?.code || 'N/A';
                 document.getElementById('tktClass').innerText = data.ticket_class || 'GN';
                 
                 document.getElementById('tktFare').innerText = `₹${data.total_fare}`;

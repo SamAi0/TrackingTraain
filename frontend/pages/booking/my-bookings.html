@@ -49,7 +49,7 @@
                 window.location.href = '../auth/login.html';
             });
 
-            fetch('${window.TRACKEASE_CONFIG.API_BASE_URL}/api/bookings/', {
+            fetch(`${window.TRACKEASE_CONFIG.API_BASE_URL}/api/bookings/`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             })
             .then(res => res.json())

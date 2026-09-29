@@ -514,7 +514,7 @@
                 passengers: passengers
             };
 
-            fetch('${window.TRACKEASE_CONFIG.API_BASE_URL}/api/bookings/', {
+            fetch(`${window.TRACKEASE_CONFIG.API_BASE_URL}/api/bookings/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

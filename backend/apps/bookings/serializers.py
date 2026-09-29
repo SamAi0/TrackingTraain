@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Booking, Passenger, Invoice, FareRule
 from pnr.serializers import PNRSerializer
-from pnr.models import PNR
+from pnr.models import PNR, Ticket
 from trains.models import Train
 from stations.models import Station
 from routes.models import RouteStation
@@ -20,10 +20,16 @@ class InvoiceSerializer(serializers.ModelSerializer):
         model = Invoice
         fields = '__all__'
 
+class TicketSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ticket
+        fields = ['ticket_number', 'generated_at', 'ticket_class', 'valid_from', 'valid_until', 'is_valid', 'validity_status']
+
 class BookingSerializer(serializers.ModelSerializer):
     passengers = PassengerSerializer(many=True)
     pnr_record = PNRSerializer(read_only=True)
     invoice = InvoiceSerializer(read_only=True)
+    ticket = TicketSerializer(read_only=True)
     train_type = serializers.SerializerMethodField()
     train_details = TrainSerializer(source='train', read_only=True)
     source_station = StationSerializer(source='source', read_only=True)
@@ -35,13 +41,16 @@ class BookingSerializer(serializers.ModelSerializer):
     destination_code = serializers.CharField(write_only=True)
     date_of_journey = serializers.DateField()
     ticket_class = serializers.CharField(write_only=True, required=False, allow_blank=True)
+    journey_type = serializers.CharField(write_only=True, required=False, default='SINGLE')
+    ticket_type = serializers.CharField(write_only=True, required=False, default='NORMAL')
+    ticket_duration = serializers.CharField(write_only=True, required=False, allow_blank=True, allow_null=True)
 
     class Meta:
         model = Booking
-        fields = ['id', 'user', 'pnr_record', 'invoice', 'booking_date', 'total_fare', 
+        fields = ['id', 'user', 'pnr_record', 'invoice', 'ticket', 'booking_date', 'total_fare', 
                   'status', 'train_number', 'train_type', 'source_code', 'destination_code', 
-                  'date_of_journey', 'ticket_class', 'passengers', 'train_details', 'source_station', 'destination_station', 'expires_at']
-        read_only_fields = ['user', 'booking_date', 'total_fare', 'status', 'pnr_record', 'invoice', 'train_type', 'train_details', 'source_station', 'destination_station', 'expires_at']
+                  'date_of_journey', 'ticket_class', 'passengers', 'train_details', 'source_station', 'destination_station', 'expires_at', 'journey_type', 'ticket_type', 'ticket_duration']
+        read_only_fields = ['user', 'booking_date', 'total_fare', 'status', 'pnr_record', 'invoice', 'ticket', 'train_type', 'train_details', 'source_station', 'destination_station', 'expires_at']
 
     def get_train_type(self, obj):
         return obj.train.normalized_type if obj.train else 'UNKNOWN'
@@ -57,6 +66,9 @@ class BookingSerializer(serializers.ModelSerializer):
         destination = Station.objects.get(code=validated_data.pop('destination_code'))
         passengers_data = validated_data.pop('passengers')
         ticket_class = validated_data.pop('ticket_class', None)
+        journey_type = validated_data.pop('journey_type', 'SINGLE')
+        ticket_type = validated_data.pop('ticket_type', 'NORMAL')
+        ticket_duration = validated_data.pop('ticket_duration', None)
         
         # Train type specific validation
         if train.normalized_type == 'LOCAL':
@@ -69,7 +81,7 @@ class BookingSerializer(serializers.ModelSerializer):
 
         # Calculate fare
         try:
-            fare_details = calculate_total_fare(train, source, destination, len(passengers_data), ticket_class)
+            fare_details = calculate_total_fare(train, source, destination, len(passengers_data), ticket_class, journey_type, ticket_type)
         except FareCalculationError as e:
             raise serializers.ValidationError({"error": str(e)})
             
@@ -87,6 +99,9 @@ class BookingSerializer(serializers.ModelSerializer):
             destination=destination,
             date_of_journey=validated_data['date_of_journey'],
             ticket_class=ticket_class,
+            journey_type=journey_type,
+            ticket_type=ticket_type,
+            ticket_duration=ticket_duration,
             base_fare=fare_details['base_fare'],
             gst_amount=fare_details['gst_amount'],
             fee_amount=fare_details['fee_amount'],

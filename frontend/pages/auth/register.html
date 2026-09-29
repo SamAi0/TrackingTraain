@@ -83,7 +83,7 @@
             btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Processing...';
             btn.disabled = true;
 
-            fetch('${window.TRACKEASE_CONFIG.API_BASE_URL}/api/auth/register/', {
+            fetch(`${window.TRACKEASE_CONFIG.API_BASE_URL}/api/auth/register/`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(payload)

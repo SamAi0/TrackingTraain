@@ -179,10 +179,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Custom User Model
 AUTH_USER_MODEL = 'accounts.User'
 
-# 10 minutes expiry for pending bookings
-BOOKING_EXPIRY_SECONDS = 600
-
-BOOKING_EXPIRY_SECONDS = 7
+# 2 minutes expiry for pending bookings
+BOOKING_EXPIRY_SECONDS = 120
 
 
 JAZZMIN_SETTINGS = {

@@ -293,7 +293,7 @@
                 }
                 
                 // Populate Summary
-                document.getElementById('osTrainName').innerText = `${data.train_number} - ${data.train_details.name}`;
+                document.getElementById('osTrainName').innerText = `${data.train_details?.number || 'N/A'} - ${data.train_details?.name || 'N/A'}`;
                 document.getElementById('osRoute').innerText = `${data.source_station.name} to ${data.destination_station.name}`;
                 document.getElementById('osDate').innerText = new Date(data.date_of_journey).toLocaleDateString('en-IN', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
                 document.getElementById('osPassengers').innerText = `${data.passengers.length} Passenger(s)`;

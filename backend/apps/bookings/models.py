@@ -20,6 +20,31 @@ class Booking(models.Model):
     date_of_journey = models.DateField(null=True)
     ticket_class = models.CharField(max_length=10, blank=True, null=True)
     
+    JOURNEY_TYPE_CHOICES = (
+        ('SINGLE', 'Single'),
+        ('RETURN', 'Return'),
+    )
+    journey_type = models.CharField(max_length=10, choices=JOURNEY_TYPE_CHOICES, default='SINGLE')
+    
+    TICKET_TYPE_CHOICES = (
+        ('NORMAL', 'Normal'),
+        ('UTS_PAPERLESS', 'UTS Paperless'),
+        ('SEASON', 'Season'),
+        ('TOURIST', 'Tourist'),
+    )
+    ticket_type = models.CharField(max_length=20, choices=TICKET_TYPE_CHOICES, default='NORMAL')
+
+    TICKET_DURATION_CHOICES = (
+        ('MONTHLY', 'Monthly'),
+        ('QUARTERLY', 'Quarterly'),
+        ('HALF_YEARLY', 'Half Yearly'),
+        ('YEARLY', 'Yearly'),
+        ('1_DAY', '1 Day'),
+        ('3_DAYS', '3 Days'),
+        ('5_DAYS', '5 Days'),
+    )
+    ticket_duration = models.CharField(max_length=20, choices=TICKET_DURATION_CHOICES, blank=True, null=True)
+
     booking_date = models.DateTimeField(auto_now_add=True)
     
     base_fare = models.DecimalField(max_digits=8, decimal_places=2, default=0.00)
@@ -37,8 +62,16 @@ class Booking(models.Model):
 class FareRule(models.Model):
     train_type = models.CharField(max_length=20, choices=[('EXPRESS', 'Express'), ('LOCAL', 'Local'), ('PASSENGER', 'Passenger'), ('SUPERFAST', 'Superfast')])
     ticket_class = models.CharField(max_length=10, blank=True, null=True, help_text="Applicable class (e.g., SL, 3A, GN). Leave blank for default local fare.")
+    
+    # For distance-based
     base_fare = models.DecimalField(max_digits=8, decimal_places=2, default=0.00)
     per_km_rate = models.DecimalField(max_digits=8, decimal_places=2, default=0.00)
+    
+    # For fixed slabs (Mumbai Local)
+    is_fixed_fare = models.BooleanField(default=False)
+    fare_slab = models.IntegerField(null=True, blank=True)
+    journey_type = models.CharField(max_length=10, choices=[('SINGLE', 'Single'), ('RETURN', 'Return')], default='SINGLE')
+    
     is_active = models.BooleanField(default=True)
 
     def __str__(self):

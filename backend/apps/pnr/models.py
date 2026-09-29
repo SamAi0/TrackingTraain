@@ -24,6 +24,20 @@ class Ticket(models.Model):
     ticket_number = models.CharField(max_length=20, unique=True)
     generated_at = models.DateTimeField(auto_now_add=True)
     ticket_class = models.CharField(max_length=10, default='SL')
+    valid_from = models.DateTimeField(null=True, blank=True)
+    valid_until = models.DateTimeField(null=True, blank=True)
+    
+    @property
+    def is_valid(self):
+        from django.utils import timezone
+        if not self.valid_from or not self.valid_until:
+            return True # Not a local ticket with validity?
+        now = timezone.now()
+        return self.valid_from <= now <= self.valid_until
+        
+    @property
+    def validity_status(self):
+        return 'VALID' if self.is_valid else 'EXPIRED'
 
     def __str__(self):
         return self.ticket_number

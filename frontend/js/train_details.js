@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         // Fix Leaflet map sizing issue after container becomes visible
         setTimeout(() => {
-            if(window._leafletMap) window._leafletMap.invalidateSize();
+            if(window._leafletMap) window._leafletMap.resize();
         }, 200);
         
     } catch (err) {
@@ -101,7 +101,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     function initMap(route) {
-        // Find valid coordinates to center the map
         const validCoords = route.filter(s => s.latitude !== null && s.longitude !== null);
         
         if (validCoords.length === 0) {
@@ -115,70 +114,92 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
         
-        // Initialize map centered roughly in the middle of the route
         const midPoint = validCoords[Math.floor(validCoords.length / 2)];
-        const map = L.map('map').setView([midPoint.latitude, midPoint.longitude], 5);
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://tiles.openfreemap.org/styles/positron',
+            center: [midPoint.longitude, midPoint.latitude],
+            zoom: 5
+        });
+        map.addControl(new maplibregl.NavigationControl(), 'top-right');
         window._leafletMap = map;
         
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+        const coords = [];
         
-        const latlngs = [];
-        
-        route.forEach((station, index) => {
-            if (station.latitude && station.longitude) {
-                const isFirst = index === 0;
-                const isLast = index === route.length - 1;
-                
-                latlngs.push([station.latitude, station.longitude]);
-                
-                let markerColor = '#3388ff'; // Default blue
-                let radius = 6;
-                let fillOpacity = 0.8;
-                
-                if (isFirst) {
-                    markerColor = '#28a745'; // Green
-                    radius = 8;
-                    fillOpacity = 1;
-                } else if (isLast) {
-                    markerColor = '#dc3545'; // Red
-                    radius = 8;
-                    fillOpacity = 1;
+        map.on('load', () => {
+            route.forEach((station, index) => {
+                if (station.latitude && station.longitude) {
+                    const isFirst = index === 0;
+                    const isLast = index === route.length - 1;
+                    
+                    coords.push([station.longitude, station.latitude]);
+                    
+                    let markerColor = '#3388ff';
+                    let radius = '12px';
+                    
+                    if (isFirst) {
+                        markerColor = '#28a745';
+                        radius = '16px';
+                    } else if (isLast) {
+                        markerColor = '#dc3545';
+                        radius = '16px';
+                    }
+                    
+                    const el = document.createElement('div');
+                    el.style.backgroundColor = markerColor;
+                    el.style.width = radius;
+                    el.style.height = radius;
+                    el.style.borderRadius = '50%';
+                    el.style.border = '2px solid white';
+                    el.style.boxShadow = '0 2px 4px rgba(0,0,0,0.3)';
+                    
+                    const popupContent = `
+                        <div class="text-center">
+                            <strong>${station.station_name} (${station.station_code})</strong><br>
+                            Seq: ${station.sequence_number}<br>
+                            Arr: ${station.arrival_time || '--:--'} | Dep: ${station.departure_time || '--:--'}
+                        </div>
+                    `;
+                    
+                    new maplibregl.Marker({element: el})
+                        .setLngLat([station.longitude, station.latitude])
+                        .setPopup(new maplibregl.Popup({offset: 15}).setHTML(popupContent))
+                        .addTo(map);
                 }
+            });
+            
+            if (coords.length > 1) {
+                map.addSource('routeLine', {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'Feature',
+                        'properties': {},
+                        'geometry': {
+                            'type': 'LineString',
+                            'coordinates': coords
+                        }
+                    }
+                });
                 
-                const marker = L.circleMarker([station.latitude, station.longitude], {
-                    radius: radius,
-                    color: '#fff',
-                    weight: 2,
-                    fillColor: markerColor,
-                    fillOpacity: fillOpacity
-                }).addTo(map);
+                map.addLayer({
+                    'id': 'routeLineLayer',
+                    'type': 'line',
+                    'source': 'routeLine',
+                    'layout': {
+                        'line-join': 'round',
+                        'line-cap': 'round'
+                    },
+                    'paint': {
+                        'line-color': '#f26422',
+                        'line-width': 4,
+                        'line-opacity': 0.8
+                    }
+                });
                 
-                const popupContent = `
-                    <div class="text-center">
-                        <strong>${station.station_name} (${station.station_code})</strong><br>
-                        Seq: ${station.sequence_number}<br>
-                        Arr: ${station.arrival_time || '--:--'} | Dep: ${station.departure_time || '--:--'}
-                    </div>
-                `;
-                marker.bindPopup(popupContent);
-            } else {
-                console.warn(`Missing coordinates for station: ${station.station_code}`);
+                const bounds = new maplibregl.LngLatBounds();
+                coords.forEach(p => bounds.extend(p));
+                map.fitBounds(bounds, {padding: 50});
             }
         });
-        
-        // Draw polyline connecting the stations
-        if (latlngs.length > 1) {
-            const polyline = L.polyline(latlngs, {
-                color: '#f26422', // TrackEase orange
-                weight: 4,
-                opacity: 0.8,
-                lineJoin: 'round'
-            }).addTo(map);
-            
-            // Zoom the map to fit the polyline
-            map.fitBounds(polyline.getBounds(), { padding: [50, 50] });
-        }
     }
 });

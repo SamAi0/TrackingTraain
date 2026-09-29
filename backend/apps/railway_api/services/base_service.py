@@ -47,13 +47,10 @@ class BaseRailwayService:
             success=True
         ).order_by('-timestamp').first()
 
-        # 2. Check if valid cache exists (within 3 months)
-        if latest_history:
-            three_months_ago = timezone.now() - timedelta(days=90)
-            if latest_history.timestamp >= three_months_ago:
-                # Valid cache found, return directly without calling RapidAPI
-                return latest_history.response_json
-                
+        # 2. We now use RapidAPI as the PRIMARY data source.
+        # We will no longer return cached database data first.
+        # We proceed directly to calling RapidAPI.
+
         # 3. Call RapidAPI
         try:
             response = requests.get(

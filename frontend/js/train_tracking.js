@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             contentRow.style.display = 'flex';
             
             setTimeout(() => {
-                if (map) map.invalidateSize();
+                if (map) map.resize();
             }, 250);
 
             
@@ -113,79 +113,125 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function initMap(data) {
+        let isNew = false;
         if (!map) {
-            map = L.map('map');
-            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap contributors'
-            }).addTo(map);
-            markersLayer = L.layerGroup().addTo(map);
-        } else {
-            markersLayer.clearLayers();
+            map = new maplibregl.Map({
+                container: 'map',
+                style: 'https://tiles.openfreemap.org/styles/positron',
+                center: [78.9629, 20.5937],
+                zoom: 4
+            });
+            map.addControl(new maplibregl.NavigationControl(), 'top-right');
+            isNew = true;
         }
         
         const route = data.route;
-        const latlngs = [];
-        const completedLatlngs = [];
-        const upcomingLatlngs = [];
+        const coords = [];
+        const completedCoords = [];
+        const upcomingCoords = [];
         
         let currentMarkerCoords = null;
         let currentStationName = data.current_station;
         
         route.forEach(stn => {
             if (stn.latitude && stn.longitude) {
-                const coord = [stn.latitude, stn.longitude];
-                latlngs.push(coord);
+                const coord = [stn.longitude, stn.latitude]; // MapLibre uses [lng, lat]
+                coords.push(coord);
                 
                 if (stn.status === 'COMPLETED') {
-                    completedLatlngs.push(coord);
+                    completedCoords.push(coord);
                 } else if (stn.status === 'UPCOMING') {
-                    upcomingLatlngs.push(coord);
+                    upcomingCoords.push(coord);
                 } else if (stn.status === 'CURRENT') {
-                    completedLatlngs.push(coord); // connects previous to current
-                    upcomingLatlngs.push(coord);  // connects current to next
+                    completedCoords.push(coord);
+                    upcomingCoords.push(coord);
                     currentMarkerCoords = coord;
                 }
             }
         });
         
-        // Draw completed segment (dark grey/green)
-        if (completedLatlngs.length > 1) {
-            L.polyline(completedLatlngs, {
-                color: '#28a745',
-                weight: 5,
-                opacity: 0.8,
-                lineJoin: 'round'
-            }).addTo(markersLayer);
-        }
-        
-        // Draw upcoming segment (blue/orange)
-        if (upcomingLatlngs.length > 1) {
-            L.polyline(upcomingLatlngs, {
-                color: '#0dcaf0',
-                weight: 4,
-                opacity: 0.6,
-                dashArray: '5, 10',
-                lineJoin: 'round'
-            }).addTo(markersLayer);
-        }
-        
-        // Draw current train marker
-        if (currentMarkerCoords) {
-            const trainIcon = L.divIcon({
-                className: 'custom-train-marker',
-                html: `<div style="background-color: var(--accent-orange); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(0,0,0,0.5); border: 2px solid white;">
+        const drawLayers = () => {
+            if (window._trainMarker) {
+                window._trainMarker.remove();
+            }
+            
+            // Completed Layer
+            if (completedCoords.length > 1) {
+                if (map.getSource('completedLine')) {
+                    map.getSource('completedLine').setData({
+                        'type': 'Feature',
+                        'properties': {},
+                        'geometry': { 'type': 'LineString', 'coordinates': completedCoords }
+                    });
+                } else {
+                    map.addSource('completedLine', {
+                        'type': 'geojson',
+                        'data': {
+                            'type': 'Feature',
+                            'properties': {},
+                            'geometry': { 'type': 'LineString', 'coordinates': completedCoords }
+                        }
+                    });
+                    map.addLayer({
+                        'id': 'completedLineLayer',
+                        'type': 'line',
+                        'source': 'completedLine',
+                        'layout': { 'line-join': 'round', 'line-cap': 'round' },
+                        'paint': { 'line-color': '#28a745', 'line-width': 5, 'line-opacity': 0.8 }
+                    });
+                }
+            }
+            
+            // Upcoming Layer
+            if (upcomingCoords.length > 1) {
+                if (map.getSource('upcomingLine')) {
+                    map.getSource('upcomingLine').setData({
+                        'type': 'Feature',
+                        'properties': {},
+                        'geometry': { 'type': 'LineString', 'coordinates': upcomingCoords }
+                    });
+                } else {
+                    map.addSource('upcomingLine', {
+                        'type': 'geojson',
+                        'data': {
+                            'type': 'Feature',
+                            'properties': {},
+                            'geometry': { 'type': 'LineString', 'coordinates': upcomingCoords }
+                        }
+                    });
+                    map.addLayer({
+                        'id': 'upcomingLineLayer',
+                        'type': 'line',
+                        'source': 'upcomingLine',
+                        'layout': { 'line-join': 'round', 'line-cap': 'round' },
+                        'paint': { 'line-color': '#0dcaf0', 'line-width': 4, 'line-opacity': 0.6, 'line-dasharray': [2, 2] }
+                    });
+                }
+            }
+            
+            if (currentMarkerCoords) {
+                const el = document.createElement('div');
+                el.innerHTML = `<div style="background-color: var(--accent-orange); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(0,0,0,0.5); border: 2px solid white;">
                         <i class="bi bi-train-front" style="font-size: 16px;"></i>
-                       </div>`,
-                iconSize: [30, 30],
-                iconAnchor: [15, 15]
-            });
-            
-            const marker = L.marker(currentMarkerCoords, { icon: trainIcon, zIndexOffset: 1000 }).addTo(markersLayer);
-            marker.bindPopup(`<strong>${currentStationName}</strong><br>Status: ${data.status.replace('_', ' ')}`).openPopup();
-            
-            map.setView(currentMarkerCoords, 7);
-        } else if (latlngs.length > 0) {
-            map.fitBounds(L.polyline(latlngs).getBounds(), { padding: [50, 50] });
+                       </div>`;
+                       
+                window._trainMarker = new maplibregl.Marker({element: el.firstChild})
+                    .setLngLat(currentMarkerCoords)
+                    .setPopup(new maplibregl.Popup({offset: 15}).setHTML(`<strong>${currentStationName}</strong><br>Status: ${data.status.replace('_', ' ')}`))
+                    .addTo(map);
+                    
+                map.flyTo({ center: currentMarkerCoords, zoom: 7 });
+            } else if (coords.length > 0) {
+                const bounds = new maplibregl.LngLatBounds();
+                coords.forEach(p => bounds.extend(p));
+                map.fitBounds(bounds, { padding: 50 });
+            }
+        };
+
+        if (isNew) {
+            map.on('load', drawLayers);
+        } else {
+            drawLayers();
         }
     }
 });

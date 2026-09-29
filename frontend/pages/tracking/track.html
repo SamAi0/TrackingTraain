@@ -6,7 +6,7 @@
     <title>Live Train Tracking | TrackEase</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
     <link href="../../css/premium.css" rel="stylesheet">
     <style>
         .map-container {
@@ -112,9 +112,9 @@
         </div>
     </div>
 
-    <!-- Leaflet JS -->
+    <!-- MapLibre JS -->
     <script src="/js/config.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
     <script>
         let map;
         let trainMarker;
@@ -289,45 +289,108 @@
                         const lng = data.coordinates.lng;
 
                         if(!map) {
-                            map = L.map('map').setView([lat, lng], 7);
-                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-                                maxZoom: 19
-                            }).addTo(map);
+                            map = new maplibregl.Map({
+                                container: 'map',
+                                style: 'https://tiles.openfreemap.org/styles/positron',
+                                center: [lng, lat],
+                                zoom: 7
+                            });
+                            map.addControl(new maplibregl.NavigationControl(), 'top-right');
+                        } else {
+                            map.flyTo({center: [lng, lat], zoom: 7});
                         }
                         
                         // Clear old layers
-                        if(routeLayer) map.removeLayer(routeLayer);
-                        if(trainMarker) map.removeLayer(trainMarker);
-                        stationMarkers.forEach(m => map.removeLayer(m));
+                        if(trainMarker) trainMarker.remove();
+                        stationMarkers.forEach(m => m.remove());
                         stationMarkers = [];
 
-                        // Draw Route Line
-                        if(routePoints.length > 0) {
-                            routeLayer = L.polyline(routePoints, {color: '#0d6efd', weight: 4, opacity: 0.7}).addTo(map);
-                            map.fitBounds(routeLayer.getBounds());
+                        let mapboxRoutePoints = routePoints.map(p => [p[1], p[0]]);
+
+                        const drawRoute = () => {
+                            if (map.getSource('route')) {
+                                map.getSource('route').setData({
+                                    'type': 'Feature',
+                                    'properties': {},
+                                    'geometry': {
+                                        'type': 'LineString',
+                                        'coordinates': mapboxRoutePoints
+                                    }
+                                });
+                            } else {
+                                map.addSource('route', {
+                                    'type': 'geojson',
+                                    'data': {
+                                        'type': 'Feature',
+                                        'properties': {},
+                                        'geometry': {
+                                            'type': 'LineString',
+                                            'coordinates': mapboxRoutePoints
+                                        }
+                                    }
+                                });
+                                map.addLayer({
+                                    'id': 'route',
+                                    'type': 'line',
+                                    'source': 'route',
+                                    'layout': {
+                                        'line-join': 'round',
+                                        'line-cap': 'round'
+                                    },
+                                    'paint': {
+                                        'line-color': '#0d6efd',
+                                        'line-width': 4,
+                                        'line-opacity': 0.7
+                                    }
+                                });
+                            }
+                        };
+
+                        if(mapboxRoutePoints.length > 0) {
+                            if(map.loaded()) {
+                                drawRoute();
+                            } else {
+                                map.once('load', drawRoute);
+                            }
+                            
+                            // Bounds
+                            const bounds = new maplibregl.LngLatBounds();
+                            mapboxRoutePoints.forEach(p => bounds.extend(p));
+                            map.fitBounds(bounds, {padding: 50});
                             
                             // Draw Station Dots
-                            routePoints.forEach(pt => {
-                                const stMarker = L.circleMarker(pt, {radius: 4, color: '#0d6efd', fillColor: '#fff', fillOpacity: 1}).addTo(map);
+                            mapboxRoutePoints.forEach(pt => {
+                                const el = document.createElement('div');
+                                el.style.width = '10px';
+                                el.style.height = '10px';
+                                el.style.backgroundColor = '#fff';
+                                el.style.border = '3px solid #0d6efd';
+                                el.style.borderRadius = '50%';
+                                
+                                const stMarker = new maplibregl.Marker({element: el})
+                                    .setLngLat(pt)
+                                    .addTo(map);
                                 stationMarkers.push(stMarker);
                             });
                         }
 
                         // Professional Train Marker
-                        const trainIcon = L.divIcon({
-                            className: 'custom-div-icon',
-                            html: "<div style='background-color:#dc3545; height:18px; width:18px; border-radius:50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);'></div>",
-                            iconSize: [18, 18],
-                            iconAnchor: [9, 9]
-                        });
+                        const el = document.createElement('div');
+                        el.style.backgroundColor = '#dc3545';
+                        el.style.height = '20px';
+                        el.style.width = '20px';
+                        el.style.borderRadius = '50%';
+                        el.style.border = '4px solid white';
+                        el.style.boxShadow = '0 2px 5px rgba(0,0,0,0.4)';
+                        el.style.zIndex = '1000';
                         
-                        trainMarker = L.marker([lat, lng], {icon: trainIcon, zIndexOffset: 1000}).addTo(map);
+                        trainMarker = new maplibregl.Marker({element: el})
+                            .setLngLat([lng, lat])
+                            .addTo(map);
                         
                         setTimeout(() => {
                             if(map) {
-                                map.invalidateSize();
-                                if(routeLayer) map.fitBounds(routeLayer.getBounds());
+                                map.resize();
                             }
                         }, 250);
                     }

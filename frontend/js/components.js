@@ -37,9 +37,7 @@ function loadNavbar() {
                     <li class="nav-item">
                         <a class="nav-link text-white-50 hover-white px-3" href="${basePath}pages/booking/book.html">Book Tickets</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white-50 hover-white px-3" href="${basePath}pages/pnr/status.html">PNR Status</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link text-white-50 hover-white px-3 fw-bold text-white" href="${basePath}pages/tracking/track.html"><i class="bi bi-geo-alt-fill text-warning me-1"></i>Track Train</a>
                     </li>
@@ -97,7 +95,7 @@ function loadFooter() {
                     <h6 class="fw-bold mb-3 text-uppercase letter-spacing-1">Services</h6>
                     <ul class="list-unstyled small">
                         <li class="mb-2"><a href="${basePath}pages/booking/book.html" class="text-white-50 text-decoration-none hover-white">Book Ticket</a></li>
-                        <li class="mb-2"><a href="${basePath}pages/pnr/status.html" class="text-white-50 text-decoration-none hover-white">PNR Status</a></li>
+
                         <li class="mb-2"><a href="${basePath}pages/tracking/track.html" class="text-white-50 text-decoration-none hover-white">Track Train</a></li>
                     </ul>
                 </div>

@@ -65,3 +65,36 @@ class StationGeoAPIView(APIView):
         data = [{'code': s['code'], 'name': s['name'], 'lat': s['latitude'], 'lng': s['longitude']} for s in stations]
         return Response({'success': True, 'data': data})
 
+
+
+class StationTrainsAPIView(APIView):
+    def get(self, request, code):
+        from routes.models import RouteStation
+        from django.core.paginator import Paginator
+        
+        page = request.GET.get('page', '1')
+        route_stations = RouteStation.objects.filter(station__code=code).select_related('route__train').order_by('arrival_time')
+        
+        paginator = Paginator(route_stations, 10)
+        try:
+            p = paginator.page(page)
+        except:
+            p = paginator.page(1)
+            
+        data = []
+        for rs in p.object_list:
+            t = rs.route.train
+            data.append({
+                'train_number': t.number,
+                'train_name': t.name,
+                'train_type': t.train_type,
+                'arrival_time': str(rs.arrival_time) if rs.arrival_time else None,
+                'departure_time': str(rs.departure_time) if rs.departure_time else None,
+            })
+            
+        return Response({
+            'count': paginator.count,
+            'next': p.has_next() if hasattr(p, 'has_next') else False,
+            'previous': p.has_previous() if hasattr(p, 'has_previous') else False,
+            'results': data
+        })

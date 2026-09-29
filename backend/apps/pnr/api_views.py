@@ -11,9 +11,6 @@ class PNRAnonRateThrottle(AnonRateThrottle):
 class PNRStatusAPIView(APIView):
     throttle_classes = [PNRAnonRateThrottle]
     def get(self, request, pnr_number):
-        try:
-            pnr = PNR.objects.get(pnr_number=pnr_number)
-            serializer = PNRSerializer(pnr)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        except PNR.DoesNotExist:
-            return Response({'error': 'Invalid PNR Number'}, status=status.HTTP_404_NOT_FOUND)
+        from railway_api.services.pnr_service import PNRService
+        result = PNRService.get_pnr(pnr_number)
+        return Response(result, status=status.HTTP_200_OK if result.get('success') else status.HTTP_404_NOT_FOUND)

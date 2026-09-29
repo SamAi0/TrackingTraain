@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function initMap(data) {
         if (!map) {
             map = L.map('map');
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(map);
             markersLayer = L.layerGroup().addTo(map);

@@ -9,87 +9,37 @@ from stations.models import Station
 
 class TrainSearchAPIView(APIView):
     def get(self, request):
+        from railway_api.services.train_service import TrainService
         source = request.GET.get('source', '').strip()
         destination = request.GET.get('destination', '').strip()
+        date = request.GET.get('date', '').strip()
         
         if not source or not destination:
             return Response({'error': 'Source and destination are required'}, status=status.HTTP_400_BAD_REQUEST)
             
-        # Optimize search using Subqueries to avoid N+1 and Python loops
-        # We need trains where RouteStation(source) sequence < RouteStation(destination) sequence
+        result = TrainService.trains_between(source, destination, date)
         
-        # We allow search by name or code, so let's resolve them to codes first
-        try:
-            src_station = Station.objects.get(Q(code__iexact=source) | Q(name__iexact=source))
-            source_code = src_station.code
-            dst_station = Station.objects.get(Q(code__iexact=destination) | Q(name__iexact=destination))
-            dest_code = dst_station.code
-        except Station.DoesNotExist:
-            return Response([], status=status.HTTP_200_OK) # Return empty if station not found
-        except Station.MultipleObjectsReturned:
-            # If name matches multiple, just pick first for simplicity or strictly match
-            src_station = Station.objects.filter(Q(code__iexact=source) | Q(name__iexact=source)).first()
-            source_code = src_station.code
-            dst_station = Station.objects.filter(Q(code__iexact=destination) | Q(name__iexact=destination)).first()
-            dest_code = dst_station.code
-
-        source_stops = RouteStation.objects.filter(
-            route_id=OuterRef('route__id'),
-            station_id=source_code
-        )
-        dest_stops = RouteStation.objects.filter(
-            route_id=OuterRef('route__id'),
-            station_id=dest_code
-        )
-
-        trains = Train.objects.select_related('route').annotate(
-            src_seq=Subquery(source_stops.values('sequence_number')[:1], output_field=IntegerField()),
-            dst_seq=Subquery(dest_stops.values('sequence_number')[:1], output_field=IntegerField()),
-            dep_time=Subquery(source_stops.values('departure_time')[:1], output_field=TimeField()),
-            arr_time=Subquery(dest_stops.values('arrival_time')[:1], output_field=TimeField()),
-            src_day=Subquery(source_stops.values('journey_day')[:1], output_field=IntegerField()),
-            dst_day=Subquery(dest_stops.values('journey_day')[:1], output_field=IntegerField())
-        ).filter(
-            src_seq__isnull=False, 
-            dst_seq__isnull=False, 
-            src_seq__lt=F('dst_seq')
-        ).order_by('dep_time')[:50]
-
-        final_response_data = []
-        for train in trains:
-            # Calculate duration
-            halt_duration = None
-            if train.arr_time and train.dep_time:
-                dep_dt = datetime.datetime.combine(datetime.date.today(), train.dep_time)
-                arr_dt = datetime.datetime.combine(datetime.date.today(), train.arr_time)
-                
-                # Adjust for journey days
-                day_diff = (train.dst_day or 1) - (train.src_day or 1)
-                arr_dt += datetime.timedelta(days=day_diff)
-                
-                if arr_dt < dep_dt:
-                    arr_dt += datetime.timedelta(days=1)
-                
-                diff_seconds = int((arr_dt - dep_dt).total_seconds())
-                hours, remainder = divmod(diff_seconds, 3600)
-                minutes, _ = divmod(remainder, 60)
-                halt_duration = f"{hours:02d}h {minutes:02d}m"
-            
-            final_response_data.append({
-                'number': train.number,
-                'name': train.name,
-                'train_type': train.train_type,
-                'source': src_station.name,
-                'source_code': source_code,
-                'destination': dst_station.name,
-                'destination_code': dest_code,
-                'departure_time': train.dep_time.strftime('%H:%M:%S') if train.dep_time else None,
-                'arrival_time': train.arr_time.strftime('%H:%M:%S') if train.arr_time else None,
-                'duration': halt_duration,
-                'running_days': 'NOT_SPECIFIED_IN_SOURCE'
-            })
-
-        return Response(final_response_data, status=status.HTTP_200_OK)
+        if result.get('success'):
+            data_list = result.get('data', [])
+            # Map the fields back to what the frontend expects
+            final_response_data = []
+            for tr in data_list:
+                final_response_data.append({
+                    'number': tr.get('number'),
+                    'name': tr.get('name'),
+                    'train_type': tr.get('type', 'EXPRESS'),
+                    'source': tr.get('source'),
+                    'source_code': tr.get('source'),
+                    'destination': tr.get('destination'),
+                    'destination_code': tr.get('destination'),
+                    'departure_time': tr.get('departure_time'),
+                    'arrival_time': tr.get('arrival_time'),
+                    'duration': tr.get('duration'),
+                    'running_days': 'NOT_SPECIFIED_IN_SOURCE'
+                })
+            return Response(final_response_data, status=status.HTTP_200_OK)
+        else:
+            return Response({'error': result.get('error', 'Failed to search trains')}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class FullRouteAPIView(APIView):
@@ -143,23 +93,8 @@ class FullRouteAPIView(APIView):
 
 class TrainAutocompleteAPIView(APIView):
     def get(self, request):
+        from railway_api.services.train_service import TrainService
         q = request.GET.get('q', '').strip()
         
-        data = []
-        if not q:
-            return Response(data, status=status.HTTP_200_OK)
-            
-        # Fast local DB search
-        trains = Train.objects.filter(
-            Q(number__icontains=q) | 
-            Q(name__icontains=q)
-        ).order_by('number')[:10]
-        
-        for tr in trains:
-            data.append({
-                'number': tr.number,
-                'name': tr.name,
-                'is_external': False
-            })
-            
-        return Response(data, status=status.HTTP_200_OK)
+        result = TrainService.search_train(q)
+        return Response(result, status=status.HTTP_200_OK if result.get('success') else status.HTTP_400_BAD_REQUEST)

@@ -6,58 +6,15 @@ from .models import Station
 
 class StationAutocompleteAPIView(APIView):
     def get(self, request):
+        from railway_api.services.station_service import StationService
         q = request.GET.get('q', '').strip()
         
-        data = []
-        popular_trains = []
-        target_station = None
-        if not q:
-            popular_codes = ['NDLS', 'BCT', 'CSMT', 'HWH', 'MAS', 'SBC', 'PUNE', 'ST']
-            stations = Station.objects.filter(code__in=popular_codes).order_by('name')
-            for st in stations:
-                data.append({
-                    'code': st.code,
-                    'name': st.name,
-                    'city': st.city,
-                    'state': st.state,
-                    'latitude': st.latitude,
-                    'longitude': st.longitude
-                })
-            return Response({'success': True, 'data': data, 'popular_trains': []}, status=status.HTTP_200_OK)
-        # Fast local DB search
-        stations = Station.objects.filter(
-            Q(code__icontains=q) | 
-            Q(name__icontains=q)
-        ).order_by('name')[:10]
-        
-        if stations.exists():
-            first_st = stations.first()
-            target_station = first_st.name
-            from trains.models import Train
-            # Get popular trains passing through this station
-            trains = Train.objects.filter(route__stations__station=first_st).distinct()[:5]
-            for t in trains:
-                popular_trains.append({
-                    'number': t.number,
-                    'name': t.name
-                })
-        
-        for st in stations:
-            data.append({
-                'code': st.code,
-                'name': st.name,
-                'city': st.city,
-                'state': st.state,
-                'latitude': st.latitude,
-                'longitude': st.longitude
-            })
+        result = StationService.search_station(q)
+        # Adding an empty popular_trains to prevent frontend errors if they assume it exists
+        if result.get('success'):
+            result['popular_trains'] = []
             
-        return Response({
-            'success': True, 
-            'data': data, 
-            'popular_trains': popular_trains, 
-            'target_station': target_station
-        }, status=status.HTTP_200_OK)
+        return Response(result, status=status.HTTP_200_OK if result.get('success') else status.HTTP_400_BAD_REQUEST)
 
 from django.core.paginator import Paginator
 
